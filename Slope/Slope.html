@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,7 +10,8 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       width: 100%;
@@ -20,23 +20,144 @@
       background: #000;
     }
 
-    iframe {
-      width: 100%;
-      height: 100%;
+    #game {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
       border: none;
       display: block;
+      background: #000;
+    }
+
+    #start {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    #start.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #start button {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 24px;
+      background: #fff;
+      color: #000;
+      font: 700 16px Arial, sans-serif;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    #hint {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%);
+      z-index: 11;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      font: 13px Arial, sans-serif;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    #hint.show {
+      opacity: 1;
     }
   </style>
-
 </head>
 
 <body>
 
   <iframe
+    id="game"
     src="https://sciencemathedu.github.io/slope/"
+    allow="fullscreen; autoplay; gamepad; pointer-lock"
     allowfullscreen
     scrolling="no">
   </iframe>
+
+  <div id="start">
+    <button>Click to Play</button>
+  </div>
+
+  <div id="hint">
+    Click the game to capture your mouse • Press ESC to release
+  </div>
+
+  <script>
+    const game = document.getElementById("game");
+    const start = document.getElementById("start");
+    const hint = document.getElementById("hint");
+
+    async function startGame() {
+      start.classList.add("hidden");
+
+      // Make the wrapper fullscreen
+      try {
+        if (!document.fullscreenElement) {
+          await document.documentElement.requestFullscreen();
+        }
+      } catch (e) {
+        console.log("Fullscreen unavailable:", e);
+      }
+
+      // Try to lock the mouse to the game iframe.
+      // The actual game may still need to request pointer lock
+      // from inside its own page.
+      try {
+        if (game.requestPointerLock) {
+          game.requestPointerLock();
+        }
+      } catch (e) {
+        console.log("Pointer lock unavailable:", e);
+      }
+
+      hint.classList.add("show");
+
+      setTimeout(() => {
+        hint.classList.remove("show");
+      }, 3000);
+    }
+
+    start.addEventListener("click", startGame);
+
+    game.addEventListener("click", () => {
+      try {
+        if (game.requestPointerLock) {
+          game.requestPointerLock();
+        }
+      } catch (e) {}
+    });
+
+    document.addEventListener("pointerlockchange", () => {
+      if (document.pointerLockElement === game) {
+        hint.textContent = "Mouse captured • Press ESC to release";
+        hint.classList.add("show");
+      } else {
+        hint.textContent = "Click the game to capture your mouse • Press ESC to release";
+      }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      if (!document.fullscreenElement) {
+        start.classList.remove("hidden");
+      }
+    });
+  </script>
 
 </body>
 </html>
