@@ -6,6 +6,12 @@
     "logo": "Baldi/logo.png"
   },
   {
+    "name": "dh",
+    "folder": "dh",
+    "file": "dhun.html",
+    "logo": null
+  },
+  {
     "name": "Slope",
     "folder": "Slope",
     "file": "index.html",
