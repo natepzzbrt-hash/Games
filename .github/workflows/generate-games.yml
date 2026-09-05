@@ -1,24 +1,36 @@
-name: Generate Game Library
+name: Generate and Deploy Game Library
 
 on:
   push:
     branches:
       - main
-    paths-ignore:
-      - games.json
 
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
+
   generate:
+    name: Generate games.json
     runs-on: ubuntu-latest
 
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Generate games.json
         run: |
@@ -28,7 +40,6 @@ jobs:
 
           games = []
 
-          # Folders/files that should never become games
           ignored_folders = {
               ".git",
               ".github",
@@ -50,10 +61,8 @@ jobs:
               "thumbnail.webp"
           ]
 
-          # Scan every folder in the repository
           for root, dirs, files in os.walk("."):
 
-              # Don't scan ignored folders
               dirs[:] = [
                   d for d in dirs
                   if d not in ignored_folders
@@ -65,18 +74,15 @@ jobs:
               if folder.startswith("./"):
                   folder = folder[2:]
 
-              # Don't treat repository root as a game
               if not folder:
                   continue
 
-              # Ignore hidden folders
               if any(
                   part.startswith(".")
                   for part in folder.split("/")
               ):
                   continue
 
-              # Find HTML files
               html_files = [
                   f for f in files
                   if f.lower().endswith(".html")
@@ -85,29 +91,22 @@ jobs:
               if not html_files:
                   continue
 
-              # Prefer index.html
               html_files.sort(
                   key=lambda f: (
-                      0
-                      if f.lower() == "index.html"
-                      else 1,
+                      0 if f.lower() == "index.html" else 1,
                       f.lower()
                   )
               )
 
               game_file = html_files[0]
 
-              # Find logo
               logo = None
 
               for logo_name in logo_names:
-
                   for file in files:
 
                       if file.lower() == logo_name.lower():
-
                           logo = file
-
                           break
 
                   if logo:
@@ -115,7 +114,7 @@ jobs:
 
               game_name = folder.split("/")[-1]
 
-              game = {
+              games.append({
                   "name": game_name,
                   "folder": folder,
                   "file": game_file,
@@ -124,11 +123,8 @@ jobs:
                       if logo
                       else None
                   )
-              }
+              })
 
-              games.append(game)
-
-          # Remove duplicates
           unique = {}
 
           for game in games:
@@ -136,13 +132,11 @@ jobs:
 
           games = list(unique.values())
 
-          # Sort alphabetically
           games.sort(
               key=lambda game:
               game["name"].lower()
           )
 
-          # Write games.json
           with open(
               "games.json",
               "w",
@@ -162,7 +156,6 @@ jobs:
           print("==============================")
 
           for game in games:
-
               print(
                   game["name"],
                   "->",
@@ -171,16 +164,45 @@ jobs:
 
           PY
 
+      - name: Check for changes
+        id: check
+        run: |
+          if git diff --quiet games.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Commit games.json
+        if: steps.check.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add games.json
 
-          if git diff --cached --quiet; then
-            echo "No changes to games.json"
-          else
-            git commit -m "Update game library"
-            git push
-          fi
+          git commit -m "Update game library"
+
+          git push
+
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: generate
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
