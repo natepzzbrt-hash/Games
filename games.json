@@ -12,6 +12,12 @@
     "logo": "Drift-Boss/logo.png"
   },
   {
+    "name": "Drift-Hunters",
+    "folder": "Drift-Hunters",
+    "file": "index.html",
+    "logo": null
+  },
+  {
     "name": "no",
     "folder": "no",
     "file": "index.html",
