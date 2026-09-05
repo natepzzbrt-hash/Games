@@ -6,12 +6,6 @@
     "logo": "Baldi/logo.png"
   },
   {
-    "name": "drift-hunters",
-    "folder": "drift-hunters",
-    "file": "index.html",
-    "logo": null
-  },
-  {
     "name": "Slope",
     "folder": "Slope",
     "file": "index.html",
