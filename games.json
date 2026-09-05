@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Baldi",
+    "folder": "Baldi",
+    "file": "baldisbasics.html",
+    "logo": "Baldi/logo.png"
+  },
+  {
+    "name": "Slope",
+    "folder": "Slope",
+    "file": "Slope.html",
+    "logo": "Slope/logo.png"
+  }
+]
