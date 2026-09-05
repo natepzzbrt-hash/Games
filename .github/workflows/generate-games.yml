@@ -1,0 +1,186 @@
+name: Generate Game Library
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - games.json
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate games.json
+        run: |
+          python3 <<'PY'
+          import os
+          import json
+
+          games = []
+
+          # Folders/files that should never become games
+          ignored_folders = {
+              ".git",
+              ".github",
+              "node_modules"
+          }
+
+          logo_names = [
+              "logo.png",
+              "logo.jpg",
+              "logo.jpeg",
+              "logo.webp",
+              "icon.png",
+              "icon.jpg",
+              "icon.jpeg",
+              "icon.webp",
+              "thumbnail.png",
+              "thumbnail.jpg",
+              "thumbnail.jpeg",
+              "thumbnail.webp"
+          ]
+
+          # Scan every folder in the repository
+          for root, dirs, files in os.walk("."):
+
+              # Don't scan ignored folders
+              dirs[:] = [
+                  d for d in dirs
+                  if d not in ignored_folders
+                  and not d.startswith(".")
+              ]
+
+              folder = root
+
+              if folder.startswith("./"):
+                  folder = folder[2:]
+
+              # Don't treat repository root as a game
+              if not folder:
+                  continue
+
+              # Ignore hidden folders
+              if any(
+                  part.startswith(".")
+                  for part in folder.split("/")
+              ):
+                  continue
+
+              # Find HTML files
+              html_files = [
+                  f for f in files
+                  if f.lower().endswith(".html")
+              ]
+
+              if not html_files:
+                  continue
+
+              # Prefer index.html
+              html_files.sort(
+                  key=lambda f: (
+                      0
+                      if f.lower() == "index.html"
+                      else 1,
+                      f.lower()
+                  )
+              )
+
+              game_file = html_files[0]
+
+              # Find logo
+              logo = None
+
+              for logo_name in logo_names:
+
+                  for file in files:
+
+                      if file.lower() == logo_name.lower():
+
+                          logo = file
+
+                          break
+
+                  if logo:
+                      break
+
+              game_name = folder.split("/")[-1]
+
+              game = {
+                  "name": game_name,
+                  "folder": folder,
+                  "file": game_file,
+                  "logo": (
+                      folder + "/" + logo
+                      if logo
+                      else None
+                  )
+              }
+
+              games.append(game)
+
+          # Remove duplicates
+          unique = {}
+
+          for game in games:
+              unique[game["folder"]] = game
+
+          games = list(unique.values())
+
+          # Sort alphabetically
+          games.sort(
+              key=lambda game:
+              game["name"].lower()
+          )
+
+          # Write games.json
+          with open(
+              "games.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  games,
+                  f,
+                  indent=2,
+                  ensure_ascii=False
+              )
+
+          print("")
+          print("==============================")
+          print(" Games found:", len(games))
+          print("==============================")
+
+          for game in games:
+
+              print(
+                  game["name"],
+                  "->",
+                  game["folder"] + "/" + game["file"]
+              )
+
+          PY
+
+      - name: Commit games.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add games.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to games.json"
+          else
+            git commit -m "Update game library"
+            git push
+          fi
