@@ -1,17 +1,9 @@
-name: Update Game Library
+name: Update Games From Source
 
 on:
   workflow_dispatch:
-
   schedule:
     - cron: "0 */6 * * *"
-
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "games.json"
-      - "games/**"
 
 permissions:
   contents: write
@@ -21,343 +13,126 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Python
+      - name: Download Truffled game source
         run: |
-          python3 -m pip install requests beautifulsoup4
+          curl -L --fail \
+            "https://truffled.lol/js/json/g.json" \
+            -o truffled-games.json
 
-      - name: Find games
+      - name: Generate games.json
         run: |
           python3 <<'PY'
-          import requests
-          import re
           import json
           import os
-          from bs4 import BeautifulSoup
-          from urllib.parse import urljoin, urlparse
+          import re
 
-          BASE = "https://truffled.lol"
-          PAGE = "https://truffled.lol/g"
+          SOURCE = "truffled-games.json"
+          OUTPUT = "games.json"
 
-          headers = {
-              "User-Agent": "Mozilla/5.0"
-          }
+          with open(SOURCE, "r", encoding="utf-8") as f:
+              source = json.load(f)
 
-          print("Opening Truffled...")
-          r = requests.get(PAGE, headers=headers, timeout=30)
-          print("Status:", r.status_code)
+          games = source.get("games", [])
 
-          r.raise_for_status()
+          if not isinstance(games, list):
+              raise SystemExit("ERROR: Truffled source does not contain a games list.")
 
-          html = r.text
-
-          # Find every /games/GAMENAME/ URL
-          found = set()
-
-          patterns = [
-              r'https?://truffled\.lol/games/[A-Za-z0-9_-]+/?',
-              r'["\'](/games/[A-Za-z0-9_-]+/?)["\']',
-              r'["\'](https://truffled\.lol/games/[A-Za-z0-9_-]+/?)["\']'
-          ]
-
-          for pattern in patterns:
-              for match in re.findall(pattern, html):
-                  if match.startswith("/"):
-                      match = urljoin(BASE, match)
-
-                  match = match.rstrip("/") + "/"
-
-                  if "/games/" in match:
-                      found.add(match)
-
-          # Also inspect normal links
-          soup = BeautifulSoup(html, "html.parser")
-
-          for a in soup.find_all("a", href=True):
-              url = urljoin(BASE, a["href"])
-
-              if "/games/" in url:
-                  parsed = urlparse(url)
-
-                  parts = [
-                      x for x in parsed.path.split("/")
-                      if x
-                  ]
-
-                  if len(parts) >= 2 and parts[0] == "games":
-                      found.add(
-                          url.rstrip("/") + "/"
-                      )
-
-          print("Discovered:", len(found))
-
-          # Test every discovered URL
-          working = []
-
-          for url in sorted(found):
-
-              try:
-                  test = requests.get(
-                      url,
-                      headers=headers,
-                      timeout=15,
-                      allow_redirects=True
-                  )
-
-                  if 200 <= test.status_code < 400:
-                      print("WORKING:", url)
-                      working.append(url)
-                  else:
-                      print(
-                          "BAD:",
-                          test.status_code,
-                          url
-                      )
-
-              except Exception as e:
-                  print("ERROR:", url, e)
-
-          print()
-          print("Working games:", len(working))
-
-          os.makedirs("games", exist_ok=True)
-
-          games = []
-
-          for url in working:
-
-              path = urlparse(url).path.rstrip("/")
-              slug = path.split("/")[-1]
-
-              name = slug.replace("-", " ")
-              name = name.replace("_", " ")
-              name = name.title()
-
-              folder = os.path.join(
-                  "games",
-                  slug
+          if len(games) == 0:
+              raise SystemExit(
+                  "ERROR: Truffled returned 0 games. "
+                  "games.json was NOT changed."
               )
 
-              os.makedirs(folder, exist_ok=True)
+          print(f"Found {len(games)} games.")
 
-              # Full-screen launcher
-              page = f"""<!DOCTYPE html>
-          <html>
-          <head>
-              <meta charset="UTF-8">
-              <meta name="viewport"
-                    content="width=device-width,initial-scale=1.0">
+          result = []
 
-              <title>{name}</title>
+          for game in games:
+              if not isinstance(game, dict):
+                  continue
 
-              <style>
-                  html, body {{
-                      margin: 0;
-                      padding: 0;
-                      width: 100%;
-                      height: 100%;
-                      overflow: hidden;
-                      background: black;
-                  }}
+              name = str(game.get("name", "")).strip()
+              url = str(game.get("url", "")).strip()
+              thumbnail = str(game.get("thumbnail", "")).strip()
 
-                  iframe {{
-                      position: fixed;
-                      inset: 0;
-                      width: 100vw;
-                      height: 100vh;
-                      border: 0;
-                  }}
-              </style>
-          </head>
+              if not name or not url:
+                  continue
 
-          <body>
+              # Make relative Truffled URLs absolute.
+              if url.startswith("/"):
+                  url = "https://truffled.lol" + url
 
-              <iframe
-                  src="{url}"
-                  allow="fullscreen; autoplay; gamepad"
-                  allowfullscreen>
-              </iframe>
+              if thumbnail.startswith("/"):
+                  thumbnail = "https://truffled.lol" + thumbnail
 
-          </body>
-          </html>
-          """
-
-              with open(
-                  os.path.join(folder, "index.html"),
-                  "w",
-                  encoding="utf-8"
-              ) as f:
-                  f.write(page)
-
-              # Try to get a logo
-              logo = None
-
-              try:
-                  game_page = requests.get(
-                      url,
-                      headers=headers,
-                      timeout=15
-                  )
-
-                  game_soup = BeautifulSoup(
-                      game_page.text,
-                      "html.parser"
-                  )
-
-                  images = []
-
-                  # OpenGraph
-                  og = game_soup.find(
-                      "meta",
-                      property="og:image"
-                  )
-
-                  if og and og.get("content"):
-                      images.append(
-                          urljoin(
-                              url,
-                              og["content"]
-                          )
-                      )
-
-                  # Twitter
-                  twitter = game_soup.find(
-                      "meta",
-                      attrs={
-                          "name": "twitter:image"
-                      }
-                  )
-
-                  if twitter and twitter.get("content"):
-                      images.append(
-                          urljoin(
-                              url,
-                              twitter["content"]
-                          )
-                      )
-
-                  # Favicon
-                  for link in game_soup.find_all(
-                      "link"
-                  ):
-
-                      rel = " ".join(
-                          link.get("rel", [])
-                      ).lower()
-
-                      href = link.get("href")
-
-                      if (
-                          href
-                          and "icon" in rel
-                      ):
-                          images.append(
-                              urljoin(url, href)
-                          )
-
-                  for image_url in images:
-
-                      try:
-                          image = requests.get(
-                              image_url,
-                              headers=headers,
-                              timeout=15
-                          )
-
-                          content_type = image.headers.get(
-                              "content-type",
-                              ""
-                          ).lower()
-
-                          if (
-                              image.status_code == 200
-                              and content_type.startswith("image/")
-                          ):
-
-                              extension = ".png"
-
-                              if "jpeg" in content_type:
-                                  extension = ".jpg"
-                              elif "webp" in content_type:
-                                  extension = ".webp"
-                              elif "gif" in content_type:
-                                  extension = ".gif"
-                              elif "svg" in content_type:
-                                  extension = ".svg"
-
-                              filename = "logo" + extension
-
-                              with open(
-                                  os.path.join(
-                                      folder,
-                                      filename
-                                  ),
-                                  "wb"
-                              ) as f:
-                                  f.write(
-                                      image.content
-                                  )
-
-                              logo = (
-                                  f"games/{slug}/{filename}"
-                              )
-
-                              print(
-                                  "LOGO:",
-                                  slug
-                              )
-
-                              break
-
-                      except Exception:
-                          pass
-
-              except Exception:
-                  pass
-
-              games.append({
+              item = {
                   "name": name,
-                  "slug": slug,
-                  "url": url,
-                  "path": (
-                      f"games/{slug}/index.html"
-                  ),
-                  "logo": logo
-              })
+                  "url": url
+              }
 
-          # Save games.json
-          with open(
-              "games.json",
-              "w",
-              encoding="utf-8"
-          ) as f:
+              if thumbnail:
+                  item["thumbnail"] = thumbnail
 
-              json.dump(
-                  games,
-                  f,
-                  indent=2,
-                  ensure_ascii=False
+              if game.get("altNames"):
+                  item["altNames"] = game["altNames"]
+
+              if game.get("frameType"):
+                  item["frameType"] = game["frameType"]
+
+              if game.get("requiresPrefix"):
+                  item["requiresPrefix"] = True
+
+              result.append(item)
+
+          if len(result) == 0:
+              raise SystemExit(
+                  "ERROR: No usable games were found. "
+                  "games.json was NOT changed."
               )
 
-          print()
-          print("==============================")
-          print("DONE")
-          print("Games found:", len(games))
-          print("==============================")
+          # Remove duplicates by URL.
+          unique = {}
+          for game in result:
+              unique[game["url"]] = game
+
+          result = list(unique.values())
+
+          # Sort alphabetically.
+          result.sort(key=lambda x: x["name"].lower())
+
+          # Backup the current file before changing it.
+          if os.path.exists(OUTPUT):
+              with open(OUTPUT, "r", encoding="utf-8") as f:
+                  old = f.read()
+
+              with open(OUTPUT + ".backup", "w", encoding="utf-8") as f:
+                  f.write(old)
+
+          with open(OUTPUT, "w", encoding="utf-8") as f:
+              json.dump(result, f, indent=2, ensure_ascii=False)
+              f.write("\n")
+
+          print(f"Saved {len(result)} games to {OUTPUT}.")
           PY
+
+      - name: Remove temporary source
+        run: |
+          rm -f truffled-games.json
 
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add games games.json
+          git add games.json games.json.backup
 
           if git diff --cached --quiet; then
-            echo "Nothing changed."
-          else
-            git commit -m "Update game library"
-            git push
+            echo "No changes."
+            exit 0
           fi
+
+          git commit -m "Update games from Truffled source"
+          git push
