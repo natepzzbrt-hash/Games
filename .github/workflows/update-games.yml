@@ -1,556 +1,165 @@
-```yaml
-name: Generate Game Library
+name: Update Game Library
 
 on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */6 * * *"
+
   push:
     branches:
       - main
     paths-ignore:
-      - games.json
+      - "games.json"
       - "games/**"
-
-  workflow_dispatch:
-
-  schedule:
-    # Update once every 6 hours
-    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
 
 jobs:
-  generate:
+  update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Python packages
+      - name: Install Python
         run: |
-          python3 -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          python3 -m pip install requests beautifulsoup4
 
-      - name: Discover games
+      - name: Find games
         run: |
           python3 <<'PY'
-          import os
+          import requests
           import re
           import json
-          import time
-          import requests
+          import os
           from bs4 import BeautifulSoup
           from urllib.parse import urljoin, urlparse
 
-          SITE = "https://truffled.lol"
-          GAMES_PAGE = "https://truffled.lol/g"
-          GAMES_DIR = "games"
-          JSON_FILE = "games.json"
+          BASE = "https://truffled.lol"
+          PAGE = "https://truffled.lol/g"
 
-          HEADERS = {
-              "User-Agent": (
-                  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                  "AppleWebKit/537.36 Chrome/140 Safari/537.36"
-              )
+          headers = {
+              "User-Agent": "Mozilla/5.0"
           }
 
-          session = requests.Session()
-          session.headers.update(HEADERS)
+          print("Opening Truffled...")
+          r = requests.get(PAGE, headers=headers, timeout=30)
+          print("Status:", r.status_code)
 
-          os.makedirs(GAMES_DIR, exist_ok=True)
+          r.raise_for_status()
 
-          print("Fetching Truffled games page...")
-          response = session.get(
-              GAMES_PAGE,
-              timeout=30
-          )
+          html = r.text
 
-          response.raise_for_status()
-
-          html = response.text
-
-          print(
-              "Downloaded",
-              len(html),
-              "bytes"
-          )
-
-          # ---------------------------------------------------------
-          # Helpers
-          # ---------------------------------------------------------
-
-          def clean_name(value):
-              value = value.strip()
-
-              value = re.sub(
-                  r"<[^>]+>",
-                  "",
-                  value
-              )
-
-              value = re.sub(
-                  r"\s+",
-                  " ",
-                  value
-              )
-
-              return value.strip()
-
-
-          def slugify(value):
-              value = value.lower().strip()
-
-              value = re.sub(
-                  r"[^a-z0-9_-]+",
-                  "-",
-                  value
-              )
-
-              value = re.sub(
-                  r"-+",
-                  "-",
-                  value
-              )
-
-              return value.strip("-")
-
-
-          def valid_game_url(url):
-              try:
-                  parsed = urlparse(url)
-
-                  if parsed.scheme not in (
-                      "http",
-                      "https"
-                  ):
-                      return False
-
-                  path = parsed.path.rstrip("/")
-
-                  return (
-                      path.startswith("/games/")
-                      and len(path) > len("/games/")
-                  )
-
-              except Exception:
-                  return False
-
-
-          # ---------------------------------------------------------
-          # Discover URLs from HTML
-          # ---------------------------------------------------------
-
-          soup = BeautifulSoup(
-              html,
-              "html.parser"
-          )
-
-          discovered = {}
-
-          # Normal <a href="">
-          for tag in soup.find_all("a"):
-
-              href = tag.get("href")
-
-              if not href:
-                  continue
-
-              absolute = urljoin(
-                  SITE,
-                  href
-              )
-
-              if not valid_game_url(absolute):
-                  continue
-
-              absolute = absolute.rstrip("/")
-
-              path = urlparse(
-                  absolute
-              ).path
-
-              slug = path.split("/")[-1]
-
-              title = clean_name(
-                  tag.get_text(" ", strip=True)
-              )
-
-              if not title:
-                  title = slug.replace(
-                      "-",
-                      " "
-                  ).title()
-
-              discovered[absolute] = {
-                  "url": absolute + "/",
-                  "slug": slug,
-                  "name": title
-              }
-
-
-          # ---------------------------------------------------------
-          # Also search raw JavaScript for /games/... URLs
-          # ---------------------------------------------------------
+          # Find every /games/GAMENAME/ URL
+          found = set()
 
           patterns = [
-              r'https?://[^"\']+/games/[A-Za-z0-9_-]+/?',
+              r'https?://truffled\.lol/games/[A-Za-z0-9_-]+/?',
               r'["\'](/games/[A-Za-z0-9_-]+/?)["\']',
-              r'["\'](games/[A-Za-z0-9_-]+/?)["\']'
+              r'["\'](https://truffled\.lol/games/[A-Za-z0-9_-]+/?)["\']'
           ]
 
           for pattern in patterns:
+              for match in re.findall(pattern, html):
+                  if match.startswith("/"):
+                      match = urljoin(BASE, match)
 
-              matches = re.findall(
-                  pattern,
-                  html,
-                  flags=re.IGNORECASE
-              )
+                  match = match.rstrip("/") + "/"
 
-              for match in matches:
+                  if "/games/" in match:
+                      found.add(match)
 
-                  if match.startswith("http"):
-                      url = match
-                  else:
-                      url = urljoin(
-                          SITE + "/",
-                          match
+          # Also inspect normal links
+          soup = BeautifulSoup(html, "html.parser")
+
+          for a in soup.find_all("a", href=True):
+              url = urljoin(BASE, a["href"])
+
+              if "/games/" in url:
+                  parsed = urlparse(url)
+
+                  parts = [
+                      x for x in parsed.path.split("/")
+                      if x
+                  ]
+
+                  if len(parts) >= 2 and parts[0] == "games":
+                      found.add(
+                          url.rstrip("/") + "/"
                       )
 
-                  if not valid_game_url(url):
-                      continue
+          print("Discovered:", len(found))
 
-                  url = url.rstrip("/")
-
-                  path = urlparse(
-                      url
-                  ).path
-
-                  slug = path.split("/")[-1]
-
-                  name = slug.replace(
-                      "-",
-                      " "
-                  ).replace(
-                      "_",
-                      " "
-                  ).title()
-
-                  discovered[url] = {
-                      "url": url + "/",
-                      "slug": slug,
-                      "name": name
-                  }
-
-
-          print(
-              "Discovered",
-              len(discovered),
-              "possible game URLs."
-          )
-
-
-          # ---------------------------------------------------------
-          # Check which URLs actually work
-          # ---------------------------------------------------------
-
+          # Test every discovered URL
           working = []
 
-          for number, game in enumerate(
-              discovered.values(),
-              start=1
-          ):
-
-              url = game["url"]
-
-              print(
-                  f"[{number}/{len(discovered)}] "
-                  f"Checking {url}"
-              )
+          for url in sorted(found):
 
               try:
-
-                  r = session.get(
+                  test = requests.get(
                       url,
-                      timeout=20,
+                      headers=headers,
+                      timeout=15,
                       allow_redirects=True
                   )
 
-                  if (
-                      r.status_code >= 200
-                      and r.status_code < 400
-                  ):
-
-                      game["status"] = r.status_code
-
-                      # Don't keep enormous pages in memory.
-                      game["content_type"] = (
-                          r.headers.get(
-                              "content-type",
-                              ""
-                          )
-                      )
-
-                      working.append(game)
-
-                      print(
-                          "  OK:",
-                          r.status_code
-                      )
-
+                  if 200 <= test.status_code < 400:
+                      print("WORKING:", url)
+                      working.append(url)
                   else:
-
                       print(
-                          "  SKIP:",
-                          r.status_code
+                          "BAD:",
+                          test.status_code,
+                          url
                       )
 
               except Exception as e:
+                  print("ERROR:", url, e)
 
-                  print(
-                      "  ERROR:",
-                      str(e)
-                  )
+          print()
+          print("Working games:", len(working))
 
-              # Be polite to the server.
-              time.sleep(0.15)
-
-
-          print(
-              "\nWorking games:",
-              len(working)
-          )
-
-
-          # ---------------------------------------------------------
-          # Logo finder
-          # ---------------------------------------------------------
-
-          def find_logo(game_url, folder):
-
-              try:
-
-                  r = session.get(
-                      game_url,
-                      timeout=20
-                  )
-
-                  if r.status_code != 200:
-                      return None
-
-                  page = BeautifulSoup(
-                      r.text,
-                      "html.parser"
-                  )
-
-                  candidates = []
-
-                  # OpenGraph image
-                  for meta in page.find_all(
-                      "meta"
-                  ):
-
-                      prop = (
-                          meta.get("property")
-                          or meta.get("name")
-                          or ""
-                      ).lower()
-
-                      content = meta.get(
-                          "content"
-                      )
-
-                      if (
-                          content
-                          and prop in (
-                              "og:image",
-                              "twitter:image",
-                              "twitter:image:src"
-                          )
-                      ):
-
-                          candidates.append(
-                              content
-                          )
-
-
-                  # Favicon / icon
-                  for link in page.find_all(
-                      "link"
-                  ):
-
-                      rel = link.get(
-                          "rel",
-                          []
-                      )
-
-                      rel_text = " ".join(
-                          rel
-                      ).lower()
-
-                      href = link.get(
-                          "href"
-                      )
-
-                      if (
-                          href
-                          and "icon" in rel_text
-                      ):
-
-                          candidates.append(
-                              href
-                          )
-
-
-                  # Image tags as fallback
-                  for image in page.find_all(
-                      "img"
-                  ):
-
-                      src = image.get(
-                          "src"
-                      )
-
-                      if src:
-                          candidates.append(
-                              src
-                          )
-
-
-                  for image_url in candidates:
-
-                      image_url = urljoin(
-                          game_url,
-                          image_url
-                      )
-
-                      try:
-
-                          image_response = session.get(
-                              image_url,
-                              timeout=15
-                          )
-
-                          if (
-                              image_response.status_code
-                              != 200
-                          ):
-                              continue
-
-                          content_type = (
-                              image_response
-                              .headers
-                              .get(
-                                  "content-type",
-                                  ""
-                              )
-                              .lower()
-                          )
-
-                          if not content_type.startswith(
-                              "image/"
-                          ):
-                              continue
-
-                          extension = ".png"
-
-                          if "jpeg" in content_type:
-                              extension = ".jpg"
-
-                          elif "webp" in content_type:
-                              extension = ".webp"
-
-                          elif "gif" in content_type:
-                              extension = ".gif"
-
-                          elif "svg" in content_type:
-                              extension = ".svg"
-
-                          logo_file = os.path.join(
-                              folder,
-                              "logo" + extension
-                          )
-
-                          with open(
-                              logo_file,
-                              "wb"
-                          ) as f:
-
-                              f.write(
-                                  image_response.content
-                              )
-
-                          return (
-                              "logo" + extension
-                          )
-
-                      except Exception:
-                          continue
-
-              except Exception as e:
-
-                  print(
-                      "Logo error:",
-                      e
-                  )
-
-              return None
-
-
-          # ---------------------------------------------------------
-          # Create folders
-          # ---------------------------------------------------------
+          os.makedirs("games", exist_ok=True)
 
           games = []
 
-          for game in working:
+          for url in working:
 
-              slug = slugify(
-                  game["slug"]
-              )
+              path = urlparse(url).path.rstrip("/")
+              slug = path.split("/")[-1]
 
-              if not slug:
-                  continue
+              name = slug.replace("-", " ")
+              name = name.replace("_", " ")
+              name = name.title()
 
               folder = os.path.join(
-                  GAMES_DIR,
+                  "games",
                   slug
               )
 
-              os.makedirs(
-                  folder,
-                  exist_ok=True
-              )
+              os.makedirs(folder, exist_ok=True)
 
-              game_url = game["url"]
-
-              # ---------------------------------------------------
-              # Create local launcher
-              # ---------------------------------------------------
-
-              index_html = f"""<!DOCTYPE html>
-          <html lang="en">
-
+              # Full-screen launcher
+              page = f"""<!DOCTYPE html>
+          <html>
           <head>
-
               <meta charset="UTF-8">
+              <meta name="viewport"
+                    content="width=device-width,initial-scale=1.0">
 
-              <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1.0"
-              >
-
-              <title>{game["name"]}</title>
+              <title>{name}</title>
 
               <style>
-
-                  html,
-                  body {{
+                  html, body {{
                       margin: 0;
                       padding: 0;
                       width: 100%;
                       height: 100%;
                       overflow: hidden;
-                      background: #000;
+                      background: black;
                   }}
 
                   iframe {{
@@ -559,98 +168,168 @@ jobs:
                       width: 100vw;
                       height: 100vh;
                       border: 0;
-                      display: block;
                   }}
-
               </style>
-
           </head>
 
           <body>
 
               <iframe
-                  src="{game_url}"
-                  allow="
-                      fullscreen;
-                      autoplay;
-                      gamepad;
-                      clipboard-read;
-                      clipboard-write
-                  "
+                  src="{url}"
+                  allow="fullscreen; autoplay; gamepad"
                   allowfullscreen>
               </iframe>
 
           </body>
-
           </html>
           """
 
               with open(
-                  os.path.join(
-                      folder,
-                      "index.html"
-                  ),
+                  os.path.join(folder, "index.html"),
                   "w",
                   encoding="utf-8"
               ) as f:
+                  f.write(page)
 
-                  f.write(
-                      index_html
+              # Try to get a logo
+              logo = None
+
+              try:
+                  game_page = requests.get(
+                      url,
+                      headers=headers,
+                      timeout=15
                   )
 
+                  game_soup = BeautifulSoup(
+                      game_page.text,
+                      "html.parser"
+                  )
 
-              # ---------------------------------------------------
-              # Find logo
-              # ---------------------------------------------------
+                  images = []
 
-              logo = find_logo(
-                  game_url,
-                  folder
-              )
+                  # OpenGraph
+                  og = game_soup.find(
+                      "meta",
+                      property="og:image"
+                  )
 
+                  if og and og.get("content"):
+                      images.append(
+                          urljoin(
+                              url,
+                              og["content"]
+                          )
+                      )
 
-              # ---------------------------------------------------
-              # Save metadata
-              # ---------------------------------------------------
+                  # Twitter
+                  twitter = game_soup.find(
+                      "meta",
+                      attrs={
+                          "name": "twitter:image"
+                      }
+                  )
+
+                  if twitter and twitter.get("content"):
+                      images.append(
+                          urljoin(
+                              url,
+                              twitter["content"]
+                          )
+                      )
+
+                  # Favicon
+                  for link in game_soup.find_all(
+                      "link"
+                  ):
+
+                      rel = " ".join(
+                          link.get("rel", [])
+                      ).lower()
+
+                      href = link.get("href")
+
+                      if (
+                          href
+                          and "icon" in rel
+                      ):
+                          images.append(
+                              urljoin(url, href)
+                          )
+
+                  for image_url in images:
+
+                      try:
+                          image = requests.get(
+                              image_url,
+                              headers=headers,
+                              timeout=15
+                          )
+
+                          content_type = image.headers.get(
+                              "content-type",
+                              ""
+                          ).lower()
+
+                          if (
+                              image.status_code == 200
+                              and content_type.startswith("image/")
+                          ):
+
+                              extension = ".png"
+
+                              if "jpeg" in content_type:
+                                  extension = ".jpg"
+                              elif "webp" in content_type:
+                                  extension = ".webp"
+                              elif "gif" in content_type:
+                                  extension = ".gif"
+                              elif "svg" in content_type:
+                                  extension = ".svg"
+
+                              filename = "logo" + extension
+
+                              with open(
+                                  os.path.join(
+                                      folder,
+                                      filename
+                                  ),
+                                  "wb"
+                              ) as f:
+                                  f.write(
+                                      image.content
+                                  )
+
+                              logo = (
+                                  f"games/{slug}/{filename}"
+                              )
+
+                              print(
+                                  "LOGO:",
+                                  slug
+                              )
+
+                              break
+
+                      except Exception:
+                          pass
+
+              except Exception:
+                  pass
 
               games.append({
-                  "name": game["name"],
+                  "name": name,
                   "slug": slug,
-                  "url": game_url,
+                  "url": url,
                   "path": (
                       f"games/{slug}/index.html"
                   ),
-                  "logo": (
-                      f"games/{slug}/{logo}"
-                      if logo
-                      else None
-                  )
+                  "logo": logo
               })
 
-              print(
-                  "Created:",
-                  slug,
-                  "| logo:",
-                  logo or "none"
-              )
-
-
-          # ---------------------------------------------------------
-          # Sort alphabetically
-          # ---------------------------------------------------------
-
-          games.sort(
-              key=lambda game:
-              game["name"].lower()
-          )
-
-
-          # ---------------------------------------------------------
-          # Generate games.json
-          # ---------------------------------------------------------
-
+          # Save games.json
           with open(
-              JSON_FILE,
+              "games.json",
               "w",
               encoding="utf-8"
           ) as f:
@@ -662,74 +341,11 @@ jobs:
                   ensure_ascii=False
               )
 
-
-          print(
-              "\n================================"
-          )
-
-          print(
-              "Finished!"
-          )
-
-          print(
-              "Games:",
-              len(games)
-          )
-
-          print(
-              "================================"
-          )
-
-          PY
-
-      - name: Remove deleted games
-        run: |
-          python3 <<'PY'
-          import os
-          import json
-          import shutil
-
-          games_dir = "games"
-
-          if not os.path.exists("games.json"):
-              raise SystemExit(0)
-
-          with open(
-              "games.json",
-              "r",
-              encoding="utf-8"
-          ) as f:
-              games = json.load(f)
-
-          valid = {
-              game["slug"]
-              for game in games
-          }
-
-          if not os.path.exists(games_dir):
-              raise SystemExit(0)
-
-          for item in os.listdir(games_dir):
-
-              path = os.path.join(
-                  games_dir,
-                  item
-              )
-
-              if (
-                  os.path.isdir(path)
-                  and item not in valid
-              ):
-
-                  print(
-                      "Removing old game:",
-                      item
-                  )
-
-                  shutil.rmtree(
-                      path
-                  )
-
+          print()
+          print("==============================")
+          print("DONE")
+          print("Games found:", len(games))
+          print("==============================")
           PY
 
       - name: Commit changes
@@ -740,9 +356,8 @@ jobs:
           git add games games.json
 
           if git diff --cached --quiet; then
-            echo "No changes detected."
+            echo "Nothing changed."
           else
-            git commit -m "Auto-update game library"
+            git commit -m "Update game library"
             git push
           fi
-```
