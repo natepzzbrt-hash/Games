@@ -1,8 +1,7 @@
-name: Update Truffled Games
+name: Update Game Library
 
 on:
   workflow_dispatch:
-
   schedule:
     - cron: "0 */6 * * *"
 
@@ -19,204 +18,67 @@ jobs:
 
       - name: Download Truffled game list
         run: |
-          curl -L --fail \
+          curl -L \
             "https://truffled.lol/js/json/g.json" \
             -o truffled-games.json
 
-      - name: Generate game folders
+      - name: Generate games.json
         run: |
           python3 <<'PY'
           import json
-          import os
-          import re
+          from urllib.parse import urljoin
+
+          BASE = "https://truffled.lol"
 
           with open("truffled-games.json", "r", encoding="utf-8") as f:
               data = json.load(f)
 
           games = data.get("games", [])
 
-          if not games:
-              raise SystemExit(
-                  "ERROR: No games found. Nothing will be changed."
-              )
-
-          os.makedirs("games", exist_ok=True)
-
-          library = []
+          output = []
 
           for game in games:
+              name = game.get("name")
+              game_url = game.get("url")
+              thumbnail = game.get("thumbnail")
 
-              name = str(game.get("name", "")).strip()
-              source_url = str(game.get("url", "")).strip()
-              thumbnail = str(game.get("thumbnail", "")).strip()
-
-              if not name or not source_url:
+              if not name or not game_url:
                   continue
 
-              # ----------------------------------
-              # MAKE THE REAL TRUFFLED GAME URL
-              # ----------------------------------
-
-              if source_url.startswith("/"):
-                  game_url = "https://truffled.lol" + source_url
-              else:
-                  game_url = "https://truffled.lol/" + source_url.lstrip("/")
-
-              # ----------------------------------
-              # MAKE THE THUMBNAIL URL
-              # ----------------------------------
+              game_url = urljoin(BASE, game_url)
 
               if thumbnail:
-                  if thumbnail.startswith("/"):
-                      thumbnail_url = "https://truffled.lol" + thumbnail
-                  elif thumbnail.startswith("http"):
-                      thumbnail_url = thumbnail
-                  else:
-                      thumbnail_url = "https://truffled.lol/" + thumbnail
+                  thumbnail = urljoin(BASE, thumbnail)
               else:
-                  thumbnail_url = ""
+                  thumbnail = ""
 
-              # ----------------------------------
-              # CREATE SAFE FOLDER NAME
-              # ----------------------------------
-
-              slug = re.sub(
-                  r"[^a-zA-Z0-9_-]+",
-                  "-",
-                  name
-              ).strip("-").lower()
-
-              if not slug:
-                  continue
-
-              folder = os.path.join("games", slug)
-
-              os.makedirs(folder, exist_ok=True)
-
-              # ----------------------------------
-              # CREATE EMBED PAGE
-              # ----------------------------------
-
-              html = f"""<!DOCTYPE html>
-          <html>
-          <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-          <title>{name}</title>
-
-          <style>
-          html,
-          body {{
-              margin: 0;
-              padding: 0;
-              width: 100%;
-              height: 100%;
-              overflow: hidden;
-              background: #000;
-          }}
-
-          iframe {{
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100vw;
-              height: 100vh;
-              border: none;
-          }}
-          </style>
-
-          </head>
-
-          <body>
-
-          <iframe
-              src="{game_url}"
-              frameborder="0"
-              allow="fullscreen; autoplay; gamepad; clipboard-read; clipboard-write"
-              allowfullscreen>
-          </iframe>
-
-          </body>
-          </html>
-          """
-
-              with open(
-                  os.path.join(folder, "index.html"),
-                  "w",
-                  encoding="utf-8"
-              ) as f:
-                  f.write(html)
-
-              # ----------------------------------
-              # ADD GAME TO LIBRARY
-              # ----------------------------------
-
-              entry = {
+              output.append({
                   "name": name,
-                  "url": f"games/{slug}/",
-                  "embed": game_url,
-                  "thumbnail": thumbnail_url
-              }
+                  "url": game_url,
+                  "thumbnail": thumbnail
+              })
 
-              # Keep alternate names if available
-              if game.get("altNames"):
-                  entry["altNames"] = game["altNames"]
+          with open("games.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, indent=2, ensure_ascii=False)
 
-              library.append(entry)
-
-          # ----------------------------------
-          # SAFETY CHECK
-          # ----------------------------------
-
-          if not library:
-              raise SystemExit(
-                  "ERROR: No usable games were generated."
-              )
-
-          # Sort alphabetically
-          library.sort(
-              key=lambda game: game["name"].lower()
-          )
-
-          # ----------------------------------
-          # SAVE games.json
-          # ----------------------------------
-
-          with open(
-              "games.json",
-              "w",
-              encoding="utf-8"
-          ) as f:
-              json.dump(
-                  library,
-                  f,
-                  indent=2,
-                  ensure_ascii=False
-              )
-              f.write("\n")
-
-          print(
-              f"Successfully generated {len(library)} games."
-          )
+          print(f"Added {len(output)} games")
           PY
 
-      - name: Remove temporary file
+      - name: Show result
         run: |
-          rm -f truffled-games.json
+          echo "===== games.json ====="
+          cat games.json
 
-      - name: Commit changes
+      - name: Commit updated games.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add games games.json
+          git add games.json
 
           if git diff --cached --quiet; then
             echo "No changes."
-            exit 0
+          else
+            git commit -m "Update game library"
+            git push
           fi
-
-          git commit -m "Update games from Truffled"
-
-          git push
