@@ -1,0 +1,4562 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<title>Games</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: #0b0b0b;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding: 25px;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+#search {
+    width: min(500px, 90vw);
+    padding: 13px 20px;
+    border-radius: 999px;
+    border: 1px solid #333;
+    background: #171717;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+#search:focus {
+    border-color: #666;
+}
+
+.games {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fill, minmax(180px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background: #151515;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #252525;
+    transition: transform .15s, border-color .15s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: #555;
+}
+
+.thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.no-image {
+    font-size: 40px;
+}
+
+.game-name {
+    padding: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="top">
+    <input
+        id="search"
+        type="search"
+        placeholder="Search games..."
+        autocomplete="off">
+</div>
+
+<div class="games" id="games">
+    
+    <a class="card"
+       href="games/3/"
+       data-name="-3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/minus3.webp" alt="-3" loading="lazy">
+        </div>
+        <div class="game-name">-3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/1/"
+       data-name="1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/1.webp" alt="1" loading="lazy">
+        </div>
+        <div class="game-name">1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/1-on-1-soccer/"
+       data-name="1 on 1 soccer">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/12.webp" alt="1 on 1 Soccer" loading="lazy">
+        </div>
+        <div class="game-name">1 on 1 Soccer</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/10-minutes-till-dawn/"
+       data-name="10 minutes till dawn">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/10.webp" alt="10 Minutes Till Dawn" loading="lazy">
+        </div>
+        <div class="game-name">10 Minutes Till Dawn</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/1v1-lol/"
+       data-name="1v1.lol">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/1v1.webp" alt="1v1.lol" loading="lazy">
+        </div>
+        <div class="game-name">1v1.lol</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/2048/"
+       data-name="2048">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/2048.webp" alt="2048" loading="lazy">
+        </div>
+        <div class="game-name">2048</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/30/"
+       data-name="30">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/30.webp" alt="30" loading="lazy">
+        </div>
+        <div class="game-name">30</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/a-difficult-game-about-climbing-webport/"
+       data-name="a difficult game about climbing, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/adgac.webp" alt="A Difficult Game About Climbing, Webport" loading="lazy">
+        </div>
+        <div class="game-name">A Difficult Game About Climbing, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/a-game-about-feeding-a-blackhole/"
+       data-name="a game about feeding a blackhole">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/blackhole.webp" alt="A Game About Feeding A Blackhole" loading="lazy">
+        </div>
+        <div class="game-name">A Game About Feeding A Blackhole</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/a-small-world-cup/"
+       data-name="a small world cup">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/worldcup.webp" alt="A Small World Cup" loading="lazy">
+        </div>
+        <div class="game-name">A Small World Cup</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/academytale-webport/"
+       data-name="academytale, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/academytale.webp" alt="Academytale, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Academytale, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/achievement-unlocked/"
+       data-name="achievement unlocked">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/achieve.webp" alt="Achievement Unlocked" loading="lazy">
+        </div>
+        <div class="game-name">Achievement Unlocked</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/adofai/"
+       data-name="adofai">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/adofai.webp" alt="ADOFAI" loading="lazy">
+        </div>
+        <div class="game-name">ADOFAI</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/adventure-capitalist/"
+       data-name="adventure capitalist">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/adventure.webp" alt="Adventure Capitalist" loading="lazy">
+        </div>
+        <div class="game-name">Adventure Capitalist</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/amanda-the-adventurer-webport/"
+       data-name="amanda the adventurer, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/aman.webp" alt="Amanda the adventurer, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Amanda the adventurer, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/amaze/"
+       data-name="amaze">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/amaze.webp" alt="Amaze" loading="lazy">
+        </div>
+        <div class="game-name">Amaze</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/among-us/"
+       data-name="among us">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/among.webp" alt="Among us" loading="lazy">
+        </div>
+        <div class="game-name">Among us</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/angry-birds/"
+       data-name="angry birds">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/angry.webp" alt="Angry Birds" loading="lazy">
+        </div>
+        <div class="game-name">Angry Birds</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/angry-birds-epic-webport/"
+       data-name="angry birds epic, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/epic.webp" alt="Angry Birds Epic, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Angry Birds Epic, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/angry-birds-online/"
+       data-name="angry birds online">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/angrybirdsonline.webp" alt="Angry Birds Online" loading="lazy">
+        </div>
+        <div class="game-name">Angry Birds Online</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/antonblast/"
+       data-name="antonblast">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/anton.webp" alt="Antonblast" loading="lazy">
+        </div>
+        <div class="game-name">Antonblast</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/apes-vs-helium-webport/"
+       data-name="apes vs helium, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/avh.webp" alt="Apes Vs Helium, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Apes Vs Helium, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/arthur-s-nightmare-webport/"
+       data-name="arthur&#x27;s nightmare, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/arthursnight.webp" alt="Arthur&#x27;s Nightmare, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Arthur&#x27;s Nightmare, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bad-icecream-1/"
+       data-name="bad icecream 1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/badice1.webp" alt="Bad Icecream 1" loading="lazy">
+        </div>
+        <div class="game-name">Bad Icecream 1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bad-icecream-2/"
+       data-name="bad icecream 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/badice2.webp" alt="Bad Icecream 2" loading="lazy">
+        </div>
+        <div class="game-name">Bad Icecream 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bad-icecream-3/"
+       data-name="bad icecream 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/badice3.webp" alt="Bad Icecream 3" loading="lazy">
+        </div>
+        <div class="game-name">Bad Icecream 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bad-parenting-webport/"
+       data-name="bad parenting, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bad.webp" alt="Bad Parenting, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Bad Parenting, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bad-piggies/"
+       data-name="bad piggies">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/badp.webp" alt="Bad Piggies" loading="lazy">
+        </div>
+        <div class="game-name">Bad Piggies</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bad-time-simulator/"
+       data-name="bad time simulator">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/badt.webp" alt="Bad time Simulator" loading="lazy">
+        </div>
+        <div class="game-name">Bad time Simulator</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/balatro-webport/"
+       data-name="balatro, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bal.webp" alt="Balatro, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Balatro, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/baldi-s-basics/"
+       data-name="baldi&#x27;s basics">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/baldi.webp" alt="Baldi&#x27;s Basics" loading="lazy">
+        </div>
+        <div class="game-name">Baldi&#x27;s Basics</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/baldi-s-basics-birthday-bash-webport/"
+       data-name="baldi&#x27;s basics birthday bash, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bday.webp" alt="Baldi&#x27;s Basics Birthday Bash, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Baldi&#x27;s Basics Birthday Bash, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/baldi-s-basics-classic-remastered-webport/"
+       data-name="baldi&#x27;s basics classic remastered, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/baldire.webp" alt="Baldi&#x27;s Basics Classic Remastered, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Baldi&#x27;s Basics Classic Remastered, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/baldi-s-basics-plus-webport/"
+       data-name="baldi&#x27;s basics plus, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/baldiplus.webp" alt="Baldi&#x27;s Basics Plus, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Baldi&#x27;s Basics Plus, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/baldi-s-fun-new-school-plus-ultimate-edition/"
+       data-name="baldi&#x27;s fun new school plus ultimate edition">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bfs.webp" alt="Baldi&#x27;s Fun New School Plus Ultimate Edition" loading="lazy">
+        </div>
+        <div class="game-name">Baldi&#x27;s Fun New School Plus Ultimate Edition</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/baldurs-gate-2-webport/"
+       data-name="baldurs gate 2, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gate2.webp" alt="Baldurs Gate 2, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Baldurs Gate 2, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/banjo-kazooie/"
+       data-name="banjo kazooie">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/banjokazooie.webp" alt="Banjo Kazooie" loading="lazy">
+        </div>
+        <div class="game-name">Banjo Kazooie</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bart-bash/"
+       data-name="bart bash">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bartbash.webp" alt="Bart Bash" loading="lazy">
+        </div>
+        <div class="game-name">Bart Bash</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bart-blast/"
+       data-name="bart blast">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bart.webp" alt="Bart Blast" loading="lazy">
+        </div>
+        <div class="game-name">Bart Blast</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/baseball-bros/"
+       data-name="baseball bros">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/basebros.webp" alt="Baseball Bros" loading="lazy">
+        </div>
+        <div class="game-name">Baseball Bros</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/basket-bros/"
+       data-name="basket bros">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/basketbro.webp" alt="Basket Bros" loading="lazy">
+        </div>
+        <div class="game-name">Basket Bros</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/basket-random/"
+       data-name="basket random">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/basket.webp" alt="Basket Random" loading="lazy">
+        </div>
+        <div class="game-name">Basket Random</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/basketball-stars/"
+       data-name="basketball stars">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/basketstars.webp" alt="Basketball stars" loading="lazy">
+        </div>
+        <div class="game-name">Basketball stars</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/beatblock-webport/"
+       data-name="beatblock, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/beatblock.webp" alt="Beatblock, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Beatblock, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bendy-and-the-ink-machine-webport/"
+       data-name="bendy and the ink machine, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bendy.webp" alt="Bendy And The Ink Machine, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Bendy And The Ink Machine, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bergentruck-webport/"
+       data-name="bergentruck, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ber.webp" alt="Bergentruck, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Bergentruck, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bfdia-5b/"
+       data-name="bfdia 5b">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bfdia5b.webp" alt="Bfdia 5b" loading="lazy">
+        </div>
+        <div class="game-name">Bfdia 5b</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bitlife/"
+       data-name="bitlife">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bit.webp" alt="Bitlife" loading="lazy">
+        </div>
+        <div class="game-name">Bitlife</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/black-jack/"
+       data-name="black jack">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/blackjack.webp" alt="Black Jack" loading="lazy">
+        </div>
+        <div class="game-name">Black Jack</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/block-blast/"
+       data-name="block blast">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/unnamed.webp" alt="Block Blast" loading="lazy">
+        </div>
+        <div class="game-name">Block Blast</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bloodmoney-webport/"
+       data-name="bloodmoney, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/blood.webp" alt="Bloodmoney, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Bloodmoney, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bloon-td1/"
+       data-name="bloon td1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bloons.webp" alt="Bloon TD1" loading="lazy">
+        </div>
+        <div class="game-name">Bloon TD1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bloon-td2/"
+       data-name="bloon td2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/blo2.webp" alt="Bloon TD2" loading="lazy">
+        </div>
+        <div class="game-name">Bloon TD2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bloon-td3/"
+       data-name="bloon td3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/blo3.webp" alt="Bloon TD3" loading="lazy">
+        </div>
+        <div class="game-name">Bloon TD3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bloon-td4/"
+       data-name="bloon td4">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/btd4.webp" alt="Bloon TD4" loading="lazy">
+        </div>
+        <div class="game-name">Bloon TD4</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bloons-td5/"
+       data-name="bloons td5">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/blo5.webp" alt="Bloons TD5" loading="lazy">
+        </div>
+        <div class="game-name">Bloons TD5</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bloons-td6/"
+       data-name="bloons td6">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/blo6.webp" alt="Bloons TD6" loading="lazy">
+        </div>
+        <div class="game-name">Bloons TD6</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bloxors/"
+       data-name="bloxors">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bloxorz.webp" alt="Bloxors" loading="lazy">
+        </div>
+        <div class="game-name">Bloxors</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bombmerman/"
+       data-name="bombmerman">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bomberman.webp" alt="Bombmerman" loading="lazy">
+        </div>
+        <div class="game-name">Bombmerman</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/bombmerman-2/"
+       data-name="bombmerman 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bomberman2.webp" alt="Bombmerman 2" loading="lazy">
+        </div>
+        <div class="game-name">Bombmerman 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/boxing-random/"
+       data-name="boxing random">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/boxing.webp" alt="Boxing Random" loading="lazy">
+        </div>
+        <div class="game-name">Boxing Random</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/brotato-paws-and-claws-webport/"
+       data-name="brotato paws and claws, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/paws.webp" alt="Brotato Paws And Claws, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Brotato Paws And Claws, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/buckshot-roulette-webport/"
+       data-name="buckshot roulette, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/buck.webp" alt="Buckshot Roulette, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Buckshot Roulette, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/burrito-bison/"
+       data-name="burrito bison">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/burrito.webp" alt="Burrito Bison" loading="lazy">
+        </div>
+        <div class="game-name">Burrito Bison</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/burrito-bison-revenge/"
+       data-name="burrito bison revenge">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bbe.webp" alt="Burrito Bison Revenge" loading="lazy">
+        </div>
+        <div class="game-name">Burrito Bison Revenge</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/capuchin-webport/"
+       data-name="capuchin, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/capuchin.webp" alt="Capuchin, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Capuchin, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/caseohs-basics-in-eating-and-fast-food-webport/"
+       data-name="caseohs basics in eating and fast food, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/caseoh.webp" alt="CaseOhs Basics in Eating and Fast Food, Webport" loading="lazy">
+        </div>
+        <div class="game-name">CaseOhs Basics in Eating and Fast Food, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/celeste-webport/"
+       data-name="celeste, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/celeste.webp" alt="Celeste, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Celeste, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cheese-rolling-webport/"
+       data-name="cheese rolling, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cheeser.webp" alt="Cheese Rolling, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Cheese Rolling, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/christmas-massacre-webport/"
+       data-name="christmas massacre, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/christmas.webp" alt="Christmas Massacre, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Christmas Massacre, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/class-of-09-flipside-webport/"
+       data-name="class of 09 flipside, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/flip.webp" alt="Class Of 09 Flipside, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Class Of 09 Flipside, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/class-of-09-re-up-webport/"
+       data-name="class of 09 re-up, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/reup.webp" alt="Class Of 09 Re-Up, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Class Of 09 Re-Up, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/class-of-09-webport/"
+       data-name="class of 09, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/class.webp" alt="Class Of 09, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Class Of 09, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/clover-pit/"
+       data-name="clover pit">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/clover.webp" alt="Clover Pit" loading="lazy">
+        </div>
+        <div class="game-name">Clover Pit</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cluster-rush/"
+       data-name="cluster rush">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cluster.webp" alt="Cluster Rush" loading="lazy">
+        </div>
+        <div class="game-name">Cluster Rush</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/coffee-talk/"
+       data-name="coffee talk">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/coffee.webp" alt="Coffee Talk" loading="lazy">
+        </div>
+        <div class="game-name">Coffee Talk</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cookie-clicker/"
+       data-name="cookie clicker">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cookie.webp" alt="Cookie Clicker" loading="lazy">
+        </div>
+        <div class="game-name">Cookie Clicker</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cooking-mama/"
+       data-name="cooking mama">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cookingmama.webp" alt="Cooking Mama" loading="lazy">
+        </div>
+        <div class="game-name">Cooking Mama</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cooking-mama-2/"
+       data-name="cooking mama 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cookingmama2.webp" alt="Cooking Mama 2" loading="lazy">
+        </div>
+        <div class="game-name">Cooking Mama 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cooking-mama-3/"
+       data-name="cooking mama 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cookingmama3.webp" alt="Cooking Mama 3" loading="lazy">
+        </div>
+        <div class="game-name">Cooking Mama 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/counter-stike-0-8/"
+       data-name="counter stike 0.8">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cs08.webp" alt="Counter Stike 0.8" loading="lazy">
+        </div>
+        <div class="game-name">Counter Stike 0.8</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/crash-bandicoot-1/"
+       data-name="crash bandicoot 1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/crash1.webp" alt="Crash Bandicoot 1" loading="lazy">
+        </div>
+        <div class="game-name">Crash Bandicoot 1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/crash-bandicoot-2/"
+       data-name="crash bandicoot 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/crash2.webp" alt="Crash Bandicoot 2" loading="lazy">
+        </div>
+        <div class="game-name">Crash Bandicoot 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/crash-bandicoot-3/"
+       data-name="crash bandicoot 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/crash3.webp" alt="Crash Bandicoot 3" loading="lazy">
+        </div>
+        <div class="game-name">Crash Bandicoot 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/crazy-balls/"
+       data-name="crazy balls">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/balls.webp" alt="Crazy Balls" loading="lazy">
+        </div>
+        <div class="game-name">Crazy Balls</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/crazycattle3d-webport/"
+       data-name="crazycattle3d, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/crazyca.webp" alt="CrazyCattle3D, Webport" loading="lazy">
+        </div>
+        <div class="game-name">CrazyCattle3D, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/crossy-roads/"
+       data-name="crossy roads">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/crossy.webp" alt="Crossy Roads" loading="lazy">
+        </div>
+        <div class="game-name">Crossy Roads</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cruelty-squad-webport/"
+       data-name="cruelty squad, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cruelty.webp" alt="Cruelty Squad, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Cruelty Squad, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/csgo-clicker/"
+       data-name="csgo clicker">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/csgo.webp" alt="Csgo Clicker" loading="lazy">
+        </div>
+        <div class="game-name">Csgo Clicker</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cuphead-webport/"
+       data-name="cuphead, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cup.webp" alt="Cuphead, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Cuphead, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/customer-support-webport/"
+       data-name="customer support, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cus.webp" alt="Customer Support, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Customer Support, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cut-the-rope/"
+       data-name="cut the rope">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cut1.webp" alt="Cut The Rope" loading="lazy">
+        </div>
+        <div class="game-name">Cut The Rope</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cut-the-rope-time-travel/"
+       data-name="cut the rope : time travel">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/time.webp" alt="Cut The Rope : Time Travel" loading="lazy">
+        </div>
+        <div class="game-name">Cut The Rope : Time Travel</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/cut-the-rope-holiday/"
+       data-name="cut the rope holiday">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cut2.webp" alt="Cut The Rope Holiday" loading="lazy">
+        </div>
+        <div class="game-name">Cut The Rope Holiday</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dadish/"
+       data-name="dadish">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dadish.webp" alt="Dadish" loading="lazy">
+        </div>
+        <div class="game-name">Dadish</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dadish-2/"
+       data-name="dadish 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dadish2.webp" alt="Dadish 2" loading="lazy">
+        </div>
+        <div class="game-name">Dadish 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dadish-3/"
+       data-name="dadish 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dadish3.webp" alt="Dadish 3" loading="lazy">
+        </div>
+        <div class="game-name">Dadish 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dadish-3d/"
+       data-name="dadish 3d">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dadish3d.webp" alt="Dadish 3d" loading="lazy">
+        </div>
+        <div class="game-name">Dadish 3d</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dadish-daily/"
+       data-name="dadish daily">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/daily.webp" alt="Dadish Daily" loading="lazy">
+        </div>
+        <div class="game-name">Dadish Daily</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/danganronpa/"
+       data-name="danganronpa">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dan.webp" alt="Danganronpa" loading="lazy">
+        </div>
+        <div class="game-name">Danganronpa</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dead-plate-webport/"
+       data-name="dead plate, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/deadp.webp" alt="DEAD PLATE, Webport" loading="lazy">
+        </div>
+        <div class="game-name">DEAD PLATE, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dead-tapes/"
+       data-name="dead tapes">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/deadta.webp" alt="Dead Tapes" loading="lazy">
+        </div>
+        <div class="game-name">Dead Tapes</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/deadseat-webport/"
+       data-name="deadseat, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/deadseat.webp" alt="Deadseat, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Deadseat, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/death-run-3d/"
+       data-name="death run 3d">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/death.webp" alt="Death Run 3D" loading="lazy">
+        </div>
+        <div class="game-name">Death Run 3D</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/deltarune-webport/"
+       data-name="deltarune, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/deltarune.webp" alt="Deltarune, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Deltarune, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/deltatraveler-webport/"
+       data-name="deltatraveler, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/deltatr.webp" alt="Deltatraveler, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Deltatraveler, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/diablo/"
+       data-name="diablo">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/diablo.webp" alt="Diablo" loading="lazy">
+        </div>
+        <div class="game-name">Diablo</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dice-a-million-webport/"
+       data-name="dice a million, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/diceamillion.webp" alt="Dice A Million, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Dice A Million, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dinosaur/"
+       data-name="dinosaur">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dino.webp" alt="Dinosaur" loading="lazy">
+        </div>
+        <div class="game-name">Dinosaur</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/do-not-take-this-cat-home-webport/"
+       data-name="do not take this cat home, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dont.webp" alt="Do Not Take This Cat Home, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Do Not Take This Cat Home, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/doge-miner/"
+       data-name="doge miner">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/doge.webp" alt="Doge Miner" loading="lazy">
+        </div>
+        <div class="game-name">Doge Miner</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/doge-miner-2/"
+       data-name="doge miner 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dogeminer2.webp" alt="Doge Miner 2" loading="lazy">
+        </div>
+        <div class="game-name">Doge Miner 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dome-keeper-webport/"
+       data-name="dome keeper, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/domekeeper.webp" alt="Dome Keeper, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Dome Keeper, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/doodle-jump/"
+       data-name="doodle jump">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/doodle.webp" alt="Doodle Jump" loading="lazy">
+        </div>
+        <div class="game-name">Doodle Jump</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/doom/"
+       data-name="doom">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/doom.webp" alt="Doom" loading="lazy">
+        </div>
+        <div class="game-name">Doom</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/doom-2/"
+       data-name="doom 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/doom2.webp" alt="Doom 2" loading="lazy">
+        </div>
+        <div class="game-name">Doom 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/doom-3/"
+       data-name="doom 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/doom3.webp" alt="Doom 3" loading="lazy">
+        </div>
+        <div class="game-name">Doom 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/doom-64/"
+       data-name="doom 64">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/doom64.webp" alt="Doom 64" loading="lazy">
+        </div>
+        <div class="game-name">Doom 64</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dr-mario/"
+       data-name="dr. mario">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/drmario.webp" alt="Dr. Mario" loading="lazy">
+        </div>
+        <div class="game-name">Dr. Mario</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dreadhead-parkour/"
+       data-name="dreadhead parkour">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dread.webp" alt="Dreadhead Parkour" loading="lazy">
+        </div>
+        <div class="game-name">Dreadhead Parkour</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/drift-boss/"
+       data-name="drift boss">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/driftboss.webp" alt="Drift Boss" loading="lazy">
+        </div>
+        <div class="game-name">Drift Boss</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/drift-hunter/"
+       data-name="drift hunter">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/hunt.webp" alt="Drift Hunter" loading="lazy">
+        </div>
+        <div class="game-name">Drift Hunter</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/drive-mad/"
+       data-name="drive mad">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/drive.webp" alt="Drive Mad" loading="lazy">
+        </div>
+        <div class="game-name">Drive Mad</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/duck-life-1/"
+       data-name="duck life 1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/duck1.webp" alt="Duck Life 1" loading="lazy">
+        </div>
+        <div class="game-name">Duck Life 1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/duck-life-2/"
+       data-name="duck life 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/duck2.webp" alt="Duck Life 2" loading="lazy">
+        </div>
+        <div class="game-name">Duck Life 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/duck-life-3/"
+       data-name="duck life 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/duck3.webp" alt="Duck Life 3" loading="lazy">
+        </div>
+        <div class="game-name">Duck Life 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/duck-life-4/"
+       data-name="duck life 4">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/duck4.webp" alt="Duck Life 4" loading="lazy">
+        </div>
+        <div class="game-name">Duck Life 4</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/duck-life-5/"
+       data-name="duck life 5">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/duck5.webp" alt="Duck Life 5" loading="lazy">
+        </div>
+        <div class="game-name">Duck Life 5</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/duck-life-6/"
+       data-name="duck life 6">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ducklife6.webp" alt="Duck Life 6" loading="lazy">
+        </div>
+        <div class="game-name">Duck Life 6</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/duck-life-7/"
+       data-name="duck life 7">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ducklife7.webp" alt="Duck Life 7" loading="lazy">
+        </div>
+        <div class="game-name">Duck Life 7</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/duck-life-8-webport/"
+       data-name="duck life 8, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ducklifeadc.webp" alt="Duck Life 8, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Duck Life 8, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/dumb-ways-to-die/"
+       data-name="dumb ways to die">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/dumb.webp" alt="Dumb Ways To Die" loading="lazy">
+        </div>
+        <div class="game-name">Dumb Ways To Die</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/eggy-car/"
+       data-name="eggy car">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/eggycar.webp" alt="Eggy Car" loading="lazy">
+        </div>
+        <div class="game-name">Eggy Car</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/escape-road/"
+       data-name="escape road">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/road.webp" alt="Escape Road" loading="lazy">
+        </div>
+        <div class="game-name">Escape Road</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/escape-road-2/"
+       data-name="escape road 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/escape2.webp" alt="Escape Road 2" loading="lazy">
+        </div>
+        <div class="game-name">Escape Road 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/escape-road-3/"
+       data-name="escape road 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/escape3.webp" alt="Escape Road 3" loading="lazy">
+        </div>
+        <div class="game-name">Escape Road 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/escape-road-city-2/"
+       data-name="escape road city 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/roadcity.webp" alt="Escape Road City 2" loading="lazy">
+        </div>
+        <div class="game-name">Escape Road City 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/falling-fred/"
+       data-name="falling fred">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/super-falling-fred.webp" alt="Falling Fred" loading="lazy">
+        </div>
+        <div class="game-name">Falling Fred</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fallout/"
+       data-name="fallout">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fallout.webp" alt="Fallout" loading="lazy">
+        </div>
+        <div class="game-name">Fallout</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fallout-2-webport/"
+       data-name="fallout 2, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fallout2.webp" alt="Fallout 2, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Fallout 2, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fancy-pants-adventures/"
+       data-name="fancy pants adventures">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fpa1.webp" alt="Fancy Pants Adventures" loading="lazy">
+        </div>
+        <div class="game-name">Fancy Pants Adventures</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fancy-pants-adventures-2/"
+       data-name="fancy pants adventures 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fancy2.webp" alt="Fancy Pants Adventures 2" loading="lazy">
+        </div>
+        <div class="game-name">Fancy Pants Adventures 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fancy-pants-adventures-3/"
+       data-name="fancy pants adventures 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fpa3.webp" alt="Fancy Pants Adventures 3" loading="lazy">
+        </div>
+        <div class="game-name">Fancy Pants Adventures 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fears-to-fathom-home-alone-webport/"
+       data-name="fears to fathom: home alone, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fear.webp" alt="Fears To Fathom: Home Alone, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Fears To Fathom: Home Alone, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/final-fantasy-vii/"
+       data-name="final fantasy vii">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ffvii.webp" alt="Final Fantasy VII" loading="lazy">
+        </div>
+        <div class="game-name">Final Fantasy VII</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fireboy-and-watergirl/"
+       data-name="fireboy and watergirl">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fire1.webp" alt="Fireboy and Watergirl" loading="lazy">
+        </div>
+        <div class="game-name">Fireboy and Watergirl</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fireboy-and-watergirl-2/"
+       data-name="fireboy and watergirl 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fire2.webp" alt="Fireboy and Watergirl 2" loading="lazy">
+        </div>
+        <div class="game-name">Fireboy and Watergirl 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fireboy-and-watergirl-3/"
+       data-name="fireboy and watergirl 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fire3.webp" alt="Fireboy and Watergirl 3" loading="lazy">
+        </div>
+        <div class="game-name">Fireboy and Watergirl 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fireboy-and-watergirl-4/"
+       data-name="fireboy and watergirl 4">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fire4.webp" alt="Fireboy and Watergirl 4" loading="lazy">
+        </div>
+        <div class="game-name">Fireboy and Watergirl 4</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fish-webport/"
+       data-name="fish, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fish.webp" alt="FISH, Webport" loading="lazy">
+        </div>
+        <div class="game-name">FISH, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/five-nights-at-candys/"
+       data-name="five nights at candys">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fnac.webp" alt="Five Nights At Candys" loading="lazy">
+        </div>
+        <div class="game-name">Five Nights At Candys</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/five-nights-at-candys-2/"
+       data-name="five nights at candys 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fnac2.webp" alt="Five Nights At Candys 2" loading="lazy">
+        </div>
+        <div class="game-name">Five Nights At Candys 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/five-nights-at-epsteins-webport/"
+       data-name="five nights at epsteins, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fnae.webp" alt="Five Nights At Epsteins, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Five Nights At Epsteins, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/five-nights-at-last-breath-webport/"
+       data-name="five nights at last breath, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/breath.webp" alt="Five Nights At Last Breath, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Five Nights At Last Breath, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/flappy-bird/"
+       data-name="flappy bird">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/flapp.webp" alt="Flappy bird" loading="lazy">
+        </div>
+        <div class="game-name">Flappy bird</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/flying-gorilla-webport/"
+       data-name="flying gorilla, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/flying.webp" alt="Flying Gorilla, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Flying Gorilla, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf/"
+       data-name="fnaf">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/splash.webp" alt="FNAF" loading="lazy">
+        </div>
+        <div class="game-name">FNAF</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf-sisters-location/"
+       data-name="fnaf sisters location">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sister.webp" alt="FNAF Sisters Location" loading="lazy">
+        </div>
+        <div class="game-name">FNAF Sisters Location</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf-ultimate-custom-night/"
+       data-name="fnaf ultimate custom night">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/custom.webp" alt="FNAF Ultimate Custom Night" loading="lazy">
+        </div>
+        <div class="game-name">FNAF Ultimate Custom Night</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf-world/"
+       data-name="fnaf world">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fnafworld.webp" alt="FNAF World" loading="lazy">
+        </div>
+        <div class="game-name">FNAF World</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf-world-refreshed/"
+       data-name="fnaf world refreshed">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fne.webp" alt="FNAF World Refreshed" loading="lazy">
+        </div>
+        <div class="game-name">FNAF World Refreshed</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf2/"
+       data-name="fnaf2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fnaf2.webp" alt="FNAF2" loading="lazy">
+        </div>
+        <div class="game-name">FNAF2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf3/"
+       data-name="fnaf3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/3f.webp" alt="FNAF3" loading="lazy">
+        </div>
+        <div class="game-name">FNAF3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf4/"
+       data-name="fnaf4">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fnaf4.webp" alt="FNAF4" loading="lazy">
+        </div>
+        <div class="game-name">FNAF4</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaf4-halloween/"
+       data-name="fnaf4 halloween">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/hollowween.webp" alt="FNAF4 Halloween" loading="lazy">
+        </div>
+        <div class="game-name">FNAF4 Halloween</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnaw/"
+       data-name="fnaw">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fnaw.webp" alt="FNAW" loading="lazy">
+        </div>
+        <div class="game-name">FNAW</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fnf-friday-night-funkin/"
+       data-name="fnf, friday night funkin">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fnf.webp" alt="FNF, Friday Night Funkin" loading="lazy">
+        </div>
+        <div class="game-name">FNF, Friday Night Funkin</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/football-bros/"
+       data-name="football bros">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/footbros.webp" alt="Football Bros" loading="lazy">
+        </div>
+        <div class="game-name">Football Bros</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/friday-night-funkin-bop-city/"
+       data-name="friday night funkin bop city">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bopcity.webp" alt="Friday Night Funkin Bop City" loading="lazy">
+        </div>
+        <div class="game-name">Friday Night Funkin Bop City</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fruit-ninja/"
+       data-name="fruit ninja">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ninja.webp" alt="Fruit Ninja" loading="lazy">
+        </div>
+        <div class="game-name">Fruit Ninja</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/fused240/"
+       data-name="fused240">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fused240.webp" alt="Fused240" loading="lazy">
+        </div>
+        <div class="game-name">Fused240</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gabriel-s-awesome-schoolhouse-webport/"
+       data-name="gabriel&#x27;s awesome schoolhouse, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gabriel.webp" alt="Gabriel&#x27;s Awesome Schoolhouse, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Gabriel&#x27;s Awesome Schoolhouse, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gacha-life/"
+       data-name="gacha life">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gachalife.webp" alt="Gacha Life" loading="lazy">
+        </div>
+        <div class="game-name">Gacha Life</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gacha-verse/"
+       data-name="gacha verse">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gachaverse.webp" alt="Gacha Verse" loading="lazy">
+        </div>
+        <div class="game-name">Gacha Verse</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/geometry-dash-webport/"
+       data-name="geometry dash, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gd.webp" alt="Geometry Dash, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Geometry Dash, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/getaway-shootout/"
+       data-name="getaway shootout">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/getaway.webp" alt="Getaway Shootout" loading="lazy">
+        </div>
+        <div class="game-name">Getaway Shootout</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/getting-over-it-webport/"
+       data-name="getting over it, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gettin.webp" alt="Getting Over It, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Getting Over It, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gladihoppers/"
+       data-name="gladihoppers">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/glad.webp" alt="Gladihoppers" loading="lazy">
+        </div>
+        <div class="game-name">Gladihoppers</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/go-to-bed-webport/"
+       data-name="go to bed, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gotobed.webp" alt="Go to bed, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Go to bed, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/google-baseball/"
+       data-name="google baseball">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/google.webp" alt="Google Baseball" loading="lazy">
+        </div>
+        <div class="game-name">Google Baseball</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gorilla-tag-webport/"
+       data-name="gorilla tag, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gtag.webp" alt="Gorilla Tag, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Gorilla Tag, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/granny/"
+       data-name="granny">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/granny.webp" alt="Granny" loading="lazy">
+        </div>
+        <div class="game-name">Granny</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/granny-2/"
+       data-name="granny 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gran2.webp" alt="Granny 2" loading="lazy">
+        </div>
+        <div class="game-name">Granny 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/granny-3/"
+       data-name="granny 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gran3.webp" alt="Granny 3" loading="lazy">
+        </div>
+        <div class="game-name">Granny 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gravity-run/"
+       data-name="gravity run">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gravity.webp" alt="Gravity run" loading="lazy">
+        </div>
+        <div class="game-name">Gravity run</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/greybox/"
+       data-name="greybox">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/grey.webp" alt="Greybox" loading="lazy">
+        </div>
+        <div class="game-name">Greybox</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gta-i/"
+       data-name="gta i">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gta.webp" alt="GTA I" loading="lazy">
+        </div>
+        <div class="game-name">GTA I</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gta-ii/"
+       data-name="gta ii">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gta2.webp" alt="GTA II" loading="lazy">
+        </div>
+        <div class="game-name">GTA II</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gta-iii/"
+       data-name="gta iii">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gta3.webp" alt="GTA III" loading="lazy">
+        </div>
+        <div class="game-name">GTA III</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gta-san-andreas/"
+       data-name="gta san andreas">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gtasan.webp" alt="GTA San Andreas" loading="lazy">
+        </div>
+        <div class="game-name">GTA San Andreas</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gta-vice-city-webport/"
+       data-name="gta vice city, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vice.webp" alt="GTA Vice City, Webport" loading="lazy">
+        </div>
+        <div class="game-name">GTA Vice City, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gun-mayhem/"
+       data-name="gun mayhem">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gun.webp" alt="Gun Mayhem" loading="lazy">
+        </div>
+        <div class="game-name">Gun Mayhem</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gun-mayhem-2/"
+       data-name="gun mayhem 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gun2.webp" alt="Gun Mayhem 2" loading="lazy">
+        </div>
+        <div class="game-name">Gun Mayhem 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gun-mayhem-redux/"
+       data-name="gun mayhem redux">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gun3.webp" alt="Gun Mayhem Redux" loading="lazy">
+        </div>
+        <div class="game-name">Gun Mayhem Redux</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/gunspin/"
+       data-name="gunspin">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/guns.webp" alt="Gunspin" loading="lazy">
+        </div>
+        <div class="game-name">Gunspin</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/half-life/"
+       data-name="half life">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/halflife.webp" alt="Half life" loading="lazy">
+        </div>
+        <div class="game-name">Half life</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/half-life-2/"
+       data-name="half life 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/hl2.webp" alt="Half life 2" loading="lazy">
+        </div>
+        <div class="game-name">Half life 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/half-life-opposing-force/"
+       data-name="half life: opposing force">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/hlof.webp" alt="Half life: Opposing Force" loading="lazy">
+        </div>
+        <div class="game-name">Half life: Opposing Force</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/happy-wheels/"
+       data-name="happy wheels">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/happy.webp" alt="Happy Wheels" loading="lazy">
+        </div>
+        <div class="game-name">Happy Wheels</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/helltaker-webport/"
+       data-name="helltaker, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/helltaker.webp" alt="Helltaker, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Helltaker, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/hollow-knight-webport/"
+       data-name="hollow knight, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/hollow.webp" alt="Hollow Knight, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Hollow Knight, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/hotline-miami-webport/"
+       data-name="hotline miami, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/hot.webp" alt="Hotline Miami, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Hotline Miami, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/house-of-hazards/"
+       data-name="house of hazards">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/house.webp" alt="House Of Hazards" loading="lazy">
+        </div>
+        <div class="game-name">House Of Hazards</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/human-expenditure-program-webport/"
+       data-name="human expenditure program, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/human.webp" alt="HUMAN EXPENDITURE PROGRAM, Webport" loading="lazy">
+        </div>
+        <div class="game-name">HUMAN EXPENDITURE PROGRAM, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ice-baby-quest-2/"
+       data-name="ice baby quest 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/icebaby2.webp" alt="Ice Baby Quest 2" loading="lazy">
+        </div>
+        <div class="game-name">Ice Baby Quest 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/idle-breakout/"
+       data-name="idle breakout">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/idle.webp" alt="Idle Breakout" loading="lazy">
+        </div>
+        <div class="game-name">Idle Breakout</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/iron-lung-webport/"
+       data-name="iron lung, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/iroonlung.webp" alt="Iron Lung, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Iron Lung, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/jeffrey-epstein-basics-in-education-and-kidnapping-webport/"
+       data-name="jeffrey epstein basics in education and kidnapping, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/jeb.webp" alt="Jeffrey Epstein Basics In Education And Kidnapping, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Jeffrey Epstein Basics In Education And Kidnapping, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/jeffys-basics-webport/"
+       data-name="jeffys basics, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/jeffys.webp" alt="Jeffys Basics, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Jeffys Basics, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/jelly-drift/"
+       data-name="jelly drift">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/jelly.webp" alt="Jelly Drift" loading="lazy">
+        </div>
+        <div class="game-name">Jelly Drift</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/jetpack-joyride/"
+       data-name="jetpack joyride">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/jet.webp" alt="Jetpack Joyride" loading="lazy">
+        </div>
+        <div class="game-name">Jetpack Joyride</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/jumbo-mario/"
+       data-name="jumbo mario">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/jumbo.webp" alt="Jumbo Mario" loading="lazy">
+        </div>
+        <div class="game-name">Jumbo Mario</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/karlson-webport/"
+       data-name="karlson, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/karlson.webp" alt="Karlson, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Karlson, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/karlson2d-webport/"
+       data-name="karlson2d, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/karlson2d.webp" alt="Karlson2D, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Karlson2D, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/kindergarten-1-webport/"
+       data-name="kindergarten 1, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/kind1.webp" alt="Kindergarten 1, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Kindergarten 1, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/kindergarten-2-webport/"
+       data-name="kindergarten 2, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/kind2.webp" alt="Kindergarten 2, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Kindergarten 2, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/kindergarten-3-webport/"
+       data-name="kindergarten 3, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/kind3.webp" alt="Kindergarten 3, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Kindergarten 3, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/kirby-soft-and-wet-webport/"
+       data-name="kirby soft and wet, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/kirbysoftandwet.webp" alt="Kirby Soft And Wet, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Kirby Soft And Wet, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/klifur/"
+       data-name="klifur">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/kil.webp" alt="Klifur" loading="lazy">
+        </div>
+        <div class="game-name">Klifur</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/lacey-s-flash-games-webport/"
+       data-name="lacey&#x27;s flash games, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/lacey.webp" alt="Lacey&#x27;s Flash Games, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Lacey&#x27;s Flash Games, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/learn-to-fly/"
+       data-name="learn to fly">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/learn1.webp" alt="Learn To Fly" loading="lazy">
+        </div>
+        <div class="game-name">Learn To Fly</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/learn-to-fly-2/"
+       data-name="learn to fly 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/learn2.webp" alt="Learn To Fly 2" loading="lazy">
+        </div>
+        <div class="game-name">Learn To Fly 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/learn-to-fly-3/"
+       data-name="learn to fly 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/learn3.webp" alt="Learn To Fly 3" loading="lazy">
+        </div>
+        <div class="game-name">Learn To Fly 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/learn-to-fly-idle/"
+       data-name="learn to fly idle">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/learni.webp" alt="Learn To Fly Idle" loading="lazy">
+        </div>
+        <div class="game-name">Learn To Fly Idle</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/lego-star-wars/"
+       data-name="lego star wars">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/legostarwars.webp" alt="Lego Star Wars" loading="lazy">
+        </div>
+        <div class="game-name">Lego Star Wars</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/level-devil/"
+       data-name="level devil">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/level.webp" alt="Level Devil" loading="lazy">
+        </div>
+        <div class="game-name">Level Devil</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/line-rider/"
+       data-name="line rider">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/line.webp" alt="Line Rider" loading="lazy">
+        </div>
+        <div class="game-name">Line Rider</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/little-alchemy/"
+       data-name="little alchemy">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/lil.webp" alt="Little Alchemy" loading="lazy">
+        </div>
+        <div class="game-name">Little Alchemy</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/little-alchemy-2/"
+       data-name="little alchemy 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/little2.webp" alt="Little Alchemy 2" loading="lazy">
+        </div>
+        <div class="game-name">Little Alchemy 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/little-big-planet/"
+       data-name="little big planet">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/lbp.webp" alt="Little Big Planet" loading="lazy">
+        </div>
+        <div class="game-name">Little Big Planet</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/madness-melee/"
+       data-name="madness melee">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/madness.webp" alt="Madness Melee" loading="lazy">
+        </div>
+        <div class="game-name">Madness Melee</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/mario-kart-64/"
+       data-name="mario kart 64">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/mk64.webp" alt="Mario Kart 64" loading="lazy">
+        </div>
+        <div class="game-name">Mario Kart 64</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/mario-kart-7/"
+       data-name="mario kart 7">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/mk7.webp" alt="Mario Kart 7" loading="lazy">
+        </div>
+        <div class="game-name">Mario Kart 7</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/mario-kart-ds/"
+       data-name="mario kart ds">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/mkds.webp" alt="Mario Kart DS" loading="lazy">
+        </div>
+        <div class="game-name">Mario Kart DS</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/mario-party-1/"
+       data-name="mario party 1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/marioparty1.webp" alt="Mario Party 1" loading="lazy">
+        </div>
+        <div class="game-name">Mario Party 1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/mario-party-2/"
+       data-name="mario party 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/marioparty2.webp" alt="Mario Party 2" loading="lazy">
+        </div>
+        <div class="game-name">Mario Party 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/mario-party-3/"
+       data-name="mario party 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/marioparty3.webp" alt="Mario Party 3" loading="lazy">
+        </div>
+        <div class="game-name">Mario Party 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/megaman/"
+       data-name="megaman">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/megaman.webp" alt="Megaman" loading="lazy">
+        </div>
+        <div class="game-name">Megaman</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/melon-playground/"
+       data-name="melon playground">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/melon.webp" alt="Melon Playground" loading="lazy">
+        </div>
+        <div class="game-name">Melon Playground</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/merge-rot/"
+       data-name="merge rot">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/rot.webp" alt="Merge Rot" loading="lazy">
+        </div>
+        <div class="game-name">Merge Rot</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/milkman-karlson-webport/"
+       data-name="milkman karlson, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/milk.webp" alt="Milkman karlson, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Milkman karlson, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/minecraft-1-12-2/"
+       data-name="minecraft 1.12.2">
+        <div class="thumb">
+            <img src="https://truffled.lol/games/eglar/1.12.webp" alt="Minecraft 1.12.2" loading="lazy">
+        </div>
+        <div class="game-name">Minecraft 1.12.2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/minecraft-1-8-8/"
+       data-name="minecraft 1.8.8">
+        <div class="thumb">
+            <img src="https://truffled.lol/games/eglar/1.8.webp" alt="Minecraft 1.8.8" loading="lazy">
+        </div>
+        <div class="game-name">Minecraft 1.8.8</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/minecraft-legacy-console-edition-webport/"
+       data-name="minecraft legacy console edition, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/mclce.webp" alt="Minecraft Legacy Console Edition, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Minecraft Legacy Console Edition, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/minecraft-pocket-edition-webport/"
+       data-name="minecraft pocket edition, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/mcpe.webp" alt="Minecraft Pocket Edition, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Minecraft Pocket Edition, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/minecraft-wurst/"
+       data-name="minecraft wurst">
+        <div class="thumb">
+            <img src="https://truffled.lol/games/eglar/wurst.webp" alt="Minecraft Wurst" loading="lazy">
+        </div>
+        <div class="game-name">Minecraft Wurst</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/minesweeper-mania/"
+       data-name="minesweeper mania">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/minese.webp" alt="Minesweeper Mania" loading="lazy">
+        </div>
+        <div class="game-name">Minesweeper Mania</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/minesweeper-plus-webport/"
+       data-name="minesweeper plus, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/mineseplu.webp" alt="Minesweeper Plus, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Minesweeper Plus, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/monkey-mart/"
+       data-name="monkey mart">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/monkey.webp" alt="Monkey Mart" loading="lazy">
+        </div>
+        <div class="game-name">Monkey Mart</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/moto-x3m/"
+       data-name="moto x3m">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/moto.webp" alt="Moto X3M" loading="lazy">
+        </div>
+        <div class="game-name">Moto X3M</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/my-teardrop-daniel/"
+       data-name="my teardrop, daniel">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/mytear.webp" alt="My teardrop, daniel" loading="lazy">
+        </div>
+        <div class="game-name">My teardrop, daniel</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/n-gon/"
+       data-name="n-gon">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ngon.webp" alt="n-gon" loading="lazy">
+        </div>
+        <div class="game-name">n-gon</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/nazi-zombies-portable/"
+       data-name="nazi zombies: portable">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/nazi.webp" alt="Nazi Zombies: Portable" loading="lazy">
+        </div>
+        <div class="game-name">Nazi Zombies: Portable</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/needy-streamer-overload-webport/"
+       data-name="needy streamer overload, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/nso.webp" alt="Needy Streamer Overload, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Needy Streamer Overload, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/new-super-mario-bros/"
+       data-name="new super mario bros">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/nsmb.webp" alt="New Super Mario Bros" loading="lazy">
+        </div>
+        <div class="game-name">New Super Mario Bros</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/node-buster-webport/"
+       data-name="node buster, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/nodebuster.webp" alt="Node Buster, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Node Buster, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/nubbys-number-factory-webport/"
+       data-name="nubbys number factory, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/nubby.webp" alt="Nubbys Number Factory, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Nubbys Number Factory, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/om-nom-run/"
+       data-name="om nom run">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/omnomrun.webp" alt="Om Nom Run" loading="lazy">
+        </div>
+        <div class="game-name">Om Nom Run</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/omori-webport/"
+       data-name="omori, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/omori.webp" alt="OMORI, Webport" loading="lazy">
+        </div>
+        <div class="game-name">OMORI, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/oneshot-webport/"
+       data-name="oneshot, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/oneshot.webp" alt="Oneshot, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Oneshot, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/orange-roulette/"
+       data-name="orange roulette">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/orange.webp" alt="Orange Roulette" loading="lazy">
+        </div>
+        <div class="game-name">Orange Roulette</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/oshi-oshi-punch/"
+       data-name="oshi oshi punch">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/oshi.webp" alt="Oshi Oshi Punch" loading="lazy">
+        </div>
+        <div class="game-name">Oshi Oshi Punch</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/osu/"
+       data-name="osu!">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/osu.webp" alt="Osu!" loading="lazy">
+        </div>
+        <div class="game-name">Osu!</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/overburden-webport/"
+       data-name="overburden, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/overburden.webp" alt="Overburden, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Overburden, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ovo/"
+       data-name="ovo">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ovo.webp" alt="OvO" loading="lazy">
+        </div>
+        <div class="game-name">OvO</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ovo-2/"
+       data-name="ovo 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ovo2.webp" alt="OvO 2" loading="lazy">
+        </div>
+        <div class="game-name">OvO 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ovo-dimensions/"
+       data-name="ovo dimensions">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ovodi.webp" alt="OvO Dimensions" loading="lazy">
+        </div>
+        <div class="game-name">OvO Dimensions</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pacman/"
+       data-name="pacman">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pacman.webp" alt="Pacman" loading="lazy">
+        </div>
+        <div class="game-name">Pacman</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pacman-world/"
+       data-name="pacman world">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pacmanworld.webp" alt="Pacman World" loading="lazy">
+        </div>
+        <div class="game-name">Pacman World</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pacman-world-2/"
+       data-name="pacman world 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pacmanworld2.webp" alt="Pacman World 2" loading="lazy">
+        </div>
+        <div class="game-name">Pacman World 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/paint-gal-adventures/"
+       data-name="paint gal adventures">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/paintgal.webp" alt="Paint Gal Adventures" loading="lazy">
+        </div>
+        <div class="game-name">Paint Gal Adventures</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/papas-bakeria/"
+       data-name="papas bakeria">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/bake.webp" alt="Papas Bakeria" loading="lazy">
+        </div>
+        <div class="game-name">Papas Bakeria</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/papas-burgeria/"
+       data-name="papas burgeria">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/burger.webp" alt="Papas Burgeria" loading="lazy">
+        </div>
+        <div class="game-name">Papas Burgeria</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/papas-cheeseria/"
+       data-name="papas cheeseria">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/cheese.webp" alt="Papas Cheeseria" loading="lazy">
+        </div>
+        <div class="game-name">Papas Cheeseria</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/papas-donuteria/"
+       data-name="papas donuteria">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/donut.webp" alt="Papas Donuteria" loading="lazy">
+        </div>
+        <div class="game-name">Papas Donuteria</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/papas-freezeria/"
+       data-name="papas freezeria">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/freeze.webp" alt="Papas Freezeria" loading="lazy">
+        </div>
+        <div class="game-name">Papas Freezeria</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/papas-pizzaeria/"
+       data-name="papas pizzaeria">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pizza.webp" alt="Papas Pizzaeria" loading="lazy">
+        </div>
+        <div class="game-name">Papas Pizzaeria</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/paper-mario/"
+       data-name="paper mario">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/papermario.webp" alt="Paper Mario" loading="lazy">
+        </div>
+        <div class="game-name">Paper Mario</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/paperio-2/"
+       data-name="paperio 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/paperio2.webp" alt="Paperio 2" loading="lazy">
+        </div>
+        <div class="game-name">Paperio 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/papers-please/"
+       data-name="papers, please">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/papers.webp" alt="Papers, Please" loading="lazy">
+        </div>
+        <div class="game-name">Papers, Please</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/parappa-the-rapper/"
+       data-name="parappa the rapper">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/rapper.webp" alt="Parappa The Rapper" loading="lazy">
+        </div>
+        <div class="game-name">Parappa The Rapper</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/parappa-the-rapper-2/"
+       data-name="parappa the rapper 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/parappa2.webp" alt="Parappa The Rapper 2" loading="lazy">
+        </div>
+        <div class="game-name">Parappa The Rapper 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/peaks-of-yore-webport/"
+       data-name="peaks of yore, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/peaksofyore.webp" alt="Peaks of Yore, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Peaks of Yore, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/peggle/"
+       data-name="peggle">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/peggle.webp" alt="Peggle" loading="lazy">
+        </div>
+        <div class="game-name">Peggle</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/people-playground-webport/"
+       data-name="people playground, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/peoplepg.webp" alt="People Playground, Webport" loading="lazy">
+        </div>
+        <div class="game-name">People Playground, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pixel-gun-3d/"
+       data-name="pixel gun 3d">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pixelgun.webp" alt="Pixel Gun 3D" loading="lazy">
+        </div>
+        <div class="game-name">Pixel Gun 3D</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pizza-tower-webport/"
+       data-name="pizza tower, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pizzatower.webp" alt="Pizza Tower, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Pizza Tower, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pizza-tower-scoutdigo/"
+       data-name="pizza tower: scoutdigo">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pts.webp" alt="Pizza Tower: Scoutdigo" loading="lazy">
+        </div>
+        <div class="game-name">Pizza Tower: Scoutdigo</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/plants-vs-zombies/"
+       data-name="plants vs zombies">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pvz.webp" alt="Plants VS Zombies" loading="lazy">
+        </div>
+        <div class="game-name">Plants VS Zombies</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/plants-vs-zombies-garden-endless/"
+       data-name="plants vs zombies garden endless">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pvz2.webp" alt="Plants VS Zombies Garden Endless" loading="lazy">
+        </div>
+        <div class="game-name">Plants VS Zombies Garden Endless</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pokemon-academy-life-forever/"
+       data-name="pokemon academy life forever">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pokemonacademy.webp" alt="Pokemon Academy Life Forever" loading="lazy">
+        </div>
+        <div class="game-name">Pokemon Academy Life Forever</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pokemon-blue/"
+       data-name="pokemon blue">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/blue.webp" alt="Pokemon Blue" loading="lazy">
+        </div>
+        <div class="game-name">Pokemon Blue</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pokemon-crystal/"
+       data-name="pokemon crystal">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/crystal.webp" alt="Pokemon Crystal" loading="lazy">
+        </div>
+        <div class="game-name">Pokemon Crystal</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pokemon-emerald/"
+       data-name="pokemon emerald">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/em.webp" alt="Pokemon Emerald" loading="lazy">
+        </div>
+        <div class="game-name">Pokemon Emerald</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pokemon-gold/"
+       data-name="pokemon gold">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/gold.webp" alt="Pokemon Gold" loading="lazy">
+        </div>
+        <div class="game-name">Pokemon Gold</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pokemon-red/"
+       data-name="pokemon red">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pokemonfirered.webp" alt="Pokemon Red" loading="lazy">
+        </div>
+        <div class="game-name">Pokemon Red</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/polytrack/"
+       data-name="polytrack">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/poly.webp" alt="Polytrack" loading="lazy">
+        </div>
+        <div class="game-name">Polytrack</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/portal/"
+       data-name="portal">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/portal.webp" alt="Portal" loading="lazy">
+        </div>
+        <div class="game-name">Portal</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/postal-webport/"
+       data-name="postal, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/postal.webp" alt="Postal, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Postal, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/pretend-its-not-there-webport/"
+       data-name="pretend its not there, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/pre.webp" alt="Pretend its not there, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Pretend its not there, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/quake/"
+       data-name="quake">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/quake.webp" alt="Quake" loading="lazy">
+        </div>
+        <div class="game-name">Quake</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/quake-ii/"
+       data-name="quake ii">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/quakeii.webp" alt="Quake II" loading="lazy">
+        </div>
+        <div class="game-name">Quake II</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/quake-iii/"
+       data-name="quake iii">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/quakeiii.webp" alt="Quake III" loading="lazy">
+        </div>
+        <div class="game-name">Quake III</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/raft-wars/"
+       data-name="raft wars">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/raft1.webp" alt="Raft Wars" loading="lazy">
+        </div>
+        <div class="game-name">Raft Wars</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/raft-wars-2/"
+       data-name="raft wars 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/raft2.webp" alt="Raft Wars 2" loading="lazy">
+        </div>
+        <div class="game-name">Raft Wars 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/raft-webport/"
+       data-name="raft, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/raft.webp" alt="RAFT, Webport" loading="lazy">
+        </div>
+        <div class="game-name">RAFT, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ragdoll-archers/"
+       data-name="ragdoll archers">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/archer.webp" alt="Ragdoll Archers" loading="lazy">
+        </div>
+        <div class="game-name">Ragdoll Archers</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ragdoll-hit/"
+       data-name="ragdoll hit">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/hit.webp" alt="Ragdoll Hit" loading="lazy">
+        </div>
+        <div class="game-name">Ragdoll Hit</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/raldi-s-crack-house/"
+       data-name="raldi&#x27;s crack house">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/raldi.webp" alt="Raldi&#x27;s Crack House" loading="lazy">
+        </div>
+        <div class="game-name">Raldi&#x27;s Crack House</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/rayman/"
+       data-name="rayman">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/rayman.webp" alt="Rayman" loading="lazy">
+        </div>
+        <div class="game-name">Rayman</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/re-run-webport/"
+       data-name="re:run, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/rerun.webp" alt="RE:RUN, Webport" loading="lazy">
+        </div>
+        <div class="game-name">RE:RUN, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/repo-webport/"
+       data-name="repo, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/repo.webp" alt="REPO, Webport" loading="lazy">
+        </div>
+        <div class="game-name">REPO, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/resident-evil-1/"
+       data-name="resident evil 1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/res1.webp" alt="Resident Evil 1" loading="lazy">
+        </div>
+        <div class="game-name">Resident Evil 1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/resident-evil-2/"
+       data-name="resident evil 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/res2.webp" alt="Resident Evil 2" loading="lazy">
+        </div>
+        <div class="game-name">Resident Evil 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/retro-bowl/"
+       data-name="retro bowl">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/retro.webp" alt="Retro Bowl" loading="lazy">
+        </div>
+        <div class="game-name">Retro Bowl</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/retro-bowl-college/"
+       data-name="retro bowl college">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/retroc.webp" alt="Retro Bowl College" loading="lazy">
+        </div>
+        <div class="game-name">Retro Bowl College</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/riddle-school/"
+       data-name="riddle school">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/riddle1.webp" alt="Riddle School" loading="lazy">
+        </div>
+        <div class="game-name">Riddle School</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/riddle-school-2/"
+       data-name="riddle school 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/riddle2.webp" alt="Riddle School 2" loading="lazy">
+        </div>
+        <div class="game-name">Riddle School 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/riddle-school-3/"
+       data-name="riddle school 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/riddle3.webp" alt="Riddle School 3" loading="lazy">
+        </div>
+        <div class="game-name">Riddle School 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/riddle-school-4/"
+       data-name="riddle school 4">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/riddle4.webp" alt="Riddle School 4" loading="lazy">
+        </div>
+        <div class="game-name">Riddle School 4</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/riddle-school-5/"
+       data-name="riddle school 5">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/riddle5.webp" alt="Riddle School 5" loading="lazy">
+        </div>
+        <div class="game-name">Riddle School 5</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/riddle-school-transfer/"
+       data-name="riddle school transfer">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/riddletr.webp" alt="Riddle School Transfer" loading="lazy">
+        </div>
+        <div class="game-name">Riddle School Transfer</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/riddle-school-transfer-2/"
+       data-name="riddle school transfer 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/riddletr2.webp" alt="Riddle School Transfer 2" loading="lazy">
+        </div>
+        <div class="game-name">Riddle School Transfer 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/rooftop-snipers/"
+       data-name="rooftop snipers">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/roof2.webp" alt="Rooftop Snipers" loading="lazy">
+        </div>
+        <div class="game-name">Rooftop Snipers</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/rooftop-snipers-2/"
+       data-name="rooftop snipers 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/roof1.webp" alt="Rooftop Snipers 2" loading="lazy">
+        </div>
+        <div class="game-name">Rooftop Snipers 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/run/"
+       data-name="run">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/run1.webp" alt="Run" loading="lazy">
+        </div>
+        <div class="game-name">Run</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/run-2/"
+       data-name="run 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/run2.webp" alt="Run 2" loading="lazy">
+        </div>
+        <div class="game-name">Run 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/run-3/"
+       data-name="run 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/run3.webp" alt="Run 3" loading="lazy">
+        </div>
+        <div class="game-name">Run 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/running-fred-webport/"
+       data-name="running fred, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/fred.webp" alt="Running Fred, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Running Fred, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/saihate-station-webport/"
+       data-name="saihate station, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/saihatestation.webp" alt="Saihate Station, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Saihate Station, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sandboxels/"
+       data-name="sandboxels">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sand.webp" alt="Sandboxels" loading="lazy">
+        </div>
+        <div class="game-name">Sandboxels</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sanic-ball-webport/"
+       data-name="sanic ball, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sanicball.webp" alt="Sanic Ball, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Sanic Ball, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/scary-path/"
+       data-name="scary path">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/path.webp" alt="Scary Path" loading="lazy">
+        </div>
+        <div class="game-name">Scary Path</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/schoolboy-runaway-webport/"
+       data-name="schoolboy runaway, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/runaway.webp" alt="Schoolboy Runaway, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Schoolboy Runaway, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/shift-at-midnight-webport/"
+       data-name="shift at midnight, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/shift.webp" alt="Shift At Midnight, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Shift At Midnight, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/silksong-webport/"
+       data-name="silksong, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/silk.webp" alt="Silksong, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Silksong, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/skibidi-shooter/"
+       data-name="skibidi shooter">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ski.webp" alt="Skibidi Shooter" loading="lazy">
+        </div>
+        <div class="game-name">Skibidi Shooter</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/slender-the-8-pages-webport/"
+       data-name="slender: the 8 pages, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/slender.webp" alt="Slender: The 8 Pages, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Slender: The 8 Pages, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/slendytubbies-webport/"
+       data-name="slendytubbies, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/slendy.webp" alt="Slendytubbies, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Slendytubbies, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/slient-hill/"
+       data-name="slient hill">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/slienthill.webp" alt="Slient Hill" loading="lazy">
+        </div>
+        <div class="game-name">Slient Hill</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/slime-ranchers-webport/"
+       data-name="slime ranchers, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/slime.webp" alt="Slime Ranchers, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Slime Ranchers, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/slither-io-webport/"
+       data-name="slither.io, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sli.webp" alt="Slither.io, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Slither.io, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/slope/"
+       data-name="slope">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/slope.webp" alt="Slope" loading="lazy">
+        </div>
+        <div class="game-name">Slope</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/slowroads/"
+       data-name="slowroads">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/slow.webp" alt="Slowroads" loading="lazy">
+        </div>
+        <div class="game-name">Slowroads</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sm64-super-mario-64/"
+       data-name="sm64, super mario 64">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sm64.webp" alt="SM64, Super Mario 64" loading="lazy">
+        </div>
+        <div class="game-name">SM64, Super Mario 64</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/smash-karts/"
+       data-name="smash karts">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/smashkarts.webp" alt="Smash Karts" loading="lazy">
+        </div>
+        <div class="game-name">Smash Karts</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/snow-battle/"
+       data-name="snow battle">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/snowio.webp" alt="Snow Battle" loading="lazy">
+        </div>
+        <div class="game-name">Snow Battle</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/snow-rider-3d/"
+       data-name="snow rider 3d">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/snow.webp" alt="Snow Rider 3D" loading="lazy">
+        </div>
+        <div class="game-name">Snow Rider 3D</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/soccer-bros/"
+       data-name="soccer bros">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/soccer.webp" alt="Soccer Bros" loading="lazy">
+        </div>
+        <div class="game-name">Soccer Bros</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/soccer-random/"
+       data-name="soccer random">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/soccerra.webp" alt="Soccer Random" loading="lazy">
+        </div>
+        <div class="game-name">Soccer Random</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/solar-smash/"
+       data-name="solar smash">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/solar.webp" alt="Solar Smash" loading="lazy">
+        </div>
+        <div class="game-name">Solar Smash</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/solitaire/"
+       data-name="solitaire">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/soli.webp" alt="Solitaire" loading="lazy">
+        </div>
+        <div class="game-name">Solitaire</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-1/"
+       data-name="sonic 1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sonic1.webp" alt="Sonic 1" loading="lazy">
+        </div>
+        <div class="game-name">Sonic 1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-2/"
+       data-name="sonic 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sonic2.webp" alt="Sonic 2" loading="lazy">
+        </div>
+        <div class="game-name">Sonic 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-3/"
+       data-name="sonic 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sonic3.webp" alt="Sonic 3" loading="lazy">
+        </div>
+        <div class="game-name">Sonic 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-3d-blast/"
+       data-name="sonic 3d blast">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sonic3dblast.webp" alt="Sonic 3D Blast" loading="lazy">
+        </div>
+        <div class="game-name">Sonic 3D Blast</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-4/"
+       data-name="sonic 4">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sonic4.webp" alt="Sonic 4" loading="lazy">
+        </div>
+        <div class="game-name">Sonic 4</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-cd/"
+       data-name="sonic cd">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/soniccd.webp" alt="Sonic CD" loading="lazy">
+        </div>
+        <div class="game-name">Sonic CD</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-exe/"
+       data-name="sonic exe">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sonicexe.webp" alt="Sonic EXE" loading="lazy">
+        </div>
+        <div class="game-name">Sonic EXE</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-jam/"
+       data-name="sonic jam">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sonicjam.webp" alt="Sonic Jam" loading="lazy">
+        </div>
+        <div class="game-name">Sonic Jam</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-mania-webport/"
+       data-name="sonic mania, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/mania.webp" alt="Sonic Mania, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Sonic Mania, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-r/"
+       data-name="sonic r">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sonicr.webp" alt="Sonic R" loading="lazy">
+        </div>
+        <div class="game-name">Sonic R</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-robo-blast-2/"
+       data-name="sonic robo blast 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/robo.webp" alt="Sonic Robo Blast 2" loading="lazy">
+        </div>
+        <div class="game-name">Sonic Robo Blast 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-robo-blast-2-kart/"
+       data-name="sonic robo blast 2 kart">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/kart.webp" alt="Sonic Robo Blast 2 KART" loading="lazy">
+        </div>
+        <div class="game-name">Sonic Robo Blast 2 KART</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/sonic-world-next/"
+       data-name="sonic world next">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/swn.webp" alt="Sonic World Next" loading="lazy">
+        </div>
+        <div class="game-name">Sonic World Next</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/space-waves/"
+       data-name="space waves">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/space.webp" alt="Space waves" loading="lazy">
+        </div>
+        <div class="game-name">Space waves</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/spank-the-monkey-bogs-favorites/"
+       data-name="spank the monkey, bogs favorites">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/monk.webp" alt="Spank the monkey, bogs favorites" loading="lazy">
+        </div>
+        <div class="game-name">Spank the monkey, bogs favorites</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/speed-stars/"
+       data-name="speed stars">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/speed.webp" alt="Speed Stars" loading="lazy">
+        </div>
+        <div class="game-name">Speed Stars</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/spelunky-classic-hd/"
+       data-name="spelunky classic hd">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/spelunkyclassic.webp" alt="Spelunky Classic HD" loading="lazy">
+        </div>
+        <div class="game-name">Spelunky Classic HD</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/starbound-webport/"
+       data-name="starbound, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/starbound.webp" alt="Starbound, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Starbound, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/stardew-valley-webport/"
+       data-name="stardew valley, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/stardew.webp" alt="Stardew Valley, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Stardew Valley, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/stick-war-legacy/"
+       data-name="stick war: legacy">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/stickwar.webp" alt="Stick War: Legacy" loading="lazy">
+        </div>
+        <div class="game-name">Stick War: Legacy</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/stick-with-it-webport/"
+       data-name="stick with it, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/stick.webp" alt="Stick With It, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Stick With It, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/stickman-hook/"
+       data-name="stickman hook">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/stickman.webp" alt="Stickman Hook" loading="lazy">
+        </div>
+        <div class="game-name">Stickman Hook</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/subway-surfers/"
+       data-name="subway surfers">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/sub.webp" alt="Subway Surfers" loading="lazy">
+        </div>
+        <div class="game-name">Subway Surfers</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-hot/"
+       data-name="super hot">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/superhot.webp" alt="Super Hot" loading="lazy">
+        </div>
+        <div class="game-name">Super Hot</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-mario-bros/"
+       data-name="super mario bros">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/smb.webp" alt="Super Mario Bros" loading="lazy">
+        </div>
+        <div class="game-name">Super Mario Bros</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-mario-galaxy-ds/"
+       data-name="super mario galaxy ds">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/smgds.webp" alt="Super Mario Galaxy DS" loading="lazy">
+        </div>
+        <div class="game-name">Super Mario Galaxy DS</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-meat-boy/"
+       data-name="super meat boy">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/meat.webp" alt="Super Meat Boy" loading="lazy">
+        </div>
+        <div class="game-name">Super Meat Boy</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-monkey-ball-1-2/"
+       data-name="super monkey ball 1 &amp; 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/monkb.webp" alt="Super Monkey Ball 1 &amp; 2" loading="lazy">
+        </div>
+        <div class="game-name">Super Monkey Ball 1 &amp; 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-monkey-ball-jr/"
+       data-name="super monkey ball jr">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/supermonkey.webp" alt="Super Monkey Ball JR" loading="lazy">
+        </div>
+        <div class="game-name">Super Monkey Ball JR</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-oliver-world/"
+       data-name="super oliver world">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/superoliverworld.webp" alt="Super Oliver World" loading="lazy">
+        </div>
+        <div class="game-name">Super Oliver World</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-smash-bros/"
+       data-name="super smash bros">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ssm.webp" alt="Super Smash Bros" loading="lazy">
+        </div>
+        <div class="game-name">Super Smash Bros</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-smash-flash/"
+       data-name="super smash flash">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/supersmash.webp" alt="Super Smash Flash" loading="lazy">
+        </div>
+        <div class="game-name">Super Smash Flash</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/super-smash-flash-2/"
+       data-name="super smash flash 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ssf2.webp" alt="Super Smash Flash 2" loading="lazy">
+        </div>
+        <div class="game-name">Super Smash Flash 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/survivor-io-webport/"
+       data-name="survivor.io, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/survivorio.webp" alt="Survivor.io, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Survivor.io, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/taiko-no-tatsujini/"
+       data-name="taiko no tatsujini">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/taiko.webp" alt="Taiko No Tatsujini" loading="lazy">
+        </div>
+        <div class="game-name">Taiko No Tatsujini</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tanuki-sunset/"
+       data-name="tanuki sunset">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tanukisunset.webp" alt="Tanuki Sunset" loading="lazy">
+        </div>
+        <div class="game-name">Tanuki Sunset</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tattle-tail-webport/"
+       data-name="tattle tail, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tat.webp" alt="Tattle Tail, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Tattle Tail, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ten-basket/"
+       data-name="ten basket">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ten.webp" alt="Ten Basket" loading="lazy">
+        </div>
+        <div class="game-name">Ten Basket</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/terraria-webport/"
+       data-name="terraria, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ter.webp" alt="Terraria, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Terraria, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tetris/"
+       data-name="tetris">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tet.webp" alt="Tetris" loading="lazy">
+        </div>
+        <div class="game-name">Tetris</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tetrisweeper/"
+       data-name="tetrisweeper">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tetriss.webp" alt="Tetrisweeper" loading="lazy">
+        </div>
+        <div class="game-name">Tetrisweeper</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/thats-not-my-neighbor-webport/"
+       data-name="thats not my neighbor, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/thatsnot.webp" alt="Thats Not My Neighbor, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Thats Not My Neighbor, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/the-binding-of-isaac-wrath-of-the-lamb/"
+       data-name="the binding of isaac wrath of the lamb">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tboiw.webp" alt="The Binding Of Isaac Wrath Of The Lamb" loading="lazy">
+        </div>
+        <div class="game-name">The Binding Of Isaac Wrath Of The Lamb</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/the-binding-of-isaac-wrath-of-the-lamb-eternal/"
+       data-name="the binding of isaac wrath of the lamb: eternal">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/boilambeternal.webp" alt="The Binding Of Isaac Wrath Of The Lamb: Eternal" loading="lazy">
+        </div>
+        <div class="game-name">The Binding Of Isaac Wrath Of The Lamb: Eternal</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/the-binding-of-issac/"
+       data-name="the binding of issac">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tboi.webp" alt="The Binding Of Issac" loading="lazy">
+        </div>
+        <div class="game-name">The Binding Of Issac</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/the-binding-of-issac-rebirth-webport/"
+       data-name="the binding of issac: rebirth, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tboir.webp" alt="The Binding Of Issac: Rebirth, Webport" loading="lazy">
+        </div>
+        <div class="game-name">The Binding Of Issac: Rebirth, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/the-impossible-quiz/"
+       data-name="the impossible quiz">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/quiz.webp" alt="The Impossible Quiz" loading="lazy">
+        </div>
+        <div class="game-name">The Impossible Quiz</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/the-legend-of-zelda-ocarina-of-time/"
+       data-name="the legend of zelda ocarina of time">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tloz.webp" alt="The Legend of Zelda Ocarina of Time" loading="lazy">
+        </div>
+        <div class="game-name">The Legend of Zelda Ocarina of Time</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/there-is-no-game/"
+       data-name="there is no game">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ting.webp" alt="There Is No Game" loading="lazy">
+        </div>
+        <div class="game-name">There Is No Game</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/time-shooter-1/"
+       data-name="time shooter 1">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tim1.webp" alt="Time Shooter 1" loading="lazy">
+        </div>
+        <div class="game-name">Time Shooter 1</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/time-shooter-2/"
+       data-name="time shooter 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tim2.webp" alt="Time Shooter 2" loading="lazy">
+        </div>
+        <div class="game-name">Time Shooter 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/time-shooter-3/"
+       data-name="time shooter 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tim3.webp" alt="Time Shooter 3" loading="lazy">
+        </div>
+        <div class="game-name">Time Shooter 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tiny-fishing/"
+       data-name="tiny fishing">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tiny.webp" alt="Tiny Fishing" loading="lazy">
+        </div>
+        <div class="game-name">Tiny Fishing</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/to-the-core-webport/"
+       data-name="to the core, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/to.webp" alt="To The Core, Webport" loading="lazy">
+        </div>
+        <div class="game-name">To The Core, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tomb-of-the-mask/"
+       data-name="tomb of the mask">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tomb.webp" alt="Tomb Of The Mask" loading="lazy">
+        </div>
+        <div class="game-name">Tomb Of The Mask</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tomodachi-collection/"
+       data-name="tomodachi collection">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tomo.webp" alt="Tomodachi Collection" loading="lazy">
+        </div>
+        <div class="game-name">Tomodachi Collection</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/touhou-mother-webport/"
+       data-name="touhou mother, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/touhou.webp" alt="Touhou Mother, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Touhou Mother, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tube-jumpers/"
+       data-name="tube jumpers">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tube.webp" alt="Tube Jumpers" loading="lazy">
+        </div>
+        <div class="game-name">Tube Jumpers</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/tung-tung-horror/"
+       data-name="tung tung horror">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/tung.webp" alt="Tung Tung Horror" loading="lazy">
+        </div>
+        <div class="game-name">Tung Tung Horror</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ultrakill-webport/"
+       data-name="ultrakill, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ultra.webp" alt="Ultrakill, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Ultrakill, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/ultrapool-webport/"
+       data-name="ultrapool, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/ultrapool.webp" alt="Ultrapool, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Ultrapool, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/um-jammer-lammy/"
+       data-name="um jammer lammy">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/jammer.webp" alt="Um Jammer Lammy" loading="lazy">
+        </div>
+        <div class="game-name">Um Jammer Lammy</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/undertale-yellow-webport/"
+       data-name="undertale yellow, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/udy.webp" alt="Undertale Yellow, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Undertale Yellow, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/undertale-webport/"
+       data-name="undertale, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/uertale.webp" alt="Undertale, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Undertale, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/untitled-goose-game-webport/"
+       data-name="untitled goose game, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/untitled.webp" alt="Untitled Goose Game, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Untitled Goose Game, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vampire-survivors-webport/"
+       data-name="vampire survivors, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vampire.webp" alt="Vampire Survivors, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Vampire Survivors, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vex/"
+       data-name="vex">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vex.webp" alt="Vex" loading="lazy">
+        </div>
+        <div class="game-name">Vex</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vex-2/"
+       data-name="vex 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vex2.webp" alt="Vex 2" loading="lazy">
+        </div>
+        <div class="game-name">Vex 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vex-3/"
+       data-name="vex 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vex3.webp" alt="Vex 3" loading="lazy">
+        </div>
+        <div class="game-name">Vex 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vex-4/"
+       data-name="vex 4">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vex4.webp" alt="Vex 4" loading="lazy">
+        </div>
+        <div class="game-name">Vex 4</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vex-5/"
+       data-name="vex 5">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vex5.webp" alt="Vex 5" loading="lazy">
+        </div>
+        <div class="game-name">Vex 5</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vex-6/"
+       data-name="vex 6">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vex6.webp" alt="Vex 6" loading="lazy">
+        </div>
+        <div class="game-name">Vex 6</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vex-7/"
+       data-name="vex 7">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vex7.webp" alt="Vex 7" loading="lazy">
+        </div>
+        <div class="game-name">Vex 7</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vex-8/"
+       data-name="vex 8">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vex8.webp" alt="Vex 8" loading="lazy">
+        </div>
+        <div class="game-name">Vex 8</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/vib-ribbon-webport/"
+       data-name="vib-ribbon, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/vib.webp" alt="Vib-Ribbon, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Vib-Ribbon, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/volley-random/"
+       data-name="volley random">
+        <div class="thumb">
+            <img src="https://truffled.lol/games/volley-random/splash.png" alt="Volley Random" loading="lazy">
+        </div>
+        <div class="game-name">Volley Random</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/warioware-d-i-y/"
+       data-name="warioware d.i.y">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/wariowarediy.webp" alt="Warioware D.I.Y" loading="lazy">
+        </div>
+        <div class="game-name">Warioware D.I.Y</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/we-become-what-we-behold/"
+       data-name="we become what we behold">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/wbwwb.webp" alt="We Become What We behold" loading="lazy">
+        </div>
+        <div class="game-name">We Become What We behold</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/webfishing-webport/"
+       data-name="webfishing, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/web.webp" alt="Webfishing, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Webfishing, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/who-s-your-daddy-webport/"
+       data-name="who&#x27;s your daddy, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/daddy.webp" alt="Who&#x27;s Your Daddy, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Who&#x27;s Your Daddy, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/witch-s-heart-webport/"
+       data-name="witch&#x27;s heart, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/witches.webp" alt="Witch&#x27;s Heart, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Witch&#x27;s Heart, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/woody-s-incredible-journey-to-the-escape-from-eternal-terror/"
+       data-name="woody&#x27;s incredible journey to the escape from eternal terror">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/WIJ.webp" alt="Woody&#x27;s Incredible Journey To The Escape From Eternal Terror" loading="lazy">
+        </div>
+        <div class="game-name">Woody&#x27;s Incredible Journey To The Escape From Eternal Terror</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/wordle/"
+       data-name="wordle">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/world.webp" alt="Wordle" loading="lazy">
+        </div>
+        <div class="game-name">Wordle</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/worlds-hardest-game/"
+       data-name="worlds hardest game">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/wrdd.webp" alt="Worlds Hardest Game" loading="lazy">
+        </div>
+        <div class="game-name">Worlds Hardest Game</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/worlds-hardest-game-2/"
+       data-name="worlds hardest game 2">
+        <div class="thumb">
+            <img src="https://truffled.lol/games/worlds-hardest-game-2/the-worlds-hardest-game-2.jpg" alt="Worlds Hardest Game 2" loading="lazy">
+        </div>
+        <div class="game-name">Worlds Hardest Game 2</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/worlds-hardest-game-3/"
+       data-name="worlds hardest game 3">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/3.webp" alt="Worlds Hardest Game 3" loading="lazy">
+        </div>
+        <div class="game-name">Worlds Hardest Game 3</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/yandere-simulator-webport/"
+       data-name="yandere simulator, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/yandere.webp" alt="Yandere Simulator, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Yandere Simulator, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/yoked/"
+       data-name="yoked">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/yoked.webp" alt="Yoked" loading="lazy">
+        </div>
+        <div class="game-name">Yoked</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/your-only-move-is-hustle-yomi-hustle-webport/"
+       data-name="your only move is hustle, yomi hustle, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/YOMI.webp" alt="Your Only Move Is HUSTLE, YOMI Hustle, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Your Only Move Is HUSTLE, YOMI Hustle, Webport</div>
+    </a>
+    
+
+    <a class="card"
+       href="games/yume-nikki-webport/"
+       data-name="yume nikki, webport">
+        <div class="thumb">
+            <img src="https://truffled.lol/png/games/yumi.webp" alt="Yume Nikki, Webport" loading="lazy">
+        </div>
+        <div class="game-name">Yume Nikki, Webport</div>
+    </a>
+    
+</div>
+
+<script>
+
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+
+search.addEventListener("input", () => {
+
+    const query = search.value.toLowerCase().trim();
+
+    cards.forEach(card => {
+
+        const name = card.dataset.name;
+
+        card.style.display =
+            name.includes(query)
+            ? ""
+            : "none";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
