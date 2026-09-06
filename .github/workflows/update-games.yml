@@ -2,6 +2,7 @@ name: Update Game Library
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "0 */6 * * *"
 
@@ -16,60 +17,173 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download Truffled game list
+      - name: Backup existing games.json
         run: |
-          curl -L \
+          if [ -f games.json ]; then
+            cp games.json games-old.json
+          else
+            echo "[]" > games-old.json
+          fi
+
+      - name: Download Truffled game database
+        run: |
+          curl -fL \
             "https://truffled.lol/js/json/g.json" \
             -o truffled-games.json
 
-      - name: Generate games.json
+      - name: Merge game libraries
         run: |
           python3 <<'PY'
           import json
           from urllib.parse import urljoin
 
-          BASE = "https://truffled.lol"
+          BASE = "https://truffled.lol/"
+
+          # -----------------------------
+          # Existing games
+          # -----------------------------
+
+          try:
+              with open("games-old.json", "r", encoding="utf-8") as f:
+                  existing = json.load(f)
+          except Exception:
+              existing = []
+
+          if not isinstance(existing, list):
+              existing = []
+
+          # -----------------------------
+          # Truffled games
+          # -----------------------------
 
           with open("truffled-games.json", "r", encoding="utf-8") as f:
               data = json.load(f)
 
-          games = data.get("games", [])
+          truffled = data.get("games", [])
 
-          output = []
+          # -----------------------------
+          # Keep existing games
+          # -----------------------------
 
-          for game in games:
-              name = game.get("name")
-              game_url = game.get("url")
-              thumbnail = game.get("thumbnail")
+          output = list(existing)
 
-              if not name or not game_url:
+          existing_urls = set()
+          existing_names = set()
+
+          for game in existing:
+              if not isinstance(game, dict):
                   continue
 
-              game_url = urljoin(BASE, game_url)
+              if game.get("url"):
+                  existing_urls.add(str(game["url"]).lower())
+
+              if game.get("name"):
+                  existing_names.add(
+                      str(game["name"]).strip().lower()
+                  )
+
+          # -----------------------------
+          # Add Truffled games
+          # -----------------------------
+
+          added = 0
+
+          for game in truffled:
+
+              name = str(
+                  game.get("name", "")
+              ).strip()
+
+              source_url = str(
+                  game.get("url", "")
+              ).strip()
+
+              thumbnail = str(
+                  game.get("thumbnail", "")
+              ).strip()
+
+              if not name or not source_url:
+                  continue
+
+              source_url = urljoin(
+                  BASE,
+                  source_url
+              )
 
               if thumbnail:
-                  thumbnail = urljoin(BASE, thumbnail)
-              else:
-                  thumbnail = ""
+                  thumbnail = urljoin(
+                      BASE,
+                      thumbnail
+                  )
+
+              # Don't duplicate games
+              if source_url.lower() in existing_urls:
+                  continue
+
+              if name.lower() in existing_names:
+                  continue
 
               output.append({
                   "name": name,
-                  "url": game_url,
+                  "url": source_url,
                   "thumbnail": thumbnail
               })
 
-          with open("games.json", "w", encoding="utf-8") as f:
-              json.dump(output, f, indent=2, ensure_ascii=False)
+              existing_urls.add(
+                  source_url.lower()
+              )
 
-          print(f"Added {len(output)} games")
+              existing_names.add(
+                  name.lower()
+              )
+
+              added += 1
+
+          # -----------------------------
+          # Safety check
+          # -----------------------------
+
+          if len(output) == 0:
+              raise Exception(
+                  "Result is empty. Refusing to overwrite games.json."
+              )
+
+          # -----------------------------
+          # Save
+          # -----------------------------
+
+          with open(
+              "games.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  output,
+                  f,
+                  indent=2,
+                  ensure_ascii=False
+              )
+
+          print(
+              f"Existing games: {len(existing)}"
+          )
+
+          print(
+              f"Truffled games found: {len(truffled)}"
+          )
+
+          print(
+              f"New games added: {added}"
+          )
+
+          print(
+              f"Total games: {len(output)}"
+          )
+
           PY
 
-      - name: Show result
-        run: |
-          echo "===== games.json ====="
-          cat games.json
-
-      - name: Commit updated games.json
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
