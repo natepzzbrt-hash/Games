@@ -22,12 +22,13 @@ jobs:
             https://raw.githubusercontent.com/aukak/truffled/main/public/js/json/g.json \
             -o truffled-games.json
 
-      - name: Generate embedded games
+      - name: Generate game library
         run: |
           python3 <<'PY'
           import json
           import os
           import re
+          import html
 
           with open("truffled-games.json", "r", encoding="utf-8") as f:
               data = json.load(f)
@@ -36,7 +37,7 @@ jobs:
 
           if not games:
               raise SystemExit(
-                  "No games found. NOTHING was changed."
+                  "ERROR: 0 games found. Nothing was changed."
               )
 
           os.makedirs("games", exist_ok=True)
@@ -45,23 +46,21 @@ jobs:
 
           for game in games:
               name = str(game.get("name", "")).strip()
-              url = str(game.get("url", "")).strip()
+              remote_url = str(game.get("url", "")).strip()
               thumbnail = str(game.get("thumbnail", "")).strip()
 
-              if not name or not url:
+              if not name or not remote_url:
                   continue
 
-              # Convert relative URL to full URL
-              if url.startswith("/"):
-                  url = "https://truffled.lol" + url
+              # Make game URL absolute
+              if remote_url.startswith("/"):
+                  remote_url = "https://truffled.lol" + remote_url
+              elif not remote_url.startswith(("http://", "https://")):
+                  remote_url = "https://truffled.lol/" + remote_url
 
-              elif not url.startswith(("http://", "https://")):
-                  url = "https://truffled.lol/" + url
-
-              # Convert thumbnail to full URL
+              # Make thumbnail URL absolute
               if thumbnail.startswith("/"):
                   thumbnail = "https://truffled.lol" + thumbnail
-
               elif thumbnail and not thumbnail.startswith(("http://", "https://")):
                   thumbnail = "https://truffled.lol/" + thumbnail
 
@@ -78,23 +77,21 @@ jobs:
               folder = os.path.join("games", slug)
               os.makedirs(folder, exist_ok=True)
 
-              # Create embedded game page
-              html = f"""<!DOCTYPE html>
+              safe_name = html.escape(name)
+              safe_url = html.escape(remote_url, quote=True)
+
+              # Individual embedded game page
+              game_html = f"""<!DOCTYPE html>
           <html>
           <head>
           <meta charset="UTF-8">
           <meta name="viewport"
                 content="width=device-width,initial-scale=1.0">
-          <title>{name}</title>
+          <title>{safe_name}</title>
 
           <style>
-          * {{
-              box-sizing: border-box;
-          }}
-
           html, body {{
               margin: 0;
-              padding: 0;
               width: 100%;
               height: 100%;
               overflow: hidden;
@@ -111,14 +108,11 @@ jobs:
           </head>
 
           <body>
-
           <iframe
-              src="{url}"
-              allowfullscreen
+              src="{safe_url}"
               allow="fullscreen; autoplay; gamepad; pointer-lock"
-              scrolling="no">
+              allowfullscreen>
           </iframe>
-
           </body>
           </html>
           """
@@ -128,25 +122,26 @@ jobs:
                   "w",
                   encoding="utf-8"
               ) as f:
-                  f.write(html)
+                  f.write(game_html)
 
               catalog.append({
                   "name": name,
-                  "url": f"games/{slug}/",
-                  "embed": url,
+                  "slug": slug,
+                  "url": "games/" + slug + "/",
+                  "embed": remote_url,
                   "thumbnail": thumbnail
               })
 
-          # Don't replace the catalog with an empty one
           if not catalog:
               raise SystemExit(
-                  "No usable games were generated."
+                  "ERROR: No usable games were generated."
               )
 
           catalog.sort(
               key=lambda x: x["name"].lower()
           )
 
+          # Save catalog
           with open(
               "games.json",
               "w",
@@ -160,9 +155,191 @@ jobs:
               )
               f.write("\n")
 
+          # -----------------------------------------
+          # ROOT INDEX.HTML
+          # -----------------------------------------
+
+          cards = []
+
+          for game in catalog:
+              name = html.escape(game["name"])
+              slug = html.escape(game["slug"])
+              thumb = html.escape(game["thumbnail"], quote=True)
+
+              if thumb:
+                  image = f'<img src="{thumb}" alt="{name}" loading="lazy">'
+              else:
+                  image = '<div class="no-image">🎮</div>'
+
+              cards.append(f"""
+              <a class="card"
+                 href="games/{slug}/"
+                 data-name="{name.lower()}">
+                  <div class="thumb">
+                      {image}
+                  </div>
+                  <div class="game-name">{name}</div>
+              </a>
+              """)
+
+          cards_html = "\n".join(cards)
+
+          index_html = f"""<!DOCTYPE html>
+          <html>
+          <head>
+          <meta charset="UTF-8">
+          <meta name="viewport"
+                content="width=device-width,initial-scale=1.0">
+
+          <title>Games</title>
+
+          <style>
+
+          * {{
+              box-sizing: border-box;
+          }}
+
+          html, body {{
+              margin: 0;
+              padding: 0;
+              min-height: 100%;
+              background: #0b0b0b;
+              color: white;
+              font-family: Arial, sans-serif;
+          }}
+
+          body {{
+              padding: 25px;
+          }}
+
+          .top {{
+              display: flex;
+              justify-content: center;
+              margin-bottom: 25px;
+          }}
+
+          #search {{
+              width: min(500px, 90vw);
+              padding: 13px 20px;
+              border-radius: 999px;
+              border: 1px solid #333;
+              background: #171717;
+              color: white;
+              outline: none;
+              font-size: 15px;
+          }}
+
+          #search:focus {{
+              border-color: #666;
+          }}
+
+          .games {{
+              display: grid;
+              grid-template-columns:
+                  repeat(auto-fill, minmax(180px, 1fr));
+              gap: 18px;
+          }}
+
+          .card {{
+              display: block;
+              text-decoration: none;
+              color: white;
+              background: #151515;
+              border-radius: 14px;
+              overflow: hidden;
+              border: 1px solid #252525;
+              transition: transform .15s, border-color .15s;
+          }}
+
+          .card:hover {{
+              transform: translateY(-3px);
+              border-color: #555;
+          }}
+
+          .thumb {{
+              width: 100%;
+              aspect-ratio: 16 / 9;
+              background: #202020;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;
+          }}
+
+          .thumb img {{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }}
+
+          .no-image {{
+              font-size: 40px;
+          }}
+
+          .game-name {{
+              padding: 12px;
+              font-weight: bold;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+          }}
+
+          </style>
+          </head>
+
+          <body>
+
+          <div class="top">
+              <input
+                  id="search"
+                  type="search"
+                  placeholder="Search games..."
+                  autocomplete="off">
+          </div>
+
+          <div class="games" id="games">
+              {cards_html}
+          </div>
+
+          <script>
+
+          const search = document.getElementById("search");
+          const cards = document.querySelectorAll(".card");
+
+          search.addEventListener("input", () => {{
+
+              const query = search.value.toLowerCase().trim();
+
+              cards.forEach(card => {{
+
+                  const name = card.dataset.name;
+
+                  card.style.display =
+                      name.includes(query)
+                      ? ""
+                      : "none";
+
+              }});
+
+          }});
+
+          </script>
+
+          </body>
+          </html>
+          """
+
+          with open(
+              "index.html",
+              "w",
+              encoding="utf-8"
+          ) as f:
+              f.write(index_html)
+
           print(
-              f"Generated {len(catalog)} embedded games."
+              f"Successfully generated {len(catalog)} games."
           )
+          print("Created root index.html")
           PY
 
       - name: Remove temporary files
@@ -174,12 +351,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add games games.json
+          git add index.html games.json games
 
           if git diff --cached --quiet; then
             echo "No changes."
             exit 0
           fi
 
-          git commit -m "Update embedded games"
+          git commit -m "Update game library"
           git push
