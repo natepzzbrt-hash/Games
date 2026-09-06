@@ -1,4 +1,4 @@
-name: Update Games From Source
+name: Update Games From Truffled
 
 on:
   workflow_dispatch:
@@ -13,64 +13,62 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download Truffled game source
+      - name: Download game catalog
         run: |
           curl -L --fail \
-            "https://truffled.lol/js/json/g.json" \
+            https://raw.githubusercontent.com/aukak/truffled/main/public/js/json/g.json \
             -o truffled-games.json
 
-      - name: Generate games.json
+      - name: Build games.json
         run: |
           python3 <<'PY'
           import json
           import os
-          import re
 
           SOURCE = "truffled-games.json"
           OUTPUT = "games.json"
 
           with open(SOURCE, "r", encoding="utf-8") as f:
-              source = json.load(f)
+              data = json.load(f)
 
-          games = source.get("games", [])
+          games = data.get("games", [])
 
-          if not isinstance(games, list):
-              raise SystemExit("ERROR: Truffled source does not contain a games list.")
-
-          if len(games) == 0:
+          if not games:
               raise SystemExit(
-                  "ERROR: Truffled returned 0 games. "
-                  "games.json was NOT changed."
+                  "ERROR: No games found. Existing games.json was NOT changed."
               )
 
-          print(f"Found {len(games)} games.")
-
-          result = []
+          output = []
 
           for game in games:
-              if not isinstance(game, dict):
-                  continue
-
-              name = str(game.get("name", "")).strip()
-              url = str(game.get("url", "")).strip()
-              thumbnail = str(game.get("thumbnail", "")).strip()
+              name = game.get("name")
+              url = game.get("url")
+              thumbnail = game.get("thumbnail")
+              frame_type = game.get("frameType", "iframe")
 
               if not name or not url:
                   continue
 
-              # Make relative Truffled URLs absolute.
+              # Convert relative game URLs to absolute URLs.
               if url.startswith("/"):
                   url = "https://truffled.lol" + url
+              elif not url.startswith("http"):
+                  url = "https://truffled.lol/" + url
 
-              if thumbnail.startswith("/"):
-                  thumbnail = "https://truffled.lol" + thumbnail
+              # Convert relative thumbnail URLs to absolute URLs.
+              if thumbnail:
+                  if thumbnail.startswith("/"):
+                      thumbnail = "https://truffled.lol" + thumbnail
+                  elif not thumbnail.startswith("http"):
+                      thumbnail = "https://truffled.lol/" + thumbnail
 
               item = {
                   "name": name,
-                  "url": url
+                  "url": url,
+                  "frameType": frame_type
               }
 
               if thumbnail:
@@ -79,46 +77,60 @@ jobs:
               if game.get("altNames"):
                   item["altNames"] = game["altNames"]
 
-              if game.get("frameType"):
-                  item["frameType"] = game["frameType"]
-
               if game.get("requiresPrefix"):
                   item["requiresPrefix"] = True
 
-              result.append(item)
+              output.append(item)
 
-          if len(result) == 0:
+          if not output:
               raise SystemExit(
-                  "ERROR: No usable games were found. "
-                  "games.json was NOT changed."
+                  "ERROR: Catalog contained no usable games. "
+                  "Existing games.json was NOT changed."
               )
 
-          # Remove duplicates by URL.
+          # Remove duplicate URLs.
           unique = {}
-          for game in result:
+
+          for game in output:
               unique[game["url"]] = game
 
-          result = list(unique.values())
+          output = list(unique.values())
 
-          # Sort alphabetically.
-          result.sort(key=lambda x: x["name"].lower())
+          # Alphabetical order.
+          output.sort(
+              key=lambda game: game["name"].lower()
+          )
 
-          # Backup the current file before changing it.
+          # Backup existing games.json.
           if os.path.exists(OUTPUT):
               with open(OUTPUT, "r", encoding="utf-8") as f:
                   old = f.read()
 
-              with open(OUTPUT + ".backup", "w", encoding="utf-8") as f:
+              with open(
+                  OUTPUT + ".backup",
+                  "w",
+                  encoding="utf-8"
+              ) as f:
                   f.write(old)
 
-          with open(OUTPUT, "w", encoding="utf-8") as f:
-              json.dump(result, f, indent=2, ensure_ascii=False)
+          # Write new catalog.
+          with open(
+              OUTPUT,
+              "w",
+              encoding="utf-8"
+          ) as f:
+              json.dump(
+                  output,
+                  f,
+                  indent=2,
+                  ensure_ascii=False
+              )
               f.write("\n")
 
-          print(f"Saved {len(result)} games to {OUTPUT}.")
+          print(f"Added {len(output)} games.")
           PY
 
-      - name: Remove temporary source
+      - name: Remove temporary files
         run: |
           rm -f truffled-games.json
 
@@ -134,5 +146,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update games from Truffled source"
+          git commit -m "Update games catalog"
           git push
