@@ -73,9 +73,9 @@ jobs:
           # This also prevents the library from surfacing gambling, drugs, or
           # weapon-focused entries from third-party catalogs.
           BLOCKED_TERMS = re.compile(
-              r"\\b(?:casino|gambling|poker|roulette|blackjack|slots?|sports?\\s*bet|betting|"
+              r"\b(?:casino|gambling|poker|roulette|blackjack|slots?|sports?\s*bet|betting|"
               r"cocaine|heroin|meth|weed|marijuana|drug|gun|guns|firearm|rifle|pistol|"
-              r"shotgun|sniper|machine\\s*gun|assault\\s*rifle|weapon|weapons)\\b",
+              r"shotgun|sniper|machine\s*gun|assault\s*rifle|weapon|weapons)\b",
               re.I
           )
 
@@ -160,7 +160,7 @@ jobs:
           # ================================================================
           try:
               base = f"{CDN}/gh/1234chromebook1234-creator/ww@main"
-              data = json_get(base + "/games.json")
+              data = json_get("https://raw.githubusercontent.com/1234chromebook1234-creator/ww/main/games.json")
               for g in data if isinstance(data, list) else []:
                   url = str(g.get("url", "")).strip()
                   img = str(g.get("image", "")).strip()
@@ -223,7 +223,7 @@ jobs:
               repo = "WanoCapy/ChickenKingsVault"
               b = branch(repo)
               base = f"{CDN}/gh/{repo}@{b}"
-              text = get(base + "/games.js").decode("utf-8", "replace")
+              text = get(f"https://raw.githubusercontent.com/{repo}/{b}/games.js").decode("utf-8", "replace")
 
               # Supports the common CKV object shapes without executing JS.
               obj_rx = re.compile(r"\{(.*?)\}", re.S)
@@ -258,7 +258,7 @@ jobs:
               errors.append("Chicken Kings Vault: " + str(e))
 
           # ================================================================
-          # Noah's Tutoring
+          # Noah's Tutoring — catalog restored
           #
           # IMPORTANT: games.js currently uses raw.githubusercontent.com URLs.
           # The old workflow later removed every raw URL, which deleted Noah's
@@ -268,7 +268,7 @@ jobs:
           # ================================================================
           try:
               base = f"{CDN}/gh/NoahsAmazingTutoringHelp/Noahs-Calculus-Tutor@master"
-              text = get(base + "/games.js").decode("utf-8", "replace")
+              text = get("https://raw.githubusercontent.com/NoahsAmazingTutoringHelp/Noahs-Calculus-Tutor/master/games.js").decode("utf-8", "replace")
 
               rx = re.compile(
                   r'\{\s*title:\s*["\'](.*?)["\'].*?'
