@@ -116,24 +116,7 @@ jobs:
                   games.append(item)
 
           # ------------------------------------------------------------
-          # UNBL0CKEDZ0NE
-          # ------------------------------------------------------------
-          try:
-              repo = "s0n-1m-cr1n3/sc13nc3"
-              paths = gh_tree(repo, "latest")
-              for p in paths:
-                  if re.search(r"^assets/html/main/.*\.html?$", p, re.I):
-                      add(
-                          name_from_path(p),
-                          js(repo, p, "latest"),
-                          js(repo, "assets/img/fallback.png", "latest"),
-                          "ubz"
-                      )
-          except Exception as e:
-              errors.append(f"UNBL0CKEDZ0NE: {e}")
-
-          # ------------------------------------------------------------
-          # GN-Math / Lumin SDK catalog
+          # GN-Math catalog
           # ------------------------------------------------------------
           try:
               zones = get_json(
@@ -178,36 +161,6 @@ jobs:
           except Exception as e:
               errors.append(f"GN-Math: {e}")
 
-          # Lumin uses the same current catalog, but remains a separate source.
-          try:
-              zones = get_json(
-                  "https://cdn.jsdelivr.net/gh/freebuisness/assets@main/zones.json"
-              )
-              for z in zones if isinstance(zones, list) else []:
-                  if not isinstance(z, dict) or not z.get("url"):
-                      continue
-                  url = str(z["url"]).replace(
-                      "{HTML_URL}",
-                      "https://cdn.jsdelivr.net/gh/freebuisness/html@main"
-                  ).replace(
-                      "{COVER_URL}",
-                      "https://cdn.jsdelivr.net/gh/freebuisness/covers@main"
-                  )
-                  if not url.startswith("http"):
-                      continue
-                  cover = str(z.get("cover", "")).replace(
-                      "{COVER_URL}",
-                      "https://cdn.jsdelivr.net/gh/freebuisness/covers@main"
-                  )
-                  if cover and not cover.startswith("http"):
-                      cover = (
-                          "https://cdn.jsdelivr.net/gh/freebuisness/covers@main/"
-                          + cover.lstrip("/")
-                      )
-                  add(z.get("name", "Untitled Game"), url, cover, "lumin")
-          except Exception as e:
-              errors.append(f"Lumin SDK: {e}")
-
           # ------------------------------------------------------------
           # Elite Gamez
           # ------------------------------------------------------------
@@ -240,26 +193,6 @@ jobs:
                           )
               except Exception as e:
                   errors.append(f"UGS {repo}: {e}")
-
-          # ------------------------------------------------------------
-          # Seraph
-          # ------------------------------------------------------------
-          try:
-              data = get_json(
-                  "https://cdn.jsdelivr.net/gh/DominumNetwork/dominum@main/"
-                  "src/assets/libraries/seraph/games.json"
-              )
-              base = "https://cdn.jsdelivr.net/gh/a456pur/seraph@main/games/"
-              for g in data if isinstance(data, list) else []:
-                  url = str(g.get("url", "")).strip()
-                  img = str(g.get("img", "")).strip()
-                  if url and not url.startswith("http"):
-                      url = base + url.lstrip("/")
-                  if img and not img.startswith("http"):
-                      img = base + img.lstrip("/")
-                  add(g.get("name"), url, img, "seraph")
-          except Exception as e:
-              errors.append(f"Seraph: {e}")
 
           # ------------------------------------------------------------
           # Chicken Kings Vault
