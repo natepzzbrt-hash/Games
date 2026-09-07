@@ -13,296 +13,228 @@ permissions:
   contents: write
 
 jobs:
-  update-sources:
+  update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build combined game source catalog
+      - name: Build game catalog
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           python3 <<'PY'
-          import json, os, re, sys, urllib.request, urllib.parse
+          import json, os, re, urllib.parse, urllib.request
           from pathlib import Path
 
           OUT = Path("games.json")
           API = "https://api.github.com"
-          JSDELIVR = "https://cdn.jsdelivr.net/gh"
+          CDN = "https://cdn.jsdelivr.net/gh"
 
-          def get_json(url):
-              req = urllib.request.Request(
-                  url,
-                  headers={
-                      "User-Agent": "Game-Library-Source-Updater",
-                      "Accept": "application/vnd.github+json"
-                  }
-              )
-              token = os.environ.get("GH_TOKEN")
-              if token and "api.github.com" in url:
-                  req.add_header("Authorization", f"Bearer {token}")
-              with urllib.request.urlopen(req, timeout=30) as r:
-                  return json.load(r)
+          def request(url, json_mode=False):
+              req = urllib.request.Request(url, headers={
+                  "User-Agent": "Games-Source-Updater/1.0",
+                  "Accept": "application/vnd.github+json"
+              })
+              if "api.github.com" in url and os.environ.get("GH_TOKEN"):
+                  req.add_header("Authorization", "Bearer " + os.environ["GH_TOKEN"])
+              with urllib.request.urlopen(req, timeout=40) as r:
+                  raw = r.read()
+              return json.loads(raw) if json_mode else raw.decode("utf-8", "replace")
 
-          def get_text(url):
-              req = urllib.request.Request(
-                  url,
-                  headers={"User-Agent": "Game-Library-Source-Updater"}
-              )
-              with urllib.request.urlopen(req, timeout=30) as r:
-                  return r.read().decode("utf-8", "replace")
+          def repo_info(repo):
+              return request(f"{API}/repos/{repo}", True)
 
-          def gh_tree(repo, branch="main"):
-              data = get_json(f"{API}/repos/{repo}/git/trees/{branch}?recursive=1")
-              return [
-                  x["path"] for x in data.get("tree", [])
-                  if x.get("type") == "blob"
-              ]
+          def default_branch(repo):
+              try:
+                  return repo_info(repo).get("default_branch") or "main"
+              except Exception:
+                  return "main"
 
-          def js(repo, path, branch="main"):
-              return f"{JSDELIVR}/gh/{repo}@{branch}/{path.lstrip('/')}"
+          def tree(repo, branch=None):
+              branch = branch or default_branch(repo)
+              data = request(f"{API}/repos/{repo}/git/trees/{urllib.parse.quote(branch, safe='')}" "?recursive=1", True)
+              return [x["path"] for x in data.get("tree", []) if x.get("type") == "blob"]
 
-          def raw(repo, path, branch="main"):
-              return f"https://raw.githubusercontent.com/{repo}/{branch}/{path.lstrip('/')}"
+          def js(repo, path, branch=None):
+              return f"{CDN}/gh/{repo}@{branch or default_branch(repo)}/{path.lstrip('/')}"
 
-          def name_from_path(path):
-              s = path.rsplit("/", 1)[-1]
-              s = re.sub(r"\.(html?|htm)$", "", s, flags=re.I)
-              s = re.sub(r"^(cl|game[-_]?)[-_]?", "", s, flags=re.I)
-              s = re.sub(r"[-_]+", " ", s)
-              return s.strip().title() or "Untitled Game"
-
-          games = []
-          errors = []
-
-          def add(name, url, image="", source=""):
+          def add(games, name, url, thumbnail="", source="", frame_type="iframe"):
               if not name or not url:
                   return
               games.append({
                   "name": str(name).strip(),
-                  "url": url,
-                  "thumbnail": image or "",
-                  "source": source
+                  "url": str(url).strip(),
+                  "thumbnail": str(thumbnail or "").strip(),
+                  "source": source,
+                  "frameType": frame_type
               })
 
-          # ------------------------------------------------------------
-          # Keep the user's own TestGames entries.
-          # Existing entries without a source are treated as TestGames.
-          # ------------------------------------------------------------
-          old = []
+          def title_from_path(path):
+              n = path.rsplit("/",1)[-1]
+              n = re.sub(r"\.(html?|htm)$","",n,flags=re.I)
+              n = re.sub(r"^cl[-_]?", "", n, flags=re.I)
+              n = re.sub(r"[-_]+"," ",n)
+              return n.strip().title() or "Untitled Game"
+
+          games = []
+          errors = []
+
+          # Keep games already belonging to the user's own site.
           if OUT.exists():
               try:
                   old = json.loads(OUT.read_text(encoding="utf-8"))
-                  if not isinstance(old, list):
-                      old = []
-              except Exception:
-                  old = []
-
-          for g in old:
-              if not isinstance(g, dict):
-                  continue
-              source = str(g.get("source", "")).lower()
-              if source in ("", "testgames", "github", "local"):
-                  item = dict(g)
-                  item["source"] = "testgames"
-                  if "url" not in item and item.get("folder") and item.get("file"):
-                      item["url"] = (
-                          "https://natepzzbrt-hash.github.io/Games/"
-                          + str(item["folder"]).strip("/")
-                          + "/" + str(item["file"]).lstrip("/")
-                      )
-                  games.append(item)
-
-          # ------------------------------------------------------------
-          # GN-Math catalog
-          # ------------------------------------------------------------
-          try:
-              zones = get_json(
-                  "https://cdn.jsdelivr.net/gh/freebuisness/assets@main/zones.json"
-              )
-              for z in zones if isinstance(zones, list) else []:
-                  if not isinstance(z, dict) or z.get("id") in (None, -1):
-                      continue
-                  name = z.get("name", "")
-                  if str(name).startswith("[!]"):
-                      continue
-
-                  url = str(z.get("url", "")).strip()
-                  cover = str(z.get("cover", "")).strip()
-
-                  url = url.replace(
-                      "{HTML_URL}",
-                      "https://cdn.jsdelivr.net/gh/freebuisness/html@main"
-                  ).replace(
-                      "{COVER_URL}",
-                      "https://cdn.jsdelivr.net/gh/freebuisness/covers@main"
-                  )
-
-                  if not url.startswith("http"):
-                      url = (
-                          "https://cdn.jsdelivr.net/gh/freebuisness/html@main/"
-                          + str(z["id"]) + ".html"
-                      )
-
-                  if cover:
-                      cover = cover.replace(
-                          "{COVER_URL}",
-                          "https://cdn.jsdelivr.net/gh/freebuisness/covers@main"
-                      )
-                      if not cover.startswith("http"):
-                          cover = (
-                              "https://cdn.jsdelivr.net/gh/freebuisness/covers@main/"
-                              + cover.lstrip("/")
-                          )
-
-                  add(name, url, cover, "gn")
-          except Exception as e:
-              errors.append(f"GN-Math: {e}")
-
-          # ------------------------------------------------------------
-          # Elite Gamez
-          # ------------------------------------------------------------
-          try:
-              base = "https://cdn.jsdelivr.net/gh/1234chromebook1234-creator/ww@main"
-              data = get_json(base + "/games.json")
-              for g in data if isinstance(data, list) else []:
-                  url = str(g.get("url", "")).strip()
-                  img = str(g.get("image", "")).strip()
-                  if url and not url.startswith("http"):
-                      url = base + "/" + url.lstrip("/")
-                  if img and not img.startswith("http"):
-                      img = base + "/" + img.lstrip("/")
-                  add(g.get("title") or g.get("name"), url, img, "elite")
-          except Exception as e:
-              errors.append(f"Elite Gamez: {e}")
-
-          # ------------------------------------------------------------
-          # Ultimate Game Stash
-          # ------------------------------------------------------------
-          for repo in ("tharun9772/ugs-1", "tharun9772/ugs-2", "tharun9772/ugs-3"):
-              try:
-                  for p in gh_tree(repo, "main"):
-                      if re.match(r"^cl.*\.html?$", p, re.I):
-                          add(
-                              name_from_path(p),
-                              js(repo, p, "main"),
-                              "https://cdn.jsdelivr.net/gh/s0n-1m-cr1n3/sc13nc3@latest/assets/img/fallback.png",
-                              "ugs"
-                          )
-              except Exception as e:
-                  errors.append(f"UGS {repo}: {e}")
-
-          # ------------------------------------------------------------
-          # Chicken Kings Vault
-          # ------------------------------------------------------------
-          try:
-              base = "https://cdn.jsdelivr.net/gh/carbonicality/ChickenKingsVault@main"
-              data = get_json(base + "/games.json")
-              for g in data if isinstance(data, list) else []:
-                  url = str(g.get("html", "")).strip()
-                  img = str(g.get("img", "")).strip()
-                  if url and not url.startswith("http"):
-                      url = base + "/gamefiles/" + url.lstrip("/")
-                  if img and not img.startswith("http"):
-                      img = base + "/images/" + img.lstrip("/")
-                  add(g.get("name"), url, img, "ckv")
-          except Exception as e:
-              errors.append(f"Chicken Kings Vault: {e}")
-
-          # ------------------------------------------------------------
-          # Noah's Tutoring
-          # ------------------------------------------------------------
-          try:
-              base = "https://cdn.jsdelivr.net/gh/NoahsAmazingTutoringHelp/Noahs-Calculus-Tutor@master"
-              loaded = False
-
-              try:
-                  data = get_json(base + "/games.json")
-                  entries = data if isinstance(data, list) else data.get("games", [])
-                  for g in entries if isinstance(entries, list) else []:
-                      url = str(g.get("url", "")).strip()
-                      img = str(g.get("image") or g.get("img") or "").strip()
-                      if url and not url.startswith("http"):
-                          url = base + "/" + url.lstrip("/")
-                      if img and not img.startswith("http"):
-                          img = base + "/images/" + img.lstrip("/")
-                      add(g.get("title") or g.get("name"), url, img, "noah")
-                  loaded = True
+                  if isinstance(old, list):
+                      for g in old:
+                          if not isinstance(g, dict):
+                              continue
+                          src = str(g.get("source","")).lower()
+                          if src in ("", "testgames", "github", "local"):
+                              item = dict(g)
+                              item["source"] = "testgames"
+                              if not item.get("url") and item.get("folder") and item.get("file"):
+                                  item["url"] = (
+                                      "https://natepzzbrt-hash.github.io/Games/"
+                                      + str(item["folder"]).strip("/") + "/"
+                                      + str(item["file"]).lstrip("/")
+                                  )
+                              if item.get("url"):
+                                  games.append(item)
               except Exception:
                   pass
 
-              if not loaded:
-                  js_text = get_text(base + "/games.js")
-                  pattern = re.compile(
-                      r'\{\s*title:\s*["\'](.*?)["\'].*?'
-                      r'url:\s*["\'](.*?)["\'](?:.*?'
-                      r'image:\s*["\'](.*?)["\'])?.*?\}',
-                      re.S
-                  )
-                  for m in pattern.finditer(js_text):
-                      title, url, img = m.group(1), m.group(2), m.group(3) or ""
-                      if not url.startswith("http"):
-                          url = base + "/" + url.lstrip("/")
-                      if img and not img.startswith("http"):
-                          img = base + "/images/" + img.lstrip("/")
-                      add(title, url, img, "noah")
-          except Exception as e:
-              errors.append(f"Noah's Tutoring: {e}")
-
-          # ------------------------------------------------------------
-          # Truffled
-          # ------------------------------------------------------------
+          # GN-Math
           try:
-              data = get_json("https://truffled.lol/js/json/g.json")
-              entries = data if isinstance(data, list) else data.get("games", [])
-              for g in entries if isinstance(entries, list) else []:
-                  url = str(g.get("url", "")).strip()
-                  img = str(
-                      g.get("thumbnail") or g.get("image") or g.get("img") or ""
-                  ).strip()
-                  if url:
-                      url = urllib.parse.urljoin("https://truffled.lol/", url)
-                  if img:
-                      img = urllib.parse.urljoin("https://truffled.lol/", img)
-                  add(g.get("name") or g.get("title"), url, img, "truffled")
+              zones = request(f"{CDN}/gh/freebuisness/assets@main/zones.json", True)
+              html_base = f"{CDN}/gh/freebuisness/html@main"
+              cover_base = f"{CDN}/gh/freebuisness/covers@main"
+              for z in zones if isinstance(zones,list) else []:
+                  if not isinstance(z,dict) or z.get("id") in (None,-1):
+                      continue
+                  if str(z.get("name","")).startswith("[!]"):
+                      continue
+                  url = str(z.get("url","")).strip()
+                  url = url.replace("{HTML_URL}",html_base).replace("{COVER_URL}",cover_base)
+                  if not url.startswith("http"):
+                      url = f"{html_base}/{z['id']}.html"
+                  cover = str(z.get("cover","")).strip().replace("{COVER_URL}",cover_base)
+                  if cover and not cover.startswith("http"):
+                      cover = f"{cover_base}/{cover.lstrip('/')}"
+                  add(games,z.get("name"),url,cover,"gn")
           except Exception as e:
-              errors.append(f"Truffled: {e}")
+              errors.append("GN-Math: "+str(e))
 
-          # ------------------------------------------------------------
-          # Deduplicate, keeping TestGames first.
-          # ------------------------------------------------------------
-          final = []
-          seen = set()
+          # Elite Gamez
+          try:
+              base = f"{CDN}/gh/1234chromebook1234-creator/ww@main"
+              data = request(base+"/games.json",True)
+              for g in data if isinstance(data,list) else []:
+                  url = str(g.get("url","")).strip()
+                  img = str(g.get("image","")).strip()
+                  if url and not url.startswith("http"): url=base+"/"+url.lstrip("/")
+                  if img and not img.startswith("http"): img=base+"/"+img.lstrip("/")
+                  add(g,g.get("title") or g.get("name"),url,img,"elite")
+          except Exception as e:
+              errors.append("Elite Gamez: "+str(e))
 
+          # Ultimate Game Stash
+          for repo in ("tharun9772/ugs-1","tharun9772/ugs-2","tharun9772/ugs-3"):
+              try:
+                  branch=default_branch(repo)
+                  for p in tree(repo,branch):
+                      if re.match(r"^cl.*\.html?$",p,re.I):
+                          add(
+                              games,title_from_path(p),js(repo,p,branch),
+                              f"{CDN}/gh/s0n-1m-cr1n3/sc13nc3@latest/assets/img/fallback.png",
+                              "ugs"
+                          )
+              except Exception as e:
+                  errors.append(repo+": "+str(e))
+
+          # Chicken Kings Vault
+          try:
+              base=f"{CDN}/gh/carbonicality/ChickenKingsVault@main"
+              data=request(base+"/games.json",True)
+              for g in data if isinstance(data,list) else []:
+                  url=str(g.get("html","")).strip()
+                  img=str(g.get("img","")).strip()
+                  if url and not url.startswith("http"): url=base+"/gamefiles/"+url.lstrip("/")
+                  if img and not img.startswith("http"): img=base+"/images/"+img.lstrip("/")
+                  add(games,g.get("name"),url,img,"ckv")
+          except Exception as e:
+              errors.append("Chicken Kings Vault: "+str(e))
+
+          # Noah's Tutoring
+          try:
+              base=f"{CDN}/gh/NoahsAmazingTutoringHelp/Noahs-Calculus-Tutor@master"
+              loaded=False
+              try:
+                  data=request(base+"/games.json",True)
+                  entries=data if isinstance(data,list) else data.get("games",[])
+                  for g in entries if isinstance(entries,list) else []:
+                      url=str(g.get("url","")).strip()
+                      img=str(g.get("image") or g.get("img") or "").strip()
+                      if url and not url.startswith("http"): url=base+"/"+url.lstrip("/")
+                      if img and not img.startswith("http"): img=base+"/images/"+img.lstrip("/")
+                      add(games,g.get("title") or g.get("name"),url,img,"noah")
+                  loaded=True
+              except Exception:
+                  pass
+              if not loaded:
+                  text=request(base+"/games.js")
+                  rx=re.compile(r'\{\s*title:\s*["\'](.*?)["\'].*?url:\s*["\'](.*?)["\'](?:.*?image:\s*["\'](.*?)["\'])?.*?\}',re.S)
+                  for m in rx.finditer(text):
+                      name,url,img=m.group(1),m.group(2),m.group(3) or ""
+                      if not url.startswith("http"): url=base+"/"+url.lstrip("/")
+                      if img and not img.startswith("http"): img=base+"/images/"+img.lstrip("/")
+                      add(games,name,url,img,"noah")
+          except Exception as e:
+              errors.append("Noah's Tutoring: "+str(e))
+
+          # Truffled
+          try:
+              data=request("https://truffled.lol/js/json/g.json",True)
+              entries=data if isinstance(data,list) else data.get("games",[])
+              for g in entries if isinstance(entries,list) else []:
+                  url=str(g.get("url","")).strip()
+                  img=str(g.get("thumbnail") or g.get("image") or g.get("img") or "").strip()
+                  if url: url=urllib.parse.urljoin("https://truffled.lol/",url)
+                  if img: img=urllib.parse.urljoin("https://truffled.lol/",img)
+                  add(games,g.get("name") or g.get("title"),url,img,"truffled",g.get("frameType","iframe"))
+          except Exception as e:
+              errors.append("Truffled: "+str(e))
+
+          # Remove unwanted old sources and invalid entries.
+          games=[
+              g for g in games
+              if g.get("url")
+              and str(g.get("source","")).lower() not in ("ubz","seraph","lumin")
+              and "raw.githubusercontent.com" not in str(g.get("url","")).lower()
+          ]
+
+          # Deduplicate by source + URL so two legitimate sources can share a URL.
+          final=[]
+          seen=set()
           for g in games:
-              url = str(g.get("url", "")).strip()
-              if not url or url in seen:
+              key=(str(g.get("source","")),str(g.get("url","")).rstrip("/"))
+              if key in seen:
                   continue
-              seen.add(url)
+              seen.add(key)
               final.append(g)
 
-          external = [g for g in final if g.get("source") != "testgames"]
-
-          # Safety against a broken source update wiping the library.
+          external=[g for g in final if g.get("source")!="testgames"]
           if not external:
-              print("No external sources loaded. Refusing to overwrite games.json.")
-              for e in errors:
-                  print("WARNING:", e)
-              sys.exit(0)
+              print("No external games loaded; refusing to overwrite games.json.")
+              for e in errors: print("WARNING:",e)
+              raise SystemExit(0)
 
-          OUT.write_text(
-              json.dumps(final, indent=2, ensure_ascii=False) + "\n",
-              encoding="utf-8"
-          )
-
-          print(f"Wrote {len(final)} games ({len(external)} external source games).")
-          for e in errors:
-              print("WARNING:", e)
+          OUT.write_text(json.dumps(final,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          print(f"Wrote {len(final)} games.")
+          for e in errors: print("WARNING:",e)
           PY
 
-      - name: Commit updated catalog
+      - name: Commit catalog
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
