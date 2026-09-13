@@ -8038,6 +8038,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Snow Rider",
+    "url": "https://cdn.jsdelivr.net/gh/gh/bubbls/UGS-Assets@main/snow-rider/index.html",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/gh/bubbls/UGS-Assets@main/snow-rider/icon.png",
+    "source": "ugs",
+    "frameType": "iframe"
+  },
+  {
     "name": "Soccer Bros",
     "url": "https://cdn.jsdelivr.net/gh/gh/bubbls/UGS-Assets@main/soccer bros/index.html",
     "thumbnail": "https://cdn.jsdelivr.net/gh/gh/bubbls/UGS-Assets@main/soccer bros/icon.png",
