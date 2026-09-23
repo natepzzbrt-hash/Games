@@ -11679,7 +11679,7 @@
   },
   {
     "name": "Among us",
-    "url": "https://truffled.lol/games/amongus/index.html",
+    "url": "https://truffled.lol/games/sussy/index.html",
     "thumbnail": "https://truffled.lol/png/games/among.webp",
     "source": "truffled",
     "frameType": "iframe"
@@ -13179,6 +13179,13 @@
     "name": "Gamble With Your Friends, Webport",
     "url": "https://truffled.lol/games/gamble/index.html",
     "thumbnail": "https://truffled.lol/png/games/gamble.webp",
+    "source": "truffled",
+    "frameType": "unity"
+  },
+  {
+    "name": "Gang Beasts, Webport",
+    "url": "https://truffled.lol/games/gangbeasts/index.html",
+    "thumbnail": "https://truffled.lol/png/games/gangbeats.webp",
     "source": "truffled",
     "frameType": "unity"
   },
@@ -15085,6 +15092,13 @@
     "thumbnail": "https://truffled.lol/png/games/sub.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Super Flight, Webport",
+    "url": "https://truffled.lol/games/superflight/index.html",
+    "thumbnail": "https://truffled.lol/png/games/superflight.webp",
+    "source": "truffled",
+    "frameType": "unity"
   },
   {
     "name": "Super Hot",
