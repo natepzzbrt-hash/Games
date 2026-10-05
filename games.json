@@ -8710,11 +8710,25 @@
     "frameType": "iframe"
   },
   {
+    "name": "A Way Out",
+    "url": "https://astra-education.top/embed/truffled/as7220",
+    "thumbnail": "https://truffled.lol/png/games/awayout.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Academytale, Webport",
     "url": "https://truffled.lol/games/academytale/index.html",
     "thumbnail": "https://truffled.lol/png/games/academytale.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Ace Combat 7: Skies Unknown",
+    "url": "https://astra-education.top/embed/truffled/as9634",
+    "thumbnail": "https://truffled.lol/png/games/acecombat7.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Achievement Unlocked",
@@ -8738,6 +8752,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Achilles: Survivor",
+    "url": "https://astra-education.top/embed/truffled/as5690",
+    "thumbnail": "https://truffled.lol/png/games/achillessurvivor.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "ADOFAI",
     "url": "https://truffled.lol/games/a-dance-of-fire-and-ice/index.html",
     "thumbnail": "https://truffled.lol/png/games/adofai.webp",
@@ -8759,6 +8780,27 @@
     "frameType": "unity"
   },
   {
+    "name": "AI LIMIT",
+    "url": "https://astra-education.top/embed/truffled/as9818",
+    "thumbnail": "https://truffled.lol/png/games/ailimit.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Alan Wake 2",
+    "url": "https://astra-education.top/embed/truffled/as4297",
+    "thumbnail": "https://truffled.lol/png/games/alanwake2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Alba: A Wildlife Adventure",
+    "url": "https://astra-education.top/embed/truffled/as3933",
+    "thumbnail": "https://truffled.lol/png/games/albaawildlifeadventure.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Alien Hominid",
     "url": "https://truffled.lol/games/alien/index.html",
     "thumbnail": "https://truffled.lol/png/games/alien.webp",
@@ -8766,11 +8808,25 @@
     "frameType": "iframe"
   },
   {
+    "name": "Alien Rage",
+    "url": "https://astra-education.top/embed/truffled/as2308",
+    "thumbnail": "https://truffled.lol/png/games/alienrage.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Amanda the adventurer, Webport",
     "url": "https://truffled.lol/games/amanda-the-adventurer/index.html",
     "thumbnail": "https://truffled.lol/png/games/aman.webp",
     "source": "truffled",
     "frameType": "unity"
+  },
+  {
+    "name": "American Fugitive",
+    "url": "https://astra-education.top/embed/truffled/as1307",
+    "thumbnail": "https://truffled.lol/png/games/americanfugitive.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Among us",
@@ -8843,6 +8899,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "AO Tennis 2",
+    "url": "https://astra-education.top/embed/truffled/as4334",
+    "thumbnail": "https://truffled.lol/png/games/aotennis2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Apes Vs Helium, Webport",
     "url": "https://truffled.lol/games/AVHPort/index.html",
     "thumbnail": "https://truffled.lol/png/games/avh.webp",
@@ -8857,11 +8920,109 @@
     "frameType": "iframe"
   },
   {
+    "name": "Arboria",
+    "url": "https://astra-education.top/embed/truffled/as2808",
+    "thumbnail": "https://truffled.lol/png/games/arboria.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Arise: A Simple Story",
+    "url": "https://astra-education.top/embed/truffled/as0588",
+    "thumbnail": "https://truffled.lol/png/games/ariseasimplestory.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "ARK: Survival Ascended",
+    "url": "https://astra-education.top/embed/truffled/as1232",
+    "thumbnail": "https://truffled.lol/png/games/arksa.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "ARK: Survival Evolved",
+    "url": "https://astra-education.top/embed/truffled/as5548",
+    "thumbnail": "https://truffled.lol/png/games/arkse.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Arma 3",
+    "url": "https://astra-education.top/embed/truffled/as0630",
+    "thumbnail": "https://truffled.lol/png/games/arma3.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Arthur's Nightmare, Webport",
     "url": "https://truffled.lol/gamefile/arthur.html",
     "thumbnail": "https://truffled.lol/png/games/arthursnight.webp",
     "source": "truffled",
     "frameType": "unity"
+  },
+  {
+    "name": "Assassin's Creed Odyssey: The Fate of Atlantis",
+    "url": "https://astra-education.top/embed/truffled/as1034",
+    "thumbnail": "https://truffled.lol/png/games/assassinscreedodysseythefateof.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Assassin's Creed: Black Flag",
+    "url": "https://astra-education.top/embed/truffled/as0820",
+    "thumbnail": "https://truffled.lol/png/games/assassinscreedblackflag.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Assassin's Creed: Brotherhood",
+    "url": "https://astra-education.top/embed/truffled/as2868",
+    "thumbnail": "https://truffled.lol/png/games/asscb.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Assassin's Creed: Odyssey",
+    "url": "https://astra-education.top/embed/truffled/as4705",
+    "thumbnail": "https://truffled.lol/png/games/assco.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Assassin's Creed: Revelations",
+    "url": "https://astra-education.top/embed/truffled/as2493",
+    "thumbnail": "https://truffled.lol/png/games/asscr.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Assassin's Creed: Syndicate",
+    "url": "https://astra-education.top/embed/truffled/as5948",
+    "thumbnail": "https://truffled.lol/png/games/asscs.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Attack on Titan 2",
+    "url": "https://astra-education.top/embed/truffled/as1049",
+    "thumbnail": "https://truffled.lol/png/games/attackontitan2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "AVICII Invector",
+    "url": "https://astra-education.top/embed/truffled/as2676",
+    "thumbnail": "https://truffled.lol/png/games/aviciiinvector.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "AWAKEN - Astral Blade",
+    "url": "https://astra-education.top/embed/truffled/as8500",
+    "thumbnail": "https://truffled.lol/png/games/awakenastralblade.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Bad Icecream 1",
@@ -8962,6 +9123,13 @@
     "frameType": "unity"
   },
   {
+    "name": "Baldur's Gate 3",
+    "url": "https://astra-education.top/embed/truffled/as9214",
+    "thumbnail": "https://truffled.lol/png/games/bg3.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Baldurs Gate 2, Webport",
     "url": "https://truffled.lol/games/baldurs-gate-2/index.html",
     "thumbnail": "https://truffled.lol/png/games/gate2.webp",
@@ -9018,6 +9186,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Batman: Arkham Knight",
+    "url": "https://astra-education.top/embed/truffled/as5193",
+    "thumbnail": "https://truffled.lol/png/games/batmanarkhamknight.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Batman: Arkham Origins",
+    "url": "https://astra-education.top/embed/truffled/as0191",
+    "thumbnail": "https://truffled.lol/png/games/batmanarkhamorigins.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Beatblock, Webport",
     "url": "https://truffled.lol/games/beatblock/index.html",
     "thumbnail": "https://truffled.lol/png/games/beatblock.webp",
@@ -9030,6 +9212,13 @@
     "thumbnail": "https://truffled.lol/png/games/bee.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Beholder 2",
+    "url": "https://astra-education.top/embed/truffled/as4543",
+    "thumbnail": "https://truffled.lol/png/games/beholder2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Bendy And The Ink Machine, Webport",
@@ -9060,6 +9249,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Biped",
+    "url": "https://astra-education.top/embed/truffled/as6015",
+    "thumbnail": "https://truffled.lol/png/games/biped.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Bitlife",
     "url": "https://truffled.lol/games/bitlife/index.html",
     "thumbnail": "https://truffled.lol/png/games/bit.webp",
@@ -9081,6 +9277,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "BlazBlue Entropy Effect",
+    "url": "https://astra-education.top/embed/truffled/as2853",
+    "thumbnail": "https://truffled.lol/png/games/blazblueentropyeffect.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Block Blast",
     "url": "https://truffled.lol/games/block-blast/index.html",
     "thumbnail": "https://truffled.lol/png/games/unnamed.webp",
@@ -9093,6 +9296,20 @@
     "thumbnail": "https://truffled.lol/png/games/blood.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Bloodshore",
+    "url": "https://astra-education.top/embed/truffled/as6193",
+    "thumbnail": "https://truffled.lol/png/games/bloodshore.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Bloodstained: Ritual of the Night",
+    "url": "https://astra-education.top/embed/truffled/as5691",
+    "thumbnail": "https://truffled.lol/png/games/bloodstainedritualofthenight.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Bloon TD1",
@@ -9151,6 +9368,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Blue Prince",
+    "url": "https://astra-education.top/embed/truffled/as8175",
+    "thumbnail": "https://truffled.lol/png/games/blueprince.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Bombmerman",
     "url": "https://truffled.lol/gamefile/bomberman.html",
     "thumbnail": "https://truffled.lol/png/games/bomberman.webp",
@@ -9172,6 +9396,13 @@
     "frameType": "proxy"
   },
   {
+    "name": "Boomerang Fu",
+    "url": "https://astra-education.top/embed/truffled/as1677",
+    "thumbnail": "https://truffled.lol/png/games/boomerangfu.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Boxing Random",
     "url": "https://truffled.lol/gamefile/boxing.html",
     "thumbnail": "https://truffled.lol/png/games/boxing.webp",
@@ -9184,6 +9415,13 @@
     "thumbnail": "https://truffled.lol/png/games/paws.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Builder Simulator",
+    "url": "https://astra-education.top/embed/truffled/as9587",
+    "thumbnail": "https://truffled.lol/png/games/buildersimulator.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Burrito Bison",
@@ -9214,6 +9452,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Call of Duty: Modern Warfare 2",
+    "url": "https://astra-education.top/embed/truffled/as9781",
+    "thumbnail": "https://truffled.lol/png/games/callofdutymodernwarfare2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Call of Duty: WWII",
+    "url": "https://astra-education.top/embed/truffled/as2158",
+    "thumbnail": "https://truffled.lol/png/games/codwwii.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Capuchin, Webport",
     "url": "https://truffled.lol/games/CapuchinBog/index.html",
     "thumbnail": "https://truffled.lol/png/games/capuchin.webp",
@@ -9233,6 +9485,13 @@
     "thumbnail": "https://truffled.lol/png/games/catgoesfishing.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Cats on Duty",
+    "url": "https://astra-education.top/embed/truffled/as4886",
+    "thumbnail": "https://truffled.lol/png/games/catsonduty.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Celeste, Webport",
@@ -9270,11 +9529,46 @@
     "frameType": "proxy"
   },
   {
+    "name": "Choo-Choo Charles",
+    "url": "https://astra-education.top/embed/truffled/as2183",
+    "thumbnail": "https://truffled.lol/png/games/choochoo.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Christmas Massacre, Webport",
     "url": "https://truffled.lol/gamefile/christmas.html",
     "thumbnail": "https://truffled.lol/png/games/christmas.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Cities: Skylines",
+    "url": "https://astra-education.top/embed/truffled/as2864",
+    "thumbnail": "https://truffled.lol/png/games/csi.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Cities: Skylines 2",
+    "url": "https://astra-education.top/embed/truffled/as0590",
+    "thumbnail": "https://truffled.lol/png/games/csii.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Clair Obscur: Expedition 33",
+    "url": "https://astra-education.top/embed/truffled/as9989",
+    "thumbnail": "https://truffled.lol/png/games/clairobscurexpedition33.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Clash Royale",
+    "url": "https://astra-education.top/embed/truffled/as5575",
+    "thumbnail": "https://truffled.lol/png/games/clashroyale.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Class Of 09, Webport",
@@ -9319,6 +9613,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Control",
+    "url": "https://astra-education.top/embed/truffled/as5389",
+    "thumbnail": "https://truffled.lol/png/games/control.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Cookie Clicker",
     "url": "https://truffled.lol/games/cookie-clicker/index.html",
     "thumbnail": "https://truffled.lol/png/games/cookie.webp",
@@ -9354,6 +9655,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Cooking Simulator",
+    "url": "https://astra-education.top/embed/truffled/as4905",
+    "thumbnail": "https://truffled.lol/png/games/cookingsimulator.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Counter Stike 0.8",
     "url": "https://truffled.lol/games/psp/cs/index.html",
     "thumbnail": "https://truffled.lol/png/games/cs08.webp",
@@ -9382,6 +9690,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Crashlands 2",
+    "url": "https://astra-education.top/embed/truffled/as0297",
+    "thumbnail": "https://truffled.lol/png/games/crashlands2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Crazy Balls",
     "url": "https://truffled.lol/gamefile/balls.html",
     "thumbnail": "https://truffled.lol/png/games/balls.webp",
@@ -9401,6 +9716,13 @@
     "thumbnail": "https://truffled.lol/png/games/crazyca.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Cricket 26",
+    "url": "https://astra-education.top/embed/truffled/as5829",
+    "thumbnail": "https://truffled.lol/png/games/cricket26.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Crossy Roads",
@@ -9431,6 +9753,13 @@
     "frameType": "unity"
   },
   {
+    "name": "Curse of the Dead Gods",
+    "url": "https://astra-education.top/embed/truffled/as3255",
+    "thumbnail": "https://truffled.lol/png/games/curseofthedeadgods.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Customer Support, Webport",
     "url": "https://truffled.lol/games/CustomerSupport/index.html",
     "thumbnail": "https://truffled.lol/png/games/cus.webp",
@@ -9457,6 +9786,13 @@
     "thumbnail": "https://truffled.lol/png/games/cut2.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Cyberpunk 2077",
+    "url": "https://astra-education.top/embed/truffled/as8815",
+    "thumbnail": "https://truffled.lol/png/games/cyberpunk2077.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Dadish",
@@ -9501,6 +9837,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Days Gone",
+    "url": "https://astra-education.top/embed/truffled/as6828",
+    "thumbnail": "https://truffled.lol/png/games/daysgone.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Dead Cells",
+    "url": "https://astra-education.top/embed/truffled/as4660",
+    "thumbnail": "https://truffled.lol/png/games/deadcells.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "DEAD PLATE, Webport",
     "url": "https://truffled.lol/gamefile/dead.html",
     "thumbnail": "https://truffled.lol/png/games/deadp.webp",
@@ -9508,11 +9858,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "Dead Space 2",
+    "url": "https://astra-education.top/embed/truffled/as5846",
+    "thumbnail": "https://truffled.lol/png/games/deadspace2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Dead Space 3",
+    "url": "https://astra-education.top/embed/truffled/as2539",
+    "thumbnail": "https://truffled.lol/png/games/deadspace3.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Dead Tapes",
     "url": "https://truffled.lol/games/deadtapesfinal/index.html",
     "thumbnail": "https://truffled.lol/png/games/deadta.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Deadlink",
+    "url": "https://astra-education.top/embed/truffled/as5166",
+    "thumbnail": "https://truffled.lol/png/games/deadlink.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Deadseat, Webport",
@@ -9529,6 +9900,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Deathloop",
+    "url": "https://astra-education.top/embed/truffled/as1832",
+    "thumbnail": "https://truffled.lol/png/games/deathloop.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Deliver Us The Moon",
+    "url": "https://astra-education.top/embed/truffled/as0608",
+    "thumbnail": "https://truffled.lol/png/games/deliverusthemoon.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Deltarune, Webport",
     "url": "https://truffled.lol/games/deltarune/index.html",
     "thumbnail": "https://truffled.lol/png/games/deltarune.webp",
@@ -9541,6 +9926,27 @@
     "thumbnail": "https://truffled.lol/png/games/deltatr.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Devil May Cry 4",
+    "url": "https://astra-education.top/embed/truffled/as3085",
+    "thumbnail": "https://truffled.lol/png/games/devilmaycry4.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Devil May Cry 5",
+    "url": "https://astra-education.top/embed/truffled/as3832",
+    "thumbnail": "https://truffled.lol/png/games/devilmaycry5.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Devil's Hunt",
+    "url": "https://astra-education.top/embed/truffled/as6342",
+    "thumbnail": "https://truffled.lol/png/games/devilshunt.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Dewdrop Dynasty, Webport",
@@ -9576,6 +9982,13 @@
     "thumbnail": "https://truffled.lol/png/games/dont.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Doctor Who: The Edge of Reality",
+    "url": "https://astra-education.top/embed/truffled/as0489",
+    "thumbnail": "https://truffled.lol/png/games/doctorwhotheedgeofreality.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Doge Miner",
@@ -9641,11 +10054,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "Doom Eternal",
+    "url": "https://astra-education.top/embed/truffled/as9815",
+    "thumbnail": "https://truffled.lol/png/games/doometernal.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Doraemon: Story of Seasons",
+    "url": "https://astra-education.top/embed/truffled/as9668",
+    "thumbnail": "https://truffled.lol/png/games/doraemonstoryofseasons.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Dr. Mario",
     "url": "https://truffled.lol/gamefile/drmario.html",
     "thumbnail": "https://truffled.lol/png/games/drmario.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Dragon Ball Z: Kakarot",
+    "url": "https://astra-education.top/embed/truffled/as2907",
+    "thumbnail": "https://truffled.lol/png/games/dragonballzkakarot.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Dreadhead Parkour",
@@ -9667,6 +10101,13 @@
     "thumbnail": "https://truffled.lol/png/games/hunt.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Drift Racing Online",
+    "url": "https://astra-education.top/embed/truffled/as8020",
+    "thumbnail": "https://truffled.lol/png/games/driftracingonline.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Drive Mad",
@@ -9739,9 +10180,44 @@
     "frameType": "iframe"
   },
   {
+    "name": "Dune",
+    "url": "https://truffled.lol/games/dune/index.html",
+    "thumbnail": "https://truffled.lol/png/games/dune.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
+    "name": "Dustborn",
+    "url": "https://astra-education.top/embed/truffled/as4823",
+    "thumbnail": "https://truffled.lol/png/games/dustborn.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "EA SPORTS FC MOBILE 24 SOCCER",
     "url": "https://nowgg.fun/apps/electronic-arts/1353/ea-sports-fc-mobile-24-soccer.html",
     "thumbnail": "https://truffled.lol/png/games/easportsmobile.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "EA SPORTS UFC Mobile 2",
+    "url": "https://astra-education.top/embed/truffled/as5609",
+    "thumbnail": "https://truffled.lol/png/games/easportsufcmobile2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Easy Red 2",
+    "url": "https://astra-education.top/embed/truffled/as6117",
+    "thumbnail": "https://truffled.lol/png/games/easyred2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "eFootball PES 2021",
+    "url": "https://astra-education.top/embed/truffled/as2245",
+    "thumbnail": "https://truffled.lol/png/games/efootballpes2021.webp",
     "source": "truffled",
     "frameType": "proxy"
   },
@@ -9751,6 +10227,13 @@
     "thumbnail": "https://truffled.lol/png/games/eggycar.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Elden Ring",
+    "url": "https://astra-education.top/embed/truffled/as0585",
+    "thumbnail": "https://truffled.lol/png/games/eldenring.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Emily Is Away",
@@ -9809,6 +10292,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Euro Truck Simulator 2",
+    "url": "https://astra-education.top/embed/truffled/as0656",
+    "thumbnail": "https://truffled.lol/png/games/eurotrucksimulator2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Event[0]",
+    "url": "https://astra-education.top/embed/truffled/as4036",
+    "thumbnail": "https://truffled.lol/png/games/event0.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Falling Fred",
     "url": "https://truffled.lol/games/falling/index.html",
     "thumbnail": "https://truffled.lol/png/games/super-falling-fred.webp",
@@ -9828,6 +10325,13 @@
     "thumbnail": "https://truffled.lol/png/games/fallout2.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Fallout 4",
+    "url": "https://astra-education.top/embed/truffled/as8181",
+    "thumbnail": "https://truffled.lol/png/games/fallout4.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Fancy Pants Adventures",
@@ -9851,6 +10355,34 @@
     "frameType": "iframe"
   },
   {
+    "name": "Far Cry 3",
+    "url": "https://astra-education.top/embed/truffled/as6637",
+    "thumbnail": "https://truffled.lol/png/games/fc3.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Far Cry 3 - Blood Dragon",
+    "url": "https://astra-education.top/embed/truffled/as2648",
+    "thumbnail": "https://truffled.lol/png/games/farcry3blooddragon.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Far Cry New Dawn",
+    "url": "https://astra-education.top/embed/truffled/as9172",
+    "thumbnail": "https://truffled.lol/png/games/fcndawn.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Far Cry Primal",
+    "url": "https://astra-education.top/embed/truffled/as8502",
+    "thumbnail": "https://truffled.lol/png/games/fcpri.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Fears To Fathom: Home Alone, Webport",
     "url": "https://truffled.lol/games/ftf/index.html",
     "thumbnail": "https://truffled.lol/png/games/fear.webp",
@@ -9865,11 +10397,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "FIFA19",
+    "url": "https://astra-education.top/embed/truffled/as6486",
+    "thumbnail": "https://truffled.lol/png/games/fifa19.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Final Fantasy VII",
     "url": "https://truffled.lol/gamefile/ffvii.html",
     "thumbnail": "https://truffled.lol/png/games/ffvii.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "FINAL FANTASY VII REMAKE INTERGRADE",
+    "url": "https://astra-education.top/embed/truffled/as6019",
+    "thumbnail": "https://truffled.lol/png/games/finalfantasyviiremakeintergrad.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Final Fantasy XIII",
+    "url": "https://astra-education.top/embed/truffled/as4063",
+    "thumbnail": "https://truffled.lol/png/games/ffxiii.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Fireboy and Watergirl",
@@ -9914,6 +10467,20 @@
     "frameType": "proxy"
   },
   {
+    "name": "Five Dates",
+    "url": "https://astra-education.top/embed/truffled/as7818",
+    "thumbnail": "https://truffled.lol/png/games/fivedates.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Five Hearts Under One Roof",
+    "url": "https://astra-education.top/embed/truffled/as7991",
+    "thumbnail": "https://truffled.lol/png/games/fiveheartsunderoneroof.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Five Nights At Candys",
     "url": "https://truffled.lol/gamefile/fnac.html",
     "thumbnail": "https://truffled.lol/png/games/fnac.webp",
@@ -9954,6 +10521,27 @@
     "thumbnail": "https://truffled.lol/png/games/flapp.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Flashback",
+    "url": "https://astra-education.top/embed/truffled/as9134",
+    "thumbnail": "https://truffled.lol/png/games/flashback.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Flashback 2",
+    "url": "https://astra-education.top/embed/truffled/as4269",
+    "thumbnail": "https://truffled.lol/png/games/flashback2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Fling to Finish",
+    "url": "https://astra-education.top/embed/truffled/as0847",
+    "thumbnail": "https://truffled.lol/png/games/flingtofinish.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Flying Gorilla, Webport",
@@ -10038,6 +10626,34 @@
     "thumbnail": "https://truffled.lol/png/games/fnf.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Football Manager 2023",
+    "url": "https://astra-education.top/embed/truffled/as4656",
+    "thumbnail": "https://truffled.lol/png/games/footballmanager2023.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "For The King",
+    "url": "https://astra-education.top/embed/truffled/as1609",
+    "thumbnail": "https://truffled.lol/png/games/fortheking.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Forager",
+    "url": "https://astra-education.top/embed/truffled/as5408",
+    "thumbnail": "https://truffled.lol/png/games/forager.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Forza Horizon 4",
+    "url": "https://astra-education.top/embed/truffled/as3299",
+    "thumbnail": "https://truffled.lol/png/games/forzah4.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Friday Night Funkin Aethos",
@@ -10236,6 +10852,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Frostpunk 2",
+    "url": "https://astra-education.top/embed/truffled/as5836",
+    "thumbnail": "https://truffled.lol/png/games/frostpunk2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Fruit Ninja",
     "url": "https://truffled.lol/games/fruitninja/index.html",
     "thumbnail": "https://truffled.lol/png/games/ninja.webp",
@@ -10320,6 +10943,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "GhostWire: Tokyo",
+    "url": "https://astra-education.top/embed/truffled/as9460",
+    "thumbnail": "https://truffled.lol/png/games/ghostwiretokyo.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "GigaBash",
+    "url": "https://astra-education.top/embed/truffled/as6573",
+    "thumbnail": "https://truffled.lol/png/games/gigabash.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Gladihoppers",
     "url": "https://truffled.lol/gamefile/Gladihoppers.html",
     "thumbnail": "https://truffled.lol/png/games/glad.webp",
@@ -10332,6 +10969,34 @@
     "thumbnail": "https://truffled.lol/png/games/gotobed.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "God of War 4",
+    "url": "https://astra-education.top/embed/truffled/as3438",
+    "thumbnail": "https://truffled.lol/png/games/gow4.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "God of War: Ragnarök",
+    "url": "https://astra-education.top/embed/truffled/as6839",
+    "thumbnail": "https://truffled.lol/png/games/gowrag.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Golazo! Soccer League",
+    "url": "https://astra-education.top/embed/truffled/as2042",
+    "thumbnail": "https://truffled.lol/png/games/golazosoccerleague.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Golf VS Zombies",
+    "url": "https://astra-education.top/embed/truffled/as9728",
+    "thumbnail": "https://truffled.lol/png/games/golfvszombies.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Goober Dash",
@@ -10353,6 +11018,20 @@
     "thumbnail": "https://truffled.lol/png/games/gtag.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Grand Mountain Adventure: Wonderlands",
+    "url": "https://astra-education.top/embed/truffled/as0544",
+    "thumbnail": "https://truffled.lol/png/games/grandmountainadventurewonderla.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Grand Theft Auto V",
+    "url": "https://astra-education.top/embed/truffled/as9053",
+    "thumbnail": "https://truffled.lol/png/games/gta5.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Granny",
@@ -10425,11 +11104,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "GUILTY GEAR -STRIVE-",
+    "url": "https://astra-education.top/embed/truffled/as7123",
+    "thumbnail": "https://truffled.lol/png/games/guiltygearstrive.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Gunspin",
     "url": "https://truffled.lol/games/gunspin/index.html",
     "thumbnail": "https://truffled.lol/png/games/guns.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Hades",
+    "url": "https://astra-education.top/embed/truffled/as3672",
+    "thumbnail": "https://truffled.lol/png/games/hades.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Hades II",
+    "url": "https://astra-education.top/embed/truffled/as8232",
+    "thumbnail": "https://truffled.lol/png/games/hadesii.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Half life",
@@ -10446,6 +11146,34 @@
     "frameType": "iframe"
   },
   {
+    "name": "Halo: Reach",
+    "url": "https://astra-education.top/embed/truffled/as9945",
+    "thumbnail": "https://truffled.lol/png/games/haloreach.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Halo: The Master Chief Collection",
+    "url": "https://astra-education.top/embed/truffled/as7688",
+    "thumbnail": "https://truffled.lol/png/games/halotmcc.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Hand of Fate 2",
+    "url": "https://astra-education.top/embed/truffled/as8273",
+    "thumbnail": "https://truffled.lol/png/games/handoffate2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Handball 21",
+    "url": "https://astra-education.top/embed/truffled/as6775",
+    "thumbnail": "https://truffled.lol/png/games/handball21.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Happy Wheels",
     "url": "https://truffled.lol/games/happywheels/index.html",
     "thumbnail": "https://truffled.lol/png/games/happy.webp",
@@ -10453,11 +11181,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "Heading Out",
+    "url": "https://astra-education.top/embed/truffled/as7553",
+    "thumbnail": "https://truffled.lol/png/games/headingout.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Helltaker, Webport",
     "url": "https://truffled.lol/gamefile/helltaker.html",
     "thumbnail": "https://truffled.lol/png/games/helltaker.webp",
     "source": "truffled",
     "frameType": "unity"
+  },
+  {
+    "name": "Her Majesty's SPIFFING",
+    "url": "https://astra-education.top/embed/truffled/as5838",
+    "thumbnail": "https://truffled.lol/png/games/hermajestysspiffing.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Hill Climb Racing, Webport",
+    "url": "https://truffled.lol/games/hcr/",
+    "thumbnail": "https://truffled.lol/png/games/hill.webp",
+    "source": "truffled",
+    "frameType": "iframe"
   },
   {
     "name": "Hobo 1",
@@ -10509,11 +11258,25 @@
     "frameType": "iframe"
   },
   {
+    "name": "Hogwarts Legacy",
+    "url": "https://astra-education.top/embed/truffled/as0601",
+    "thumbnail": "https://truffled.lol/png/games/hogwartslegacy.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Hollow Knight, Webport",
     "url": "https://truffled.lol/games/newesthk/index.html",
     "thumbnail": "https://truffled.lol/png/games/hollow.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Home Sweet Home",
+    "url": "https://astra-education.top/embed/truffled/as7130",
+    "thumbnail": "https://truffled.lol/png/games/homesweethome.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Honkai: Star Rail",
@@ -10523,9 +11286,23 @@
     "frameType": "proxy"
   },
   {
+    "name": "Horizon Zero Dawn",
+    "url": "https://astra-education.top/embed/truffled/as6351",
+    "thumbnail": "https://truffled.lol/png/games/horizonzerodawn.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Hotline Miami, Webport",
     "url": "https://truffled.lol/games/whores/index.html",
     "thumbnail": "https://truffled.lol/png/games/hot.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
+    "name": "Hotline Miami 2, Webport",
+    "url": "https://truffled.lol/games/hlm2/index.html",
+    "thumbnail": "https://truffled.lol/png/games/hlm2.webp",
     "source": "truffled",
     "frameType": "iframe"
   },
@@ -10544,11 +11321,25 @@
     "frameType": "iframe"
   },
   {
+    "name": "How to Train Your Dragon: Dawn of New Riders",
+    "url": "https://astra-education.top/embed/truffled/as7681",
+    "thumbnail": "https://truffled.lol/png/games/howtotrainyourdragondawnofnewr.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "HUMAN EXPENDITURE PROGRAM, Webport",
     "url": "https://truffled.lol/gamefile/human.html",
     "thumbnail": "https://truffled.lol/png/games/human.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "I Saw Black Clouds",
+    "url": "https://astra-education.top/embed/truffled/as7856",
+    "thumbnail": "https://truffled.lol/png/games/isawblackclouds.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Ice Baby Quest 2",
@@ -10563,6 +11354,13 @@
     "thumbnail": "https://truffled.lol/png/games/idle.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Inside the Backrooms",
+    "url": "https://astra-education.top/embed/truffled/as7629",
+    "thumbnail": "https://truffled.lol/png/games/insidethebackrooms.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Into Space 1",
@@ -10586,6 +11384,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "inZOI",
+    "url": "https://astra-education.top/embed/truffled/as5882",
+    "thumbnail": "https://truffled.lol/png/games/inzoi.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Iron Lung, Webport",
     "url": "https://truffled.lol/games/ironlung/index.html",
     "thumbnail": "https://truffled.lol/png/games/iroonlung.webp",
@@ -10598,6 +11403,20 @@
     "thumbnail": "https://truffled.lol/png/games/iwbtg.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "It Takes Two",
+    "url": "https://astra-education.top/embed/truffled/as7480",
+    "thumbnail": "https://truffled.lol/png/games/itt.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "JDM: Japanese Drift Master",
+    "url": "https://astra-education.top/embed/truffled/as6450",
+    "thumbnail": "https://truffled.lol/png/games/jdmjapanesedriftmaster.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Jeffrey Epstein Basics In Education And Kidnapping, Webport",
@@ -10635,6 +11454,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Just Cause 3",
+    "url": "https://astra-education.top/embed/truffled/as4084",
+    "thumbnail": "https://truffled.lol/png/games/jc3.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Karlson, Webport",
     "url": "https://truffled.lol/gamefile/Karlson.html",
     "thumbnail": "https://truffled.lol/png/games/karlson.webp",
@@ -10649,11 +11475,32 @@
     "frameType": "unity"
   },
   {
+    "name": "Katana ZERO",
+    "url": "https://astra-education.top/embed/truffled/as1173",
+    "thumbnail": "https://truffled.lol/png/games/katanazero.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Kerbal Space Program, Webport",
+    "url": "https://truffled.lol/games/ksp/index.html",
+    "thumbnail": "https://truffled.lol/png/games/ksp.webp",
+    "source": "truffled",
+    "frameType": "unity"
+  },
+  {
     "name": "Kick The Buddy, Webport",
     "url": "https://truffled.lol/games/kickthebuddy/index.html",
     "thumbnail": "https://truffled.lol/png/games/ktb.webp",
     "source": "truffled",
     "frameType": "unity"
+  },
+  {
+    "name": "Kill It With Fire",
+    "url": "https://astra-education.top/embed/truffled/as4788",
+    "thumbnail": "https://truffled.lol/png/games/killitwithfire.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Kindergarten 1, Webport",
@@ -10705,6 +11552,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Kona",
+    "url": "https://astra-education.top/embed/truffled/as5494",
+    "thumbnail": "https://truffled.lol/png/games/kona.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Kopanito All-Stars Soccer",
+    "url": "https://astra-education.top/embed/truffled/as5274",
+    "thumbnail": "https://truffled.lol/png/games/kopanitoallstarssoccer.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Krunker",
     "url": "https://truffled.lol/games/krunker/index.html",
     "thumbnail": "https://truffled.lol/png/games/krunker.webp",
@@ -10724,6 +11585,13 @@
     "thumbnail": "https://truffled.lol/png/games/lacey.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Layers of Fear",
+    "url": "https://astra-education.top/embed/truffled/as5625",
+    "thumbnail": "https://truffled.lol/png/games/layersoffear.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Learn To Fly",
@@ -10754,11 +11622,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "Legend Bowl",
+    "url": "https://astra-education.top/embed/truffled/as4754",
+    "thumbnail": "https://truffled.lol/png/games/legendbowl.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Legendary Eleven",
+    "url": "https://astra-education.top/embed/truffled/as2127",
+    "thumbnail": "https://truffled.lol/png/games/legendaryeleven.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Lego Star Wars",
     "url": "https://truffled.lol/gamefile/legostarwars.html",
     "thumbnail": "https://truffled.lol/png/games/legostarwars.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "LEGO The Incredibles",
+    "url": "https://astra-education.top/embed/truffled/as4695",
+    "thumbnail": "https://truffled.lol/png/games/legoincred.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Lethal Company, Webport",
@@ -10808,6 +11697,27 @@
     "thumbnail": "https://truffled.lol/png/games/lbp.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Little Nightmares",
+    "url": "https://astra-education.top/embed/truffled/as1346",
+    "thumbnail": "https://truffled.lol/png/games/lnmi.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Little Nightmares II",
+    "url": "https://astra-education.top/embed/truffled/as4826",
+    "thumbnail": "https://truffled.lol/png/games/lnmii.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Little Nightmares III",
+    "url": "https://astra-education.top/embed/truffled/as8992",
+    "thumbnail": "https://truffled.lol/png/games/lnmiii.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Lolbeans.io",
@@ -10922,6 +11832,48 @@
     "frameType": "iframe"
   },
   {
+    "name": "Mafia II: Definitive Edition",
+    "url": "https://astra-education.top/embed/truffled/as7894",
+    "thumbnail": "https://truffled.lol/png/games/mafiaiidefinitiveedition.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Mafia III: Definitive Edition",
+    "url": "https://astra-education.top/embed/truffled/as6497",
+    "thumbnail": "https://truffled.lol/png/games/mafiaiiidefinitiveedition.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Mafia: Definitive Edition",
+    "url": "https://astra-education.top/embed/truffled/as6956",
+    "thumbnail": "https://truffled.lol/png/games/mafiadefinitiveedition.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Maid of Sker",
+    "url": "https://astra-education.top/embed/truffled/as2963",
+    "thumbnail": "https://truffled.lol/png/games/maidofsker.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Mandragora: Whispers of the Witch Tree",
+    "url": "https://astra-education.top/embed/truffled/as5728",
+    "thumbnail": "https://truffled.lol/png/games/mandragorawhispersofthewitchtr.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Manor Lords",
+    "url": "https://astra-education.top/embed/truffled/as4008",
+    "thumbnail": "https://truffled.lol/png/games/manorlords.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Mario Kart 64",
     "url": "https://truffled.lol/games/mk64/index.html",
     "thumbnail": "https://truffled.lol/png/games/mk64.webp",
@@ -10964,6 +11916,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Marvel's Spider-Man Remastered",
+    "url": "https://astra-education.top/embed/truffled/as4260",
+    "thumbnail": "https://truffled.lol/png/games/marvelsspidermanremastered.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Megaman",
     "url": "https://truffled.lol/gamefile/megaman.html",
     "thumbnail": "https://truffled.lol/png/games/megaman.webp",
@@ -10983,6 +11942,13 @@
     "thumbnail": "https://truffled.lol/png/games/rot.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Mia and the Dragon Princess",
+    "url": "https://astra-education.top/embed/truffled/as4095",
+    "thumbnail": "https://truffled.lol/png/games/miaandthedragonprincess.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Milkman karlson, Webport",
@@ -11041,6 +12007,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Minecraft: Dungeons",
+    "url": "https://astra-education.top/embed/truffled/as9072",
+    "thumbnail": "https://truffled.lol/png/games/minecraftdungeons.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Minecraft: Legends",
+    "url": "https://astra-education.top/embed/truffled/as0087",
+    "thumbnail": "https://truffled.lol/png/games/minecraftleg.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Minesweeper Mania",
     "url": "https://truffled.lol/gamefile/minesweepermania.html",
     "thumbnail": "https://truffled.lol/png/games/minese.webp",
@@ -11055,11 +12035,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "Minion Rush: Despicable Me",
+    "url": "https://astra-education.top/embed/truffled/as8934",
+    "thumbnail": "https://truffled.lol/png/games/minionrush.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Mirror's Edge Catalyst",
+    "url": "https://astra-education.top/embed/truffled/as5144",
+    "thumbnail": "https://truffled.lol/png/games/mirrorsedgecatalyst.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Miside, Webport",
     "url": "https://truffled.lol/gamefile/miside.html",
     "thumbnail": "https://truffled.lol/png/games/miside.webp",
     "source": "truffled",
     "frameType": "unity"
+  },
+  {
+    "name": "Modern Combat 5 Blackout",
+    "url": "https://astra-education.top/embed/truffled/as9626",
+    "thumbnail": "https://truffled.lol/png/games/moderncombat5blackout.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Monkey Mart",
@@ -11076,11 +12077,39 @@
     "frameType": "iframe"
   },
   {
+    "name": "Morbid: The Lords of Ire",
+    "url": "https://astra-education.top/embed/truffled/as2103",
+    "thumbnail": "https://truffled.lol/png/games/morbidthelordsofire.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Moto X3M",
     "url": "https://truffled.lol/games/motox3m/index.html",
     "thumbnail": "https://truffled.lol/png/games/moto.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Mount & Blade II: Bannerlord",
+    "url": "https://astra-education.top/embed/truffled/as5512",
+    "thumbnail": "https://truffled.lol/png/games/mountbladeiibannerlord.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Moving Out",
+    "url": "https://astra-education.top/embed/truffled/as9109",
+    "thumbnail": "https://truffled.lol/png/games/movingout.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "My Friend Pedro",
+    "url": "https://astra-education.top/embed/truffled/as0112",
+    "thumbnail": "https://truffled.lol/png/games/mfp.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "My Singing Monsters",
@@ -11118,11 +12147,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "NBA 2K23",
+    "url": "https://astra-education.top/embed/truffled/as7788",
+    "thumbnail": "https://truffled.lol/png/games/nba2k23.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Need for Speed: Payback",
+    "url": "https://astra-education.top/embed/truffled/as0868",
+    "thumbnail": "https://truffled.lol/png/games/needforspeedpayback.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Needy Streamer Overload, Webport",
     "url": "https://truffled.lol/games/nso/index.html",
     "thumbnail": "https://truffled.lol/png/games/nso.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Neon Abyss",
+    "url": "https://astra-education.top/embed/truffled/as6038",
+    "thumbnail": "https://truffled.lol/png/games/neonabyss.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "New Super Mario Bros",
@@ -11132,6 +12182,27 @@
     "frameType": "iframe"
   },
   {
+    "name": "NieR:Automata",
+    "url": "https://astra-education.top/embed/truffled/as3227",
+    "thumbnail": "https://truffled.lol/png/games/nierautomata.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Night Book",
+    "url": "https://astra-education.top/embed/truffled/as3250",
+    "thumbnail": "https://truffled.lol/png/games/nightbook.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Night Call",
+    "url": "https://astra-education.top/embed/truffled/as5635",
+    "thumbnail": "https://truffled.lol/png/games/nightcall.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Node Buster, Webport",
     "url": "https://truffled.lol/games/nodebuster/index.html",
     "thumbnail": "https://truffled.lol/png/games/nodebuster.webp",
@@ -11139,11 +12210,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "Noomiclone",
+    "url": "https://truffled.lol/games/noomi/",
+    "thumbnail": "https://truffled.lol/png/games/noomiclone.webp",
+    "source": "truffled",
+    "frameType": "unity"
+  },
+  {
+    "name": "Not For Broadcast",
+    "url": "https://astra-education.top/embed/truffled/as0982",
+    "thumbnail": "https://truffled.lol/png/games/notforbroadcast.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Nubbys Number Factory, Webport",
     "url": "https://truffled.lol/gamefile/nubby.html",
     "thumbnail": "https://truffled.lol/png/games/nubby.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Observer: System Redux",
+    "url": "https://astra-education.top/embed/truffled/as7261",
+    "thumbnail": "https://truffled.lol/png/games/observersystemredux.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Om Nom Run",
@@ -11160,6 +12252,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "One Piece: Burning Blood",
+    "url": "https://astra-education.top/embed/truffled/as3972",
+    "thumbnail": "https://truffled.lol/png/games/opbb.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "ONE PIECE: PIRATE WARRIORS 4",
+    "url": "https://astra-education.top/embed/truffled/as1931",
+    "thumbnail": "https://truffled.lol/png/games/oppw4.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Oneshot, Webport",
     "url": "https://truffled.lol/gamefile/oneshot.html",
     "thumbnail": "https://truffled.lol/png/games/oneshot.webp",
@@ -11174,6 +12280,27 @@
     "frameType": "iframe"
   },
   {
+    "name": "Only Up",
+    "url": "https://astra-education.top/embed/truffled/as5726",
+    "thumbnail": "https://truffled.lol/png/games/onlyup.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Ori and the Blind Forest",
+    "url": "https://astra-education.top/embed/truffled/as0687",
+    "thumbnail": "https://truffled.lol/png/games/oriandtheblindforest.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Ori and the Will of the Wisps",
+    "url": "https://astra-education.top/embed/truffled/as7104",
+    "thumbnail": "https://truffled.lol/png/games/oriandthewillofthewisps.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Oshi Oshi Punch",
     "url": "https://truffled.lol/gamefile/onshi.html",
     "thumbnail": "https://truffled.lol/png/games/oshi.webp",
@@ -11182,7 +12309,7 @@
   },
   {
     "name": "Osu!",
-    "url": "https://truffled.lol/games/osu!/index.html",
+    "url": "https://truffled.lol/games/osu/index.html",
     "thumbnail": "https://truffled.lol/png/games/osu.webp",
     "source": "truffled",
     "frameType": "iframe"
@@ -11193,6 +12320,13 @@
     "thumbnail": "https://truffled.lol/png/games/overburden.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Overcooked 2",
+    "url": "https://astra-education.top/embed/truffled/as3336",
+    "thumbnail": "https://truffled.lol/png/games/overcooked2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "OvO",
@@ -11307,6 +12441,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Paradise Lost",
+    "url": "https://astra-education.top/embed/truffled/as8264",
+    "thumbnail": "https://truffled.lol/png/games/paradiselost.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Parappa The Rapper",
     "url": "https://truffled.lol/games/paps/index.html",
     "thumbnail": "https://truffled.lol/png/games/rapper.webp",
@@ -11319,6 +12460,13 @@
     "thumbnail": "https://truffled.lol/png/games/parappa2.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Party Hard 2",
+    "url": "https://astra-education.top/embed/truffled/as6044",
+    "thumbnail": "https://truffled.lol/png/games/partyhard2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Peak, Webport",
@@ -11342,9 +12490,58 @@
     "frameType": "iframe"
   },
   {
+    "name": "Peggle Deluxe",
+    "url": "https://truffled.lol/games/pegg/deluxe/index.html",
+    "thumbnail": "https://truffled.lol/png/games/pegdeluxe.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
+    "name": "Peggle Extreme",
+    "url": "https://truffled.lol/games/pegg/extreme/index.html",
+    "thumbnail": "https://truffled.lol/png/games/pegextreme.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
+    "name": "Peggle Nights",
+    "url": "https://truffled.lol/games/pegg/nights/index.html",
+    "thumbnail": "https://truffled.lol/png/games/pegnights.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
+    "name": "Peggle WoW Edition",
+    "url": "https://truffled.lol/games/pegg/wow/index.html",
+    "thumbnail": "https://truffled.lol/png/games/pegwow.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
+    "name": "Pego (Prototype)",
+    "url": "https://truffled.lol/games/pegg/pego/index.html",
+    "thumbnail": "https://truffled.lol/png/games/pegoo.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
     "name": "People Playground, Webport",
     "url": "https://truffled.lol/games/ppg/index.html",
     "thumbnail": "https://truffled.lol/png/games/peoplepg.webp",
+    "source": "truffled",
+    "frameType": "unity"
+  },
+  {
+    "name": "PES 2017",
+    "url": "https://astra-education.top/embed/truffled/as3755",
+    "thumbnail": "https://truffled.lol/png/games/pes2017.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Phineas and Ferb: Transport-inators of Doom, Webport",
+    "url": "https://truffled.lol/games/dooom/index.html",
+    "thumbnail": "https://truffled.lol/png/games/dooom.webp",
     "source": "truffled",
     "frameType": "unity"
   },
@@ -11389,6 +12586,13 @@
     "thumbnail": "https://truffled.lol/png/games/pvz2.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Platform 8",
+    "url": "https://astra-education.top/embed/truffled/as9727",
+    "thumbnail": "https://truffled.lol/png/games/platform8.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Plauge Inc, Webport",
@@ -11452,6 +12656,27 @@
     "thumbnail": "https://truffled.lol/png/games/poly.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Poppy Playtime: Chapter 2",
+    "url": "https://astra-education.top/embed/truffled/as4449",
+    "thumbnail": "https://truffled.lol/png/games/poppy2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Poppy Playtime: Chapter 3",
+    "url": "https://astra-education.top/embed/truffled/as5023",
+    "thumbnail": "https://truffled.lol/png/games/poppy3.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Poppy Playtime: Chapter 4",
+    "url": "https://astra-education.top/embed/truffled/as4757",
+    "thumbnail": "https://truffled.lol/png/games/poppy4.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Portal",
@@ -11587,6 +12812,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Ranch Simulator 2022",
+    "url": "https://astra-education.top/embed/truffled/as3714",
+    "thumbnail": "https://truffled.lol/png/games/ranchsimulator2022.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Ratchet & Clank",
+    "url": "https://astra-education.top/embed/truffled/as6400",
+    "thumbnail": "https://truffled.lol/png/games/ratchetclank.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Rayman",
     "url": "https://truffled.lol/gamefile/rayman.html",
     "thumbnail": "https://truffled.lol/png/games/rayman.webp",
@@ -11622,6 +12861,27 @@
     "frameType": "iframe"
   },
   {
+    "name": "Resident Evil 2: Remake",
+    "url": "https://astra-education.top/embed/truffled/as3433",
+    "thumbnail": "https://truffled.lol/png/games/residentevil2remake.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Resident Evil 7: Biohazard",
+    "url": "https://astra-education.top/embed/truffled/as0897",
+    "thumbnail": "https://truffled.lol/png/games/residentevil7biohazard.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Resident Evil: Revelations 2",
+    "url": "https://astra-education.top/embed/truffled/as0426",
+    "thumbnail": "https://truffled.lol/png/games/residentevilrevelations2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Retro Bowl",
     "url": "https://truffled.lol/games/retro-bowl/index.html",
     "thumbnail": "https://truffled.lol/png/games/retro.webp",
@@ -11641,6 +12901,13 @@
     "thumbnail": "https://truffled.lol/png/games/rhythm.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Rhythm Sprout: Sick Beats & Bad Sweets",
+    "url": "https://astra-education.top/embed/truffled/as6027",
+    "thumbnail": "https://truffled.lol/png/games/rhythmsproutsickbeatsbadsweets.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Riddle School",
@@ -11699,6 +12966,13 @@
     "frameType": "unity"
   },
   {
+    "name": "Rise of the Tomb Raider",
+    "url": "https://astra-education.top/embed/truffled/as4188",
+    "thumbnail": "https://truffled.lol/png/games/rottomb.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Rocket League Sideswipe",
     "url": "https://nowgg.fun/apps/psyonix-studios/4656/rocket-league.html",
     "thumbnail": "https://truffled.lol/png/games/rrs.webp",
@@ -11709,6 +12983,13 @@
     "name": "Roblox",
     "url": "https://nowgg.fun/apps/a/19900/b.html",
     "thumbnail": "https://truffled.lol/png/games/roblox.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Rollerdrome",
+    "url": "https://astra-education.top/embed/truffled/as7911",
+    "thumbnail": "https://truffled.lol/png/games/rollerdrome.webp",
     "source": "truffled",
     "frameType": "proxy"
   },
@@ -11748,6 +13029,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "RuneScape: Dragonwilds",
+    "url": "https://astra-education.top/embed/truffled/as8135",
+    "thumbnail": "https://truffled.lol/png/games/runescapedragon.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Running Fred, Webport",
     "url": "https://truffled.lol/games/fred/index.html",
     "thumbnail": "https://truffled.lol/png/games/fred.webp",
@@ -11767,6 +13055,20 @@
     "thumbnail": "https://truffled.lol/png/games/saihatestation.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Saints Row IV",
+    "url": "https://astra-education.top/embed/truffled/as8591",
+    "thumbnail": "https://truffled.lol/png/games/saintsrowiv.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "SAND LAND",
+    "url": "https://astra-education.top/embed/truffled/as2026",
+    "thumbnail": "https://truffled.lol/png/games/sandland.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Sandboxels",
@@ -11797,6 +13099,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Schedule 1",
+    "url": "https://astra-education.top/embed/truffled/as2638",
+    "thumbnail": "https://truffled.lol/png/games/schedule1.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Schoolboy Runaway, Webport",
     "url": "https://truffled.lol/gamefile/runaway.html",
     "thumbnail": "https://truffled.lol/png/games/runaway.webp",
@@ -11809,6 +13118,27 @@
     "thumbnail": "https://truffled.lol/png/games/scp.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "SCUM",
+    "url": "https://astra-education.top/embed/truffled/as3792",
+    "thumbnail": "https://truffled.lol/png/games/scum.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Sekiro: Shadows Die Twice",
+    "url": "https://astra-education.top/embed/truffled/as9920",
+    "thumbnail": "https://truffled.lol/png/games/sekiroshadowsdietwice.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Shadow of the Tomb Raider",
+    "url": "https://astra-education.top/embed/truffled/as3367",
+    "thumbnail": "https://truffled.lol/png/games/shadowofthetombraider.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Shift At Midnight, Webport",
@@ -11923,6 +13253,97 @@
     "frameType": "iframe"
   },
   {
+    "name": "SNOW - The Ultimate Edition",
+    "url": "https://astra-education.top/embed/truffled/as7772",
+    "thumbnail": "https://truffled.lol/png/games/snowtheultimateedition.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Space Prison",
+    "url": "https://astra-education.top/embed/truffled/as6492",
+    "thumbnail": "https://truffled.lol/png/games/spaceprison.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Speed Limit",
+    "url": "https://astra-education.top/embed/truffled/as5995",
+    "thumbnail": "https://truffled.lol/png/games/speedlimit.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
+    "url": "https://astra-education.top/embed/truffled/as4224",
+    "thumbnail": "https://truffled.lol/png/games/spongebobrehydrated.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "SpongeBob SquarePants: The Cosmic Shake",
+    "url": "https://astra-education.top/embed/truffled/as0517",
+    "thumbnail": "https://truffled.lol/png/games/spongebobcosmic.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Steel Rats",
+    "url": "https://astra-education.top/embed/truffled/as0655",
+    "thumbnail": "https://truffled.lol/png/games/steelrats.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Steel Seed",
+    "url": "https://astra-education.top/embed/truffled/as8679",
+    "thumbnail": "https://truffled.lol/png/games/steelseed.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Stick Fight: The Game",
+    "url": "https://astra-education.top/embed/truffled/as9637",
+    "thumbnail": "https://truffled.lol/png/games/stickfight.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Stikbold! A Dodgeball Adventure",
+    "url": "https://astra-education.top/embed/truffled/as8954",
+    "thumbnail": "https://truffled.lol/png/games/stikboldadodgeballadventure.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Stray",
+    "url": "https://astra-education.top/embed/truffled/as6116",
+    "thumbnail": "https://truffled.lol/png/games/stray.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Styx: Master of Shadows",
+    "url": "https://astra-education.top/embed/truffled/as3579",
+    "thumbnail": "https://truffled.lol/png/games/styxmasterofshadows.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Subnautica Zero",
+    "url": "https://astra-education.top/embed/truffled/as2377",
+    "thumbnail": "https://truffled.lol/png/games/subnauticabz.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Super Bunny Man",
+    "url": "https://astra-education.top/embed/truffled/as0258",
+    "thumbnail": "https://truffled.lol/png/games/superbunnyman.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Super Mario 64 Coop DX",
     "url": "https://truffled.lol/games/sm64coop/sm64coopdx.html",
     "thumbnail": "https://truffled.lol/png/games/sm64coop.avif",
@@ -11956,6 +13377,13 @@
     "thumbnail": "https://truffled.lol/png/games/ssm.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Super Smash Bros Ultimate",
+    "url": "https://astra-education.top/embed/truffled/as8791",
+    "thumbnail": "https://truffled.lol/png/games/smbu.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Super Tux Kart",
@@ -12238,6 +13666,27 @@
     "frameType": "iframe"
   },
   {
+    "name": "SUPERHOT: Mind Control Delete",
+    "url": "https://astra-education.top/embed/truffled/as1351",
+    "thumbnail": "https://truffled.lol/png/games/superhotmcd.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Supermarket Simulator",
+    "url": "https://astra-education.top/embed/truffled/as5786",
+    "thumbnail": "https://truffled.lol/png/games/supermarketsim.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Surf World Series",
+    "url": "https://astra-education.top/embed/truffled/as8832",
+    "thumbnail": "https://truffled.lol/png/games/surfworldseries.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Survivor.io, Webport",
     "url": "https://truffled.lol/gamefile/survivor.html",
     "thumbnail": "https://truffled.lol/png/games/survivorio.webp",
@@ -12273,11 +13722,32 @@
     "frameType": "iframe"
   },
   {
+    "name": "TCG Card Shop",
+    "url": "https://astra-education.top/embed/truffled/as7398",
+    "thumbnail": "https://truffled.lol/png/games/tcgcss.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Team Fortress 2, Webport",
+    "url": "https://truffled.lol/games/tf2/index.html",
+    "thumbnail": "https://truffled.lol/png/games/tf2.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
     "name": "Ten Basket",
     "url": "https://truffled.lol/games/ten-basket/index.html",
     "thumbnail": "https://truffled.lol/png/games/ten.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Terminator: Resistance",
+    "url": "https://astra-education.top/embed/truffled/as1577",
+    "thumbnail": "https://truffled.lol/png/games/terminatorresistance.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Terraria, Webport",
@@ -12299,6 +13769,20 @@
     "thumbnail": "https://truffled.lol/png/games/tetriss.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "The Amazing Spider-Man",
+    "url": "https://astra-education.top/embed/truffled/as0540",
+    "thumbnail": "https://truffled.lol/png/games/theamazingspiderman.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Amazing Spider-Man 2",
+    "url": "https://astra-education.top/embed/truffled/as7847",
+    "thumbnail": "https://truffled.lol/png/games/theamazingspiderman2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "The Binding Of Issac",
@@ -12336,6 +13820,55 @@
     "frameType": "iframe"
   },
   {
+    "name": "The Bunker",
+    "url": "https://astra-education.top/embed/truffled/as1258",
+    "thumbnail": "https://truffled.lol/png/games/thebunker.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Callisto Protocol",
+    "url": "https://astra-education.top/embed/truffled/as2369",
+    "thumbnail": "https://truffled.lol/png/games/thecallistoprotocol.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Complex",
+    "url": "https://astra-education.top/embed/truffled/as4684",
+    "thumbnail": "https://truffled.lol/png/games/thecomplex.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Descendant",
+    "url": "https://astra-education.top/embed/truffled/as6851",
+    "thumbnail": "https://truffled.lol/png/games/thedescendant.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Final Station",
+    "url": "https://astra-education.top/embed/truffled/as2589",
+    "thumbnail": "https://truffled.lol/png/games/thefinalstation.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The First Berserker: Khazan",
+    "url": "https://astra-education.top/embed/truffled/as6716",
+    "thumbnail": "https://truffled.lol/png/games/thefirstberserkerkhazan.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Gap",
+    "url": "https://astra-education.top/embed/truffled/as2223",
+    "thumbnail": "https://truffled.lol/png/games/thegap.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "The Impossible Quiz",
     "url": "https://truffled.lol/games/theimpossiblequiz/index.html",
     "thumbnail": "https://truffled.lol/png/games/quiz.webp",
@@ -12350,11 +13883,46 @@
     "frameType": "iframe"
   },
   {
+    "name": "The Isle Tide Hotel",
+    "url": "https://astra-education.top/embed/truffled/as0572",
+    "thumbnail": "https://truffled.lol/png/games/theisletidehotel.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "THE KING OF FIGHTERS XV",
+    "url": "https://astra-education.top/embed/truffled/as3447",
+    "thumbnail": "https://truffled.lol/png/games/thekingoffightersxv.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Last of Us Part I",
+    "url": "https://astra-education.top/embed/truffled/as6925",
+    "thumbnail": "https://truffled.lol/png/games/lastofus.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "The Legend of Zelda Ocarina of Time",
     "url": "https://truffled.lol/gamefile/tloz.html",
     "thumbnail": "https://truffled.lol/png/games/tloz.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "The Legend of Zelda: Breath of the Wild",
+    "url": "https://astra-education.top/embed/truffled/as3884",
+    "thumbnail": "https://truffled.lol/png/games/tlozbotw.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Long Drive",
+    "url": "https://astra-education.top/embed/truffled/as1613",
+    "thumbnail": "https://truffled.lol/png/games/thelongdrive.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "The Sims Mobile",
@@ -12369,6 +13937,34 @@
     "thumbnail": "https://truffled.lol/png/games/thatsnot.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "The Uncertain: Last Quiet Day",
+    "url": "https://astra-education.top/embed/truffled/as5445",
+    "thumbnail": "https://truffled.lol/png/games/theuncertainlastquietday.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Uncertain: Light At The End",
+    "url": "https://astra-education.top/embed/truffled/as5151",
+    "thumbnail": "https://truffled.lol/png/games/theuncertainlightattheend.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Walking Dead: Destinies",
+    "url": "https://astra-education.top/embed/truffled/as7192",
+    "thumbnail": "https://truffled.lol/png/games/walkingdeadde.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "The Witcher 3",
+    "url": "https://astra-education.top/embed/truffled/as1690",
+    "thumbnail": "https://truffled.lol/png/games/thewitcher3.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "There Is No Game",
@@ -12406,6 +14002,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Titanfall 2",
+    "url": "https://astra-education.top/embed/truffled/as1821",
+    "thumbnail": "https://truffled.lol/png/games/titanfall2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "To The Core, Webport",
     "url": "https://truffled.lol/games/tothecore/index.html",
     "thumbnail": "https://truffled.lol/png/games/to.webp",
@@ -12413,11 +14016,39 @@
     "frameType": "iframe"
   },
   {
+    "name": "Tokyo 2020 Olympics",
+    "url": "https://astra-education.top/embed/truffled/as7078",
+    "thumbnail": "https://truffled.lol/png/games/tokyo2020olympics.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Tom Clancy's Ghost Recon Wildlands",
+    "url": "https://astra-education.top/embed/truffled/as3769",
+    "thumbnail": "https://truffled.lol/png/games/tomclancysghostreconwildlands.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Tomb Of The Mask",
     "url": "https://truffled.lol/games/tombofthemask/index.html",
     "thumbnail": "https://truffled.lol/png/games/tomb.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Tomb Raider",
+    "url": "https://astra-education.top/embed/truffled/as4452",
+    "thumbnail": "https://truffled.lol/png/games/tora.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Tomb Raider - Definitive Edition",
+    "url": "https://astra-education.top/embed/truffled/as8474",
+    "thumbnail": "https://truffled.lol/png/games/torade.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Tomodachi Collection",
@@ -12483,6 +14114,20 @@
     "frameType": "iframe"
   },
   {
+    "name": "Transformers: Devastation",
+    "url": "https://astra-education.top/embed/truffled/as2610",
+    "thumbnail": "https://truffled.lol/png/games/transformersdevastation.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Transformers: Rise of the Dark Spark",
+    "url": "https://astra-education.top/embed/truffled/as5146",
+    "thumbnail": "https://truffled.lol/png/games/transformersriseofthedarkspark.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Tree Hates You, Webport",
     "url": "https://truffled.lol/games/treehatesyou/index.html",
     "thumbnail": "https://truffled.lol/png/games/treehatesyou.webp",
@@ -12539,6 +14184,13 @@
     "frameType": "iframe"
   },
   {
+    "name": "Uncharted 4",
+    "url": "https://astra-education.top/embed/truffled/as2923",
+    "thumbnail": "https://truffled.lol/png/games/uncharted4.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Undertale 10th Anniversary, Webport",
     "url": "https://truffled.lol/games/10th/index.html",
     "thumbnail": "https://truffled.lol/png/games/undertale10.webp",
@@ -12565,6 +14217,13 @@
     "thumbnail": "https://truffled.lol/png/games/udy.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Until Then",
+    "url": "https://astra-education.top/embed/truffled/as7986",
+    "thumbnail": "https://truffled.lol/png/games/untilthen.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Untitled Goose Game, Webport",
@@ -12651,11 +14310,39 @@
     "frameType": "iframe"
   },
   {
+    "name": "Wallkickers, Webport",
+    "url": "https://truffled.lol/games/wallkickers/index.html",
+    "thumbnail": "https://truffled.lol/png/games/wallkickers.webp",
+    "source": "truffled",
+    "frameType": "iframe"
+  },
+  {
     "name": "Warioware D.I.Y",
     "url": "https://truffled.lol/gamefile/wariowarediy.html",
     "thumbnail": "https://truffled.lol/png/games/wariowarediy.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Watch Dogs 2",
+    "url": "https://astra-education.top/embed/truffled/as9494",
+    "thumbnail": "https://truffled.lol/png/games/watchdogs2.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Watch Dogs: Legion",
+    "url": "https://astra-education.top/embed/truffled/as3888",
+    "thumbnail": "https://truffled.lol/png/games/watchdogslegion.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "WE ARE FOOTBALL 2024",
+    "url": "https://astra-education.top/embed/truffled/as1428",
+    "thumbnail": "https://truffled.lol/png/games/wearefootball2024.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "We Become What We behold",
@@ -12679,6 +14366,27 @@
     "frameType": "iframe"
   },
   {
+    "name": "What Remains of Edith Finch",
+    "url": "https://astra-education.top/embed/truffled/as7855",
+    "thumbnail": "https://truffled.lol/png/games/whatremainsofedithfinch.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Whispers of a Machine",
+    "url": "https://astra-education.top/embed/truffled/as9864",
+    "thumbnail": "https://truffled.lol/png/games/whispersofamachine.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Who Pressed Mute on Uncle Marcus?",
+    "url": "https://astra-education.top/embed/truffled/as0423",
+    "thumbnail": "https://truffled.lol/png/games/whopressedmuteonunclemarcus.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
     "name": "Who's Your Daddy, Webport",
     "url": "https://truffled.lol/games/whoseyourdaddy/index.html",
     "thumbnail": "https://truffled.lol/png/games/daddy.webp",
@@ -12698,6 +14406,20 @@
     "thumbnail": "https://truffled.lol/png/games/witches.webp",
     "source": "truffled",
     "frameType": "iframe"
+  },
+  {
+    "name": "Wizard of Legend",
+    "url": "https://astra-education.top/embed/truffled/as9603",
+    "thumbnail": "https://truffled.lol/png/games/wizardoflegend.webp",
+    "source": "truffled",
+    "frameType": "proxy"
+  },
+  {
+    "name": "Wobbly Life",
+    "url": "https://astra-education.top/embed/truffled/as6437",
+    "thumbnail": "https://truffled.lol/png/games/wobblylife.webp",
+    "source": "truffled",
+    "frameType": "proxy"
   },
   {
     "name": "Worldbox, Webport",
