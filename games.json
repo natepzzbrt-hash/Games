@@ -10502,41 +10502,6 @@
     "frameType": "unity"
   },
   {
-    "name": "GTA I",
-    "url": "https://truffled.lol/games/gta/index.html",
-    "thumbnail": "https://truffled.lol/png/games/gta.webp",
-    "source": "truffled",
-    "frameType": "iframe"
-  },
-  {
-    "name": "GTA II",
-    "url": "https://truffled.lol/games/gta2/index.html",
-    "thumbnail": "https://truffled.lol/png/games/gta2.webp",
-    "source": "truffled",
-    "frameType": "iframe"
-  },
-  {
-    "name": "GTA III",
-    "url": "https://truffled.lol/gamefile/gta3.html",
-    "thumbnail": "https://truffled.lol/png/games/gta3.webp",
-    "source": "truffled",
-    "frameType": "iframe"
-  },
-  {
-    "name": "GTA San Andreas",
-    "url": "https://truffled.lol/games/gtasan/index.html",
-    "thumbnail": "https://truffled.lol/png/games/gtasan.webp",
-    "source": "truffled",
-    "frameType": "iframe"
-  },
-  {
-    "name": "GTA Vice City, Webport",
-    "url": "https://truffled.lol/games/vicecity/index.html",
-    "thumbnail": "https://truffled.lol/png/games/vice.webp",
-    "source": "truffled",
-    "frameType": "iframe"
-  },
-  {
     "name": "Gunspin",
     "url": "https://truffled.lol/games/gunspin/index.html",
     "thumbnail": "https://truffled.lol/png/games/guns.webp",
